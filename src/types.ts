@@ -117,13 +117,7 @@ export interface SupabaseCollectionDefinition {
   readonly primaryKey?: string;
 }
 
-export type SupabaseFieldType =
-  | 'text'
-  | 'number'
-  | 'boolean'
-  | 'datetime'
-  | 'json'
-  | 'uuid';
+export type SupabaseFieldType = 'text' | 'number' | 'boolean' | 'datetime' | 'json' | 'uuid';
 
 export interface SupabaseFieldDefinition {
   readonly name: string;

@@ -21,7 +21,9 @@ describe('createSupabaseDbAdminAdapter', () => {
     expect(result.ok).toBe(true);
     expect(result.ok ? result.executed : true).toBe(false);
     expect(result.ok ? result.sql : '').toContain('create table if not exists "public"."posts"');
-    expect(result.ok ? result.sql : '').toContain('"id" uuid primary key default gen_random_uuid()');
+    expect(result.ok ? result.sql : '').toContain(
+      '"id" uuid primary key default gen_random_uuid()',
+    );
     expect(result.ok ? result.sql : '').toContain('"title" text not null');
     expect(result.ok ? result.sql : '').toContain('"like_count" double precision default 0');
     expect(result.ok ? result.sql : '').toContain('"published" boolean default false');

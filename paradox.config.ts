@@ -5,7 +5,8 @@ export default defineParadoxConfig({
 
   docs: {
     title: '@ankhorage/supabase-db',
-    description: 'Provider-neutral Supabase database adapter exposing typed CRUD, schema management, and realtime subscriptions.'
+    description:
+      'Provider-neutral Supabase database adapter exposing typed CRUD, schema management, and realtime subscriptions.',
   },
 
   package: {

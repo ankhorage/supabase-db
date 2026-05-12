@@ -1,5 +1,5 @@
-export { createSupabaseDbAdminAdapter } from './admin.js';
 export { createSupabaseDbAdapter } from './adapter.js';
+export { createSupabaseDbAdminAdapter } from './admin.js';
 export { normalizeRealtimeEvent } from './realtime.js';
 export type {
   DbAdminResult,

@@ -5,20 +5,25 @@
     "": {
       "name": "@ankhorage/supabase-db",
       "dependencies": {
+        "@ankhorage/contracts": "^1.2.0",
         "@supabase/supabase-js": "^2.105.3",
       },
       "devDependencies": {
-        "@ankhorage/devtools": "^1.0.1",
+        "@ankhorage/devtools": "^1.0.6",
         "@ankhorage/paradox": "^0.1.6",
         "@changesets/cli": "^2.31.0",
         "@types/bun": "^1.3.13",
         "@types/node": "^25.6.0",
-        "knip": "^5.88.1",
+        "knip": "^6.12.2",
         "typescript": "^5.9.3",
       },
     },
   },
   "packages": {
+    "@ankhorage/color-theory": ["@ankhorage/color-theory@0.0.4", "", { "dependencies": { "culori": "^4.0.2" } }, "sha512-24/RKqJxQAqWFbqqcWfKzqCCzUcKVAQ+MHWkwVfwrFbxHrhKXV7YV2//svACDbpCYizvvT6OAqOPxbEA3SFmuw=="],
+
+    "@ankhorage/contracts": ["@ankhorage/contracts@1.2.0", "", { "dependencies": { "@ankhorage/color-theory": "^0.0.4" } }, "sha512-58wwwCQVPKasQx37Jc11g40DdklxTgR/EY2hc0t062uWXMcGShizBA9JduVVOoLmCW61aiNJLfvebADKwGiYEA=="],
+
     "@ankhorage/devtools": ["@ankhorage/devtools@1.0.6", "", { "dependencies": { "@eslint/js": "^10.0.1", "eslint": "^10.2.0", "eslint-config-prettier": "^10.1.8", "eslint-plugin-import": "^2.32.0", "eslint-plugin-prettier": "^5.5.5", "eslint-plugin-simple-import-sort": "^12.1.1", "eslint-plugin-unused-imports": "^4.4.1", "knip": "^6.12.2", "prettier": "^3.8.1", "typescript-eslint": "^8.24.0" }, "bin": { "ankhorage-eslint": "dist/eslint-cli.js", "ankhorage-knip": "dist/knip-cli.js", "ankhorage-prettier": "dist/prettier-cli.js" } }, "sha512-QXvpJ3uvr3xcl/smjv0yMimtGRCt/dPs0lVdHYMAXg06u1HsZmoKhRyxdFX8OXcCv9RnfPNheUkjAbOrs0eeaQ=="],
 
     "@ankhorage/paradox": ["@ankhorage/paradox@0.1.6", "", { "dependencies": { "ts-morph": "^24.0.0" }, "bin": { "paradox": "dist/cli.js" } }, "sha512-/idgKqm/PE/WkVQj0sjUOUNDngbE4fyVxCVvdWcrKYkl25YD4qfxbbVxQPfJml3tSRc/FDem2VbXz0wLl2c6kg=="],
@@ -295,6 +300,8 @@
 
     "cross-spawn": ["cross-spawn@7.0.6", "", { "dependencies": { "path-key": "^3.1.0", "shebang-command": "^2.0.0", "which": "^2.0.1" } }, "sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA=="],
 
+    "culori": ["culori@4.0.2", "", {}, "sha512-1+BhOB8ahCn4O0cep0Sh2l9KCOfOdY+BXJnKMHFFzDEouSr/el18QwXEMRlOj9UY5nCeA8UN3a/82rUWRBeyBw=="],
+
     "data-view-buffer": ["data-view-buffer@1.0.2", "", { "dependencies": { "call-bound": "^1.0.3", "es-errors": "^1.3.0", "is-data-view": "^1.0.2" } }, "sha512-EmKO5V3OLXh1rtK2wgXRansaK1/mtVdTUEiEI0W8RkvgT05kfxaH29PliLnpLP73yYO6142Q72QNa8Wx/A5CqQ=="],
 
     "data-view-byte-length": ["data-view-byte-length@1.0.2", "", { "dependencies": { "call-bound": "^1.0.3", "es-errors": "^1.3.0", "is-data-view": "^1.0.2" } }, "sha512-tuhGbE6CfTM9+5ANGf+oQb72Ky/0+s3xKUpHvShfiz2RxMFgFPjsXuRLBVMtvMs15awe45SRb83D6wH4ew6wlQ=="],
@@ -525,7 +532,7 @@
 
     "keyv": ["keyv@4.5.4", "", { "dependencies": { "json-buffer": "3.0.1" } }, "sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw=="],
 
-    "knip": ["knip@5.88.1", "", { "dependencies": { "@nodelib/fs.walk": "^1.2.3", "fast-glob": "^3.3.3", "formatly": "^0.3.0", "jiti": "^2.6.0", "minimist": "^1.2.8", "oxc-resolver": "^11.19.1", "picocolors": "^1.1.1", "picomatch": "^4.0.1", "smol-toml": "^1.5.2", "strip-json-comments": "5.0.3", "unbash": "^2.2.0", "yaml": "^2.8.2", "zod": "^4.1.11" }, "peerDependencies": { "@types/node": ">=18", "typescript": ">=5.0.4 <7" }, "bin": { "knip": "bin/knip.js", "knip-bun": "bin/knip-bun.js" } }, "sha512-tpy5o7zu1MjawVkLPuahymVJekYY3kYjvzcoInhIchgePxTlo+api90tBv2KfhAIe5uXh+mez1tAfmbv8/TiZg=="],
+    "knip": ["knip@6.13.0", "", { "dependencies": { "fdir": "^6.5.0", "formatly": "^0.3.0", "get-tsconfig": "4.14.0", "jiti": "^2.7.0", "minimist": "^1.2.8", "oxc-parser": "^0.130.0", "oxc-resolver": "^11.19.1", "picomatch": "^4.0.4", "smol-toml": "^1.6.1", "strip-json-comments": "5.0.3", "tinyglobby": "^0.2.16", "unbash": "^3.0.0", "yaml": "^2.9.0", "zod": "^4.1.11" }, "bin": { "knip": "bin/knip.js", "knip-bun": "bin/knip-bun.js" } }, "sha512-FeBSpXspbHpjFQxpBmpUkEpveb4ee9+lPcHTiLq0PaFOzmtxG+/Rf+mIptuCcz0C+nGjaq+XlIlx8VA4r6um8w=="],
 
     "levn": ["levn@0.4.1", "", { "dependencies": { "prelude-ls": "^1.2.1", "type-check": "~0.4.0" } }, "sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ=="],
 
@@ -717,7 +724,7 @@
 
     "typescript-eslint": ["typescript-eslint@8.59.3", "", { "dependencies": { "@typescript-eslint/eslint-plugin": "8.59.3", "@typescript-eslint/parser": "8.59.3", "@typescript-eslint/typescript-estree": "8.59.3", "@typescript-eslint/utils": "8.59.3" }, "peerDependencies": { "eslint": "^8.57.0 || ^9.0.0 || ^10.0.0", "typescript": ">=4.8.4 <6.1.0" } }, "sha512-KgusgyDgG4LI8Ih/sWaCtZ06tckLAS5CvT5A4D1Q7bYVoAAyzwiZvE4BmwDHkhRVkvhRBepKeASoFzQetha7Fg=="],
 
-    "unbash": ["unbash@2.2.0", "", {}, "sha512-X2wH19RAPZE3+ldGicOkoj/SIA83OIxcJ6Cuaw23hf8Xc6fQpvZXY0SftE2JgS0QhYLUG4uwodSI3R53keyh7w=="],
+    "unbash": ["unbash@3.0.0", "", {}, "sha512-FeFPZ/WFT0mbRCuydiZzpPFlrYN8ZUpphQKoq4EeElVIYjYyGzPMxQR/simUwCOJIyVhpFk4RbtyO7RuMpMnHA=="],
 
     "unbox-primitive": ["unbox-primitive@1.1.0", "", { "dependencies": { "call-bound": "^1.0.3", "has-bigints": "^1.0.2", "has-symbols": "^1.1.0", "which-boxed-primitive": "^1.1.1" } }, "sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw=="],
 
@@ -746,8 +753,6 @@
     "yocto-queue": ["yocto-queue@0.1.0", "", {}, "sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q=="],
 
     "zod": ["zod@4.4.3", "", {}, "sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ=="],
-
-    "@ankhorage/devtools/knip": ["knip@6.13.0", "", { "dependencies": { "fdir": "^6.5.0", "formatly": "^0.3.0", "get-tsconfig": "4.14.0", "jiti": "^2.7.0", "minimist": "^1.2.8", "oxc-parser": "^0.130.0", "oxc-resolver": "^11.19.1", "picomatch": "^4.0.4", "smol-toml": "^1.6.1", "strip-json-comments": "5.0.3", "tinyglobby": "^0.2.16", "unbash": "^3.0.0", "yaml": "^2.9.0", "zod": "^4.1.11" }, "bin": { "knip": "bin/knip.js", "knip-bun": "bin/knip-bun.js" } }, "sha512-FeBSpXspbHpjFQxpBmpUkEpveb4ee9+lPcHTiLq0PaFOzmtxG+/Rf+mIptuCcz0C+nGjaq+XlIlx8VA4r6um8w=="],
 
     "@changesets/apply-release-plan/prettier": ["prettier@2.8.8", "", { "bin": { "prettier": "bin-prettier.js" } }, "sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q=="],
 
@@ -786,8 +791,6 @@
     "node-exports-info/semver": ["semver@6.3.1", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="],
 
     "read-yaml-file/js-yaml": ["js-yaml@3.14.2", "", { "dependencies": { "argparse": "^1.0.7", "esprima": "^4.0.0" }, "bin": { "js-yaml": "bin/js-yaml.js" } }, "sha512-PMSmkqxr106Xa156c2M265Z+FTrPl+oxd/rgOQy2tijQeK5TxQ43psO1ZCwhVOSdnn+RzkzlRz/eY4BgJBYVpg=="],
-
-    "@ankhorage/devtools/knip/unbash": ["unbash@3.0.0", "", {}, "sha512-FeFPZ/WFT0mbRCuydiZzpPFlrYN8ZUpphQKoq4EeElVIYjYyGzPMxQR/simUwCOJIyVhpFk4RbtyO7RuMpMnHA=="],
 
     "@manypkg/find-root/find-up/locate-path": ["locate-path@5.0.0", "", { "dependencies": { "p-locate": "^4.1.0" } }, "sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g=="],
 

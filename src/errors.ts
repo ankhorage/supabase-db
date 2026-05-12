@@ -1,10 +1,6 @@
 import type { DbAdapterError } from '@ankhorage/contracts/db';
 
-export function createDbError(
-  code: string,
-  message: string,
-  cause?: unknown,
-): DbAdapterError {
+export function createDbError(code: string, message: string, cause?: unknown): DbAdapterError {
   return cause === undefined ? { code, message } : { code, message, cause };
 }
 
@@ -14,11 +10,7 @@ export function mapNetworkError(error: unknown): DbAdapterError {
 
 export function mapProviderError(error: unknown): DbAdapterError {
   if (isProviderError(error)) {
-    return createDbError(
-      mapProviderCode(error.code, error.message),
-      error.message,
-      error,
-    );
+    return createDbError(mapProviderCode(error.code, error.message), error.message, error);
   }
 
   return createDbError('provider_error', 'Supabase Database returned an error.', error);
@@ -81,8 +73,8 @@ function readProviderMessage(body: unknown): string | undefined {
     return undefined;
   }
 
-  const message = body.message;
-  const error = body.error;
+  const { message } = body;
+  const { error } = body;
 
   if (typeof message === 'string' && message.trim().length > 0) {
     return message;

@@ -78,11 +78,7 @@ describe('normalizeRealtimeEvent', () => {
   });
 
   test('ignores unknown realtime events', () => {
-    const event = normalizeRealtimeEvent<PostRecord>(
-      { eventType: 'TRUNCATE' },
-      'posts',
-      'public',
-    );
+    const event = normalizeRealtimeEvent<PostRecord>({ eventType: 'TRUNCATE' }, 'posts', 'public');
 
     expect(event).toBeNull();
   });
@@ -107,7 +103,12 @@ describe('realtime adapter capability', () => {
       },
     );
 
-    client.emit({ eventType: 'INSERT', table: 'posts', schema: 'public', new: { id: '1', title: 'A' } });
+    client.emit({
+      eventType: 'INSERT',
+      table: 'posts',
+      schema: 'public',
+      new: { id: '1', title: 'A' },
+    });
     await subscription?.unsubscribe();
 
     expect(received).toHaveLength(1);

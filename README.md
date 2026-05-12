@@ -81,10 +81,7 @@ Realtime is optional. It is not part of the mandatory CRUD contract.
 import { createClient } from '@supabase/supabase-js';
 import { createSupabaseDbAdapter } from '@ankhorage/supabase-db';
 
-const supabase = createClient(
-  process.env.SUPABASE_URL ?? '',
-  process.env.SUPABASE_ANON_KEY ?? '',
-);
+const supabase = createClient(process.env.SUPABASE_URL ?? '', process.env.SUPABASE_ANON_KEY ?? '');
 
 const db = createSupabaseDbAdapter({
   url: process.env.SUPABASE_URL ?? '',
@@ -93,12 +90,9 @@ const db = createSupabaseDbAdapter({
   realtimeClient: supabase,
 });
 
-const subscription = db.realtime?.subscribeToCollection(
-  { table: 'posts' },
-  (event) => {
-    console.log(event.kind, event.record, event.previousRecord);
-  },
-);
+const subscription = db.realtime?.subscribeToCollection({ table: 'posts' }, (event) => {
+  console.log(event.kind, event.record, event.previousRecord);
+});
 
 await subscription?.unsubscribe();
 ```
