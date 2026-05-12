@@ -9,7 +9,13 @@ Supabase database adapter for Ankhorage data contracts.
 ## Install
 
 ```bash
-bun add @ankhorage/supabase-db @ankhorage/contracts @supabase/supabase-js
+bun add @ankhorage/supabase-db @ankhorage/contracts
+```
+
+Install `@supabase/supabase-js` as well when you want to pass a Supabase realtime client:
+
+```bash
+bun add @supabase/supabase-js
 ```
 
 ## Boundaries
@@ -36,7 +42,7 @@ This package does not own:
 
 ## Runtime CRUD adapter
 
-Use the runtime adapter with client-safe Supabase credentials. The adapter speaks the `DbAdapter` shape from `@ankhorage/contracts/db`.
+Use the runtime adapter with client-safe Supabase credentials. The adapter speaks the canonical `DbAdapter` shape from `@ankhorage/contracts/db`.
 
 ```ts
 import { createSupabaseDbAdapter } from '@ankhorage/supabase-db';
@@ -73,9 +79,21 @@ The adapter implements:
 
 `update` and `delete` require at least one filter to avoid accidental whole-table mutations.
 
+## Capabilities
+
+The adapter exposes the canonical `DbAdapterCapabilities` contract:
+
+```ts
+const capabilities = db.capabilities;
+
+console.log(capabilities.transactions); // false
+console.log(capabilities.returning); // true
+console.log(capabilities.realtime); // true only when realtime is enabled and configured
+```
+
 ## Realtime
 
-Realtime is optional. It is not part of the mandatory CRUD contract.
+Realtime is optional. It is exposed through the canonical `DbRealtimeAdapter` contract only when enabled and configured.
 
 ```ts
 import { createClient } from '@supabase/supabase-js';
@@ -103,11 +121,11 @@ Realtime events are normalized to provider-neutral kinds:
 - `update`
 - `delete`
 
-Supabase projects must have database change replication configured for realtime table events. If realtime is not enabled or no realtime client is provided, CRUD still works and `capabilities.supportsRealtime` is `false`.
+Supabase projects must have database change replication configured for realtime table events. If realtime is not enabled or no realtime client is provided, CRUD still works and `capabilities.realtime` is `false`.
 
 ## Admin/schema adapter
 
-Schema operations are privileged and separate from runtime CRUD.
+Schema operations are privileged and separate from runtime CRUD. The admin adapter implements the canonical `DbAdminAdapter` contract from `@ankhorage/contracts/db`.
 
 By default, the admin adapter generates SQL only:
 
