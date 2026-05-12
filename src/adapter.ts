@@ -1,7 +1,6 @@
 import type {
   DbAdapter,
   DbDeleteInput,
-  DbFilter,
   DbFindByIdInput,
   DbInsertInput,
   DbRecord,
