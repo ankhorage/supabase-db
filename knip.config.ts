@@ -1,6 +1,6 @@
 import { createKnipConfig } from '@ankhorage/devtools/knip';
 
 export default createKnipConfig({
-  ignoreDependencies: ['expo-font'],
-  ignoreFiles: ['.prettierrc.js', 'eslint.config.mjs', 'examples/expo-showcase/**'],
+  ignoreDependencies: ['@supabase/supabase-js'],
+  ignoreFiles: ['.prettierrc.js', 'eslint.config.mjs', 'paradox.config.ts'],
 });
