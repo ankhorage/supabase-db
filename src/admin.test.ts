@@ -18,6 +18,10 @@ describe('createSupabaseDbAdminAdapter', () => {
       ],
     });
 
+    expect(adapter.capabilities).toEqual({
+      schemaGeneration: true,
+      directExecution: false,
+    });
     expect(result.ok).toBe(true);
     expect(result.ok ? result.executed : true).toBe(false);
     expect(result.ok ? result.sql : '').toContain('create table if not exists "public"."posts"');
@@ -46,6 +50,10 @@ describe('createSupabaseDbAdminAdapter', () => {
       fields: [{ name: 'title', type: 'text' }],
     });
 
+    expect(adapter.capabilities).toEqual({
+      schemaGeneration: true,
+      directExecution: true,
+    });
     expect(result).toEqual({
       ok: true,
       sql: executedSql[0],
