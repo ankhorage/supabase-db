@@ -133,13 +133,13 @@ function normalizeKind(value: string | undefined): DbChangeKind | null {
 }
 
 function normalizeRecord<TRecord extends object>(value: unknown): TRecord | null {
-  if (!isRecord(value)) {
+  if (!isRecord<TRecord>(value)) {
     return null;
   }
 
-  return value as TRecord;
+  return value;
 }
 
-function isRecord(value: unknown): value is Record<string, unknown> {
+function isRecord<TRecord extends object>(value: unknown): value is TRecord {
   return typeof value === 'object' && value !== null;
 }
