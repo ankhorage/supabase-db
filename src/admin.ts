@@ -5,7 +5,7 @@ import type {
   SupabaseDbAdminAdapterOptions,
   SupabaseFieldDefinition,
 } from './types.js';
-import { quoteIdentifier, validateIdentifier, validateKey, validateUrl } from './validation.js';
+import { quoteIdentifier, validateKey, validateUrl } from './validation.js';
 
 interface NormalizedAdminConfig {
   readonly url: string;
