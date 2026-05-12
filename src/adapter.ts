@@ -26,10 +26,10 @@ interface NormalizedConfig {
 }
 
 type DbFailureResult = Extract<DbResult<unknown>, { readonly ok: false }>;
-type DbFindByIdSuccessResult<TRecord extends object> = {
+interface DbFindByIdSuccessResult<TRecord extends object> {
   readonly ok: true;
   readonly data: TRecord | null;
-};
+}
 
 export function createSupabaseDbAdapter(options: SupabaseDbAdapterOptions): SupabaseDbAdapter {
   const config = normalizeConfig(options);
