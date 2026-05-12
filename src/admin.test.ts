@@ -35,9 +35,9 @@ describe('createSupabaseDbAdminAdapter', () => {
       url: 'https://example.supabase.co',
       serviceRoleKey: 'service-role',
       execute: true,
-      executeSql: async (sql) => {
+      executeSql: (sql) => {
         executedSql.push(sql);
-        return { ok: true };
+        return Promise.resolve({ ok: true });
       },
     });
 
@@ -58,7 +58,7 @@ describe('createSupabaseDbAdminAdapter', () => {
     const adapter = createSupabaseDbAdminAdapter({
       url: 'https://example.supabase.co',
       execute: true,
-      executeSql: async () => ({ ok: true }),
+      executeSql: () => Promise.resolve({ ok: true }),
     });
 
     const result = await adapter.createCollection({
