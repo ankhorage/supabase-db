@@ -202,16 +202,16 @@ async function readJsonBody(response: Response): Promise<unknown> {
 
 function normalizeRecords<TRecord extends object>(value: unknown): TRecord[] | null {
   if (Array.isArray(value)) {
-    return value.filter(isRecord).map((record) => record as TRecord);
+    return value.filter(isRecord<TRecord>);
   }
 
-  if (isRecord(value)) {
-    return [value as TRecord];
+  if (isRecord<TRecord>(value)) {
+    return [value];
   }
 
   return null;
 }
 
-function isRecord(value: unknown): value is Record<string, unknown> {
+function isRecord<TRecord extends object>(value: unknown): value is TRecord {
   return typeof value === 'object' && value !== null;
 }
