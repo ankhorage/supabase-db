@@ -28,7 +28,7 @@ export function buildMutationUrl(
   return url;
 }
 
-export function applyFilters(url: URL, filters: readonly DbFilter[]): void {
+function applyFilters(url: URL, filters: readonly DbFilter[]): void {
   for (const filter of filters) {
     const field = validateIdentifier(filter.field, 'Filter field');
     url.searchParams.append(field, formatFilter(filter));
