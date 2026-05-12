@@ -1,6 +1,7 @@
 import type {
   DbAdapter,
   DbDeleteInput,
+  DbFilter,
   DbFindByIdInput,
   DbInsertInput,
   DbRecord,
@@ -59,7 +60,9 @@ export function createSupabaseDbAdapter(options: SupabaseDbAdapterOptions): Supa
         return result;
       }
 
-      return { ok: true, data: result.data[0] ?? null };
+      const records = result.data ?? [];
+
+      return { ok: true, data: records[0] ?? null };
     },
 
     async insert<TRecord extends object = DbRecord>(
@@ -76,7 +79,12 @@ export function createSupabaseDbAdapter(options: SupabaseDbAdapterOptions): Supa
     async update<TRecord extends object = DbRecord>(
       input: DbUpdateInput<TRecord>,
     ): Promise<DbResult<TRecord[]>> {
-      validateFilters(input.filters, 'Update');
+      const validationError = validateRequiredFilters(input.filters, 'Update');
+
+      if (validationError !== null) {
+        return validationError;
+      }
+
       const url = buildMutationUrl(config.url, input.table, input.filters);
 
       return requestRows<TRecord>(config, url, {
@@ -88,7 +96,12 @@ export function createSupabaseDbAdapter(options: SupabaseDbAdapterOptions): Supa
     async delete<TRecord extends object = DbRecord>(
       input: DbDeleteInput,
     ): Promise<DbResult<TRecord[]>> {
-      validateFilters(input.filters, 'Delete');
+      const validationError = validateRequiredFilters(input.filters, 'Delete');
+
+      if (validationError !== null) {
+        return validationError;
+      }
+
       const url = buildMutationUrl(config.url, input.table, input.filters);
 
       return requestRows<TRecord>(config, url, {
@@ -163,6 +176,25 @@ async function requestRows<TRecord extends object>(
     }
 
     return { ok: false, error: mapNetworkError(error) };
+  }
+}
+
+function validateRequiredFilters(
+  filters: readonly DbFilter[],
+  label: string,
+): DbResult<never> | null {
+  try {
+    validateFilters(filters, label);
+    return null;
+  } catch (error) {
+    return {
+      ok: false,
+      error: createDbError(
+        'validation_error',
+        error instanceof Error ? error.message : `${label} filters are invalid.`,
+        error,
+      ),
+    };
   }
 }
 
