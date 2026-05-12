@@ -92,7 +92,7 @@ describe('realtime adapter capability', () => {
       anonKey: 'anon',
       realtime: true,
       realtimeClient: client,
-      fetch: async () => new Response('[]'),
+      fetch: () => Promise.resolve(new Response('[]')),
     });
 
     const received: unknown[] = [];
@@ -122,7 +122,7 @@ describe('realtime adapter capability', () => {
       anonKey: 'anon',
       realtime: true,
       realtimeClient: client,
-      fetch: async () => new Response('[]'),
+      fetch: () => Promise.resolve(new Response('[]')),
     });
 
     adapter.realtime?.subscribeToRecord<PostRecord>(
@@ -152,8 +152,8 @@ function createFakeRealtimeClient(): SupabaseRealtimeClient & {
     subscribe() {
       return channel;
     },
-    async unsubscribe() {
-      return 'ok';
+    unsubscribe() {
+      return Promise.resolve<'ok'>('ok');
     },
   };
 
@@ -161,9 +161,9 @@ function createFakeRealtimeClient(): SupabaseRealtimeClient & {
     channel() {
       return channel;
     },
-    async removeChannel() {
+    removeChannel() {
       removedChannels += 1;
-      return 'ok';
+      return Promise.resolve<'ok'>('ok');
     },
     emit(payload: SupabaseRealtimePayload) {
       callback?.(payload);
