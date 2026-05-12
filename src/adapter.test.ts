@@ -142,7 +142,7 @@ describe('createSupabaseDbAdapter', () => {
       fetch: () => Promise.resolve(jsonResponse([])),
     });
 
-    expect(adapter.capabilities?.supportsRealtime).toBe(false);
+    expect(adapter.capabilities.realtime).toBe(false);
     expect('realtime' in adapter).toBe(false);
   });
 });
