@@ -1,13 +1,11 @@
 import type { DbAdapter, DbRecord } from '@ankhorage/contracts/db';
 
-export type SupabaseRealtimePostgresEvent = 'INSERT' | 'UPDATE' | 'DELETE' | '*';
-
-export type SupabaseRealtimeStatus =
-  | 'SUBSCRIBED'
-  | 'TIMED_OUT'
-  | 'CLOSED'
-  | 'CHANNEL_ERROR'
-  | string;
+interface SupabaseRealtimePostgresChangesFilter {
+  readonly event: 'INSERT' | 'UPDATE' | 'DELETE' | '*';
+  readonly schema: string;
+  readonly table: string;
+  readonly filter?: string;
+}
 
 export interface SupabaseRealtimeChannel {
   on(
@@ -15,20 +13,13 @@ export interface SupabaseRealtimeChannel {
     filter: SupabaseRealtimePostgresChangesFilter,
     callback: (payload: SupabaseRealtimePayload) => void,
   ): SupabaseRealtimeChannel;
-  subscribe(callback?: (status: SupabaseRealtimeStatus) => void): SupabaseRealtimeChannel;
+  subscribe(callback?: (status: string) => void): SupabaseRealtimeChannel;
   unsubscribe(): Promise<'ok' | 'timed out' | 'error'>;
 }
 
 export interface SupabaseRealtimeClient {
   channel(topic: string): SupabaseRealtimeChannel;
   removeChannel(channel: SupabaseRealtimeChannel): Promise<'ok' | 'timed out' | 'error'>;
-}
-
-export interface SupabaseRealtimePostgresChangesFilter {
-  event: SupabaseRealtimePostgresEvent;
-  schema: string;
-  table: string;
-  filter?: string;
 }
 
 export interface SupabaseRealtimePayload {
