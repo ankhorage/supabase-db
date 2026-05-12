@@ -25,6 +25,8 @@ interface NormalizedConfig {
   readonly realtimeClient: SupabaseDbAdapterOptions['realtimeClient'];
 }
 
+type DbFailureResult = Extract<DbResult<unknown>, { readonly ok: false }>;
+
 export function createSupabaseDbAdapter(options: SupabaseDbAdapterOptions): SupabaseDbAdapter {
   const config = normalizeConfig(options);
   const baseAdapter: DbAdapter = {
@@ -61,7 +63,7 @@ export function createSupabaseDbAdapter(options: SupabaseDbAdapterOptions): Supa
         return result;
       }
 
-      return { ok: true, data: result.data[0] ?? null };
+      return createSuccess<TRecord | null>(result.data[0] ?? null);
     },
 
     async insert<TRecord extends object = DbRecord>(
@@ -181,7 +183,7 @@ async function requestRows<TRecord extends object>(
 function validateRequiredFilters(
   filters: readonly DbFilter[],
   label: string,
-): DbResult<never> | null {
+): DbFailureResult | null {
   try {
     validateFilters(filters, label);
     return null;
@@ -195,6 +197,10 @@ function validateRequiredFilters(
       ),
     };
   }
+}
+
+function createSuccess<TData>(data: TData): DbResult<TData> {
+  return { ok: true, data };
 }
 
 function createHeaders(
