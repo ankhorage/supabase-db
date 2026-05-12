@@ -1,16 +1,15 @@
-import type { DbRecord } from '@ankhorage/contracts/db';
-
 import type {
   DbChangeEvent,
   DbChangeKind,
   DbChangeListener,
   DbCollectionSubscriptionInput,
+  DbRealtimeAdapter,
+  DbRecord,
   DbRecordSubscriptionInput,
   DbSubscription,
-  RealtimeDbAdapter,
-  SupabaseRealtimeClient,
-  SupabaseRealtimePayload,
-} from './types.js';
+} from '@ankhorage/contracts/db';
+
+import type { SupabaseRealtimeClient, SupabaseRealtimePayload } from './types.js';
 import { validateIdentifier } from './validation.js';
 
 interface RealtimeApiConfig {
@@ -18,7 +17,7 @@ interface RealtimeApiConfig {
   readonly defaultSchema: string;
 }
 
-export function createRealtimeApi(config: RealtimeApiConfig): RealtimeDbAdapter['realtime'] {
+export function createRealtimeApi(config: RealtimeApiConfig): DbRealtimeAdapter['realtime'] {
   return {
     subscribeToCollection<TRecord extends object = DbRecord>(
       input: DbCollectionSubscriptionInput,
