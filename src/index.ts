@@ -2,22 +2,26 @@ export { createSupabaseDbAdapter } from './adapter.js';
 export { createSupabaseDbAdminAdapter } from './admin.js';
 export { normalizeRealtimeEvent } from './realtime.js';
 export type {
+  DbAdminAdapter,
   DbAdminResult,
-  DbAdminSqlExecutionResult,
   DbChangeEvent,
   DbChangeKind,
   DbChangeListener,
+  DbCollectionDefinition,
+  DbCollectionReference,
   DbCollectionSubscriptionInput,
+  DbFieldDefinition,
+  DbFieldType,
+  DbRealtimeAdapter,
   DbRecordSubscriptionInput,
   DbSubscription,
-  RealtimeDbAdapter,
-  SupabaseCollectionDefinition,
+} from '@ankhorage/contracts/db';
+export type {
+  DbAdminSqlExecutionResult,
   SupabaseDbAdapter,
   SupabaseDbAdapterOptions,
   SupabaseDbAdminAdapter,
   SupabaseDbAdminAdapterOptions,
-  SupabaseFieldDefinition,
-  SupabaseFieldType,
   SupabaseRealtimeClient,
   SupabaseRealtimePayload,
 } from './types.js';
