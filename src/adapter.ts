@@ -26,6 +26,10 @@ interface NormalizedConfig {
 }
 
 type DbFailureResult = Extract<DbResult<unknown>, { readonly ok: false }>;
+type DbFindByIdSuccessResult<TRecord extends object> = {
+  readonly ok: true;
+  readonly data: TRecord | null;
+};
 
 export function createSupabaseDbAdapter(options: SupabaseDbAdapterOptions): SupabaseDbAdapter {
   const config = normalizeConfig(options);
@@ -63,7 +67,12 @@ export function createSupabaseDbAdapter(options: SupabaseDbAdapterOptions): Supa
         return result;
       }
 
-      return createSuccess<TRecord | null>(result.data[0] ?? null);
+      const success: DbFindByIdSuccessResult<TRecord> = {
+        ok: true,
+        data: result.data[0] ?? null,
+      };
+
+      return success;
     },
 
     async insert<TRecord extends object = DbRecord>(
@@ -197,10 +206,6 @@ function validateRequiredFilters(
       ),
     };
   }
-}
-
-function createSuccess<TData>(data: TData): DbResult<TData> {
-  return { ok: true, data };
 }
 
 function createHeaders(
