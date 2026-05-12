@@ -8,14 +8,6 @@ export function mapNetworkError(error: unknown): DbAdapterError {
   return createDbError('network_error', 'Supabase Database request failed.', error);
 }
 
-export function mapProviderError(error: unknown): DbAdapterError {
-  if (isProviderError(error)) {
-    return createDbError(mapProviderCode(error.code, error.message), error.message, error);
-  }
-
-  return createDbError('provider_error', 'Supabase Database returned an error.', error);
-}
-
 export function mapHttpError(status: number, body: unknown): DbAdapterError {
   const providerMessage = readProviderMessage(body);
 
@@ -50,24 +42,6 @@ export function mapHttpError(status: number, body: unknown): DbAdapterError {
   );
 }
 
-function mapProviderCode(code: string | undefined, message: string): string {
-  const normalizedMessage = message.toLowerCase();
-
-  if (code === 'PGRST116' || normalizedMessage.includes('not found')) {
-    return 'missing_table';
-  }
-
-  if (normalizedMessage.includes('permission') || normalizedMessage.includes('policy')) {
-    return 'permission_denied';
-  }
-
-  if (normalizedMessage.includes('invalid') || normalizedMessage.includes('syntax')) {
-    return 'invalid_query';
-  }
-
-  return 'provider_error';
-}
-
 function readProviderMessage(body: unknown): string | undefined {
   if (!isRecord(body)) {
     return undefined;
@@ -85,14 +59,6 @@ function readProviderMessage(body: unknown): string | undefined {
   }
 
   return undefined;
-}
-
-function isProviderError(value: unknown): value is { code?: string; message: string } {
-  return (
-    isRecord(value) &&
-    typeof value.message === 'string' &&
-    (value.code === undefined || typeof value.code === 'string')
-  );
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
