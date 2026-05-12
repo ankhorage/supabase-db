@@ -1,5 +1,11 @@
 # @ankhorage/supabase-db
 
+## 0.2.1
+
+### Patch Changes
+
+- Release trigger
+
 ## 0.2.0
 
 ### Minor Changes
