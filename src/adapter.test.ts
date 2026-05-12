@@ -18,9 +18,9 @@ describe('createSupabaseDbAdapter', () => {
     const adapter = createSupabaseDbAdapter({
       url: 'https://example.supabase.co',
       anonKey: 'anon',
-      fetch: async (input, init) => {
-        calls.push({ url: String(input), init });
-        return jsonResponse([{ id: 'post-1', title: 'Hello' }]);
+      fetch: (input, init) => {
+        calls.push({ url: fetchInputToString(input), init });
+        return Promise.resolve(jsonResponse([{ id: 'post-1', title: 'Hello' }]));
       },
     });
 
@@ -50,7 +50,7 @@ describe('createSupabaseDbAdapter', () => {
     const adapter = createSupabaseDbAdapter({
       url: 'https://example.supabase.co',
       anonKey: 'anon',
-      fetch: async () => jsonResponse([{ id: 'post-1', title: 'Hello' }]),
+      fetch: () => Promise.resolve(jsonResponse([{ id: 'post-1', title: 'Hello' }])),
     });
 
     const result = await adapter.findById<PostRecord>({ table: 'posts', id: 'post-1' });
@@ -62,7 +62,7 @@ describe('createSupabaseDbAdapter', () => {
     const adapter = createSupabaseDbAdapter({
       url: 'https://example.supabase.co',
       anonKey: 'anon',
-      fetch: async () => jsonResponse([]),
+      fetch: () => Promise.resolve(jsonResponse([])),
     });
 
     const result = await adapter.findById<PostRecord>({ table: 'posts', id: 'missing' });
@@ -75,9 +75,9 @@ describe('createSupabaseDbAdapter', () => {
     const adapter = createSupabaseDbAdapter({
       url: 'https://example.supabase.co',
       anonKey: 'anon',
-      fetch: async (input, init) => {
-        calls.push({ url: String(input), init });
-        return jsonResponse([{ id: 'post-1', title: 'Hello' }]);
+      fetch: (input, init) => {
+        calls.push({ url: fetchInputToString(input), init });
+        return Promise.resolve(jsonResponse([{ id: 'post-1', title: 'Hello' }]));
       },
     });
 
@@ -95,7 +95,7 @@ describe('createSupabaseDbAdapter', () => {
     const adapter = createSupabaseDbAdapter({
       url: 'https://example.supabase.co',
       anonKey: 'anon',
-      fetch: async () => jsonResponse([]),
+      fetch: () => Promise.resolve(jsonResponse([])),
     });
 
     const result = await adapter.update<PostRecord>({
@@ -112,7 +112,7 @@ describe('createSupabaseDbAdapter', () => {
     const adapter = createSupabaseDbAdapter({
       url: 'https://example.supabase.co',
       anonKey: 'anon',
-      fetch: async () => jsonResponse([]),
+      fetch: () => Promise.resolve(jsonResponse([])),
     });
 
     const result = await adapter.delete<PostRecord>({ table: 'posts', filters: [] });
@@ -125,7 +125,7 @@ describe('createSupabaseDbAdapter', () => {
     const adapter = createSupabaseDbAdapter({
       url: 'https://example.supabase.co',
       anonKey: 'anon',
-      fetch: async () => jsonResponse({ message: 'permission denied' }, 403),
+      fetch: () => Promise.resolve(jsonResponse({ message: 'permission denied' }, 403)),
     });
 
     const result = await adapter.select<PostRecord>({ table: 'posts' });
@@ -139,7 +139,7 @@ describe('createSupabaseDbAdapter', () => {
       url: 'https://example.supabase.co',
       anonKey: 'anon',
       realtime: false,
-      fetch: async () => jsonResponse([]),
+      fetch: () => Promise.resolve(jsonResponse([])),
     });
 
     expect(adapter.capabilities?.supportsRealtime).toBe(false);
@@ -152,6 +152,18 @@ function jsonResponse(body: unknown, status = 200): Response {
     status,
     headers: { 'Content-Type': 'application/json' },
   });
+}
+
+function fetchInputToString(input: RequestInfo | URL): string {
+  if (typeof input === 'string') {
+    return input;
+  }
+
+  if (input instanceof URL) {
+    return input.toString();
+  }
+
+  return input.url;
 }
 
 function readHeader(init: RequestInit | undefined, name: string): string | null {
