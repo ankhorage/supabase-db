@@ -29,9 +29,9 @@ export function createSupabaseDbAdapter(options: SupabaseDbAdapterOptions): Supa
   const config = normalizeConfig(options);
   const baseAdapter: DbAdapter = {
     capabilities: {
-      supportsTransactions: false,
-      supportsReturning: true,
-      supportsRealtime: config.realtime && config.realtimeClient !== undefined,
+      transactions: false,
+      returning: true,
+      realtime: config.realtime && config.realtimeClient !== undefined,
     },
 
     async select<TRecord extends object = DbRecord>(
@@ -50,8 +50,9 @@ export function createSupabaseDbAdapter(options: SupabaseDbAdapterOptions): Supa
         buildSelectUrl(config.url, {
           table: input.table,
           columns: input.columns,
-          filters: [{ field: 'id', operator: 'eq', value: input.id }],
+          filters: [{ field: input.idField ?? 'id', operator: 'eq', value: input.id }],
           page: { limit: 1 },
+          schema: input.schema,
         }),
         { method: 'GET' },
       );
@@ -60,9 +61,7 @@ export function createSupabaseDbAdapter(options: SupabaseDbAdapterOptions): Supa
         return result;
       }
 
-      const records = result.data ?? [];
-
-      return { ok: true, data: records[0] ?? null };
+      return { ok: true, data: result.data[0] ?? null };
     },
 
     async insert<TRecord extends object = DbRecord>(
