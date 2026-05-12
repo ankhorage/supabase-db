@@ -1,10 +1,12 @@
 import type {
+  DbAdminAdapter,
   DbAdminResult,
-  SupabaseCollectionDefinition,
-  SupabaseDbAdminAdapter,
-  SupabaseDbAdminAdapterOptions,
-  SupabaseFieldDefinition,
-} from './types.js';
+  DbCollectionDefinition,
+  DbCollectionReference,
+  DbFieldDefinition,
+} from '@ankhorage/contracts/db';
+
+import type { SupabaseDbAdminAdapterOptions } from './types.js';
 import { quoteIdentifier, validateKey, validateUrl } from './validation.js';
 
 interface NormalizedAdminConfig {
@@ -17,40 +19,40 @@ interface NormalizedAdminConfig {
 
 export function createSupabaseDbAdminAdapter(
   options: SupabaseDbAdminAdapterOptions,
-): SupabaseDbAdminAdapter {
+): DbAdminAdapter {
   const config = normalizeAdminConfig(options);
 
   return {
     capabilities: {
-      supportsSchemaGeneration: true,
-      supportsDirectExecution: config.execute && config.executeSql !== undefined,
+      schemaGeneration: true,
+      directExecution: config.execute && config.executeSql !== undefined,
     },
 
-    async createCollection(input: SupabaseCollectionDefinition): Promise<DbAdminResult> {
+    async createCollection(input: DbCollectionDefinition): Promise<DbAdminResult> {
       const generated = generateCreateCollectionSql(input, config.schema);
 
       if (!generated.ok || !config.execute) {
         return generated;
       }
 
-      return executeSql(config, generated.sql);
+      return executeSql(config, generated.sql ?? '');
     },
 
-    async deleteCollection(input: { readonly name: string }): Promise<DbAdminResult> {
+    async deleteCollection(input: DbCollectionReference): Promise<DbAdminResult> {
       const generated = generateDeleteCollectionSql(input, config.schema);
 
       if (!generated.ok || !config.execute) {
         return generated;
       }
 
-      return executeSql(config, generated.sql);
+      return executeSql(config, generated.sql ?? '');
     },
 
-    generateCreateCollectionSql(input: SupabaseCollectionDefinition): DbAdminResult {
+    generateCreateCollectionSql(input: DbCollectionDefinition): DbAdminResult {
       return generateCreateCollectionSql(input, config.schema);
     },
 
-    generateDeleteCollectionSql(input: { readonly name: string }): DbAdminResult {
+    generateDeleteCollectionSql(input: DbCollectionReference): DbAdminResult {
       return generateDeleteCollectionSql(input, config.schema);
     },
   };
@@ -75,11 +77,11 @@ function normalizeAdminConfig(options: SupabaseDbAdminAdapterOptions): Normalize
 }
 
 function generateCreateCollectionSql(
-  input: SupabaseCollectionDefinition,
-  schemaValue: string,
+  input: DbCollectionDefinition,
+  defaultSchema: string,
 ): DbAdminResult {
   try {
-    const schema = quoteIdentifier(schemaValue);
+    const schema = quoteIdentifier(input.schema ?? defaultSchema);
     const table = quoteIdentifier(input.name);
     const primaryKey = input.primaryKey ?? 'id';
     const fields = input.fields.map((field) => formatField(field));
@@ -103,11 +105,11 @@ function generateCreateCollectionSql(
 }
 
 function generateDeleteCollectionSql(
-  input: { readonly name: string },
-  schemaValue: string,
+  input: DbCollectionReference,
+  defaultSchema: string,
 ): DbAdminResult {
   try {
-    const schema = quoteIdentifier(schemaValue);
+    const schema = quoteIdentifier(input.schema ?? defaultSchema);
     const table = quoteIdentifier(input.name);
 
     return {
@@ -140,10 +142,7 @@ async function executeSql(config: NormalizedAdminConfig, sql: string): Promise<D
   if (!result.ok) {
     return {
       ok: false,
-      error: result.error ?? {
-        code: 'provider_error',
-        message: 'Supabase schema execution failed.',
-      },
+      error: result.error,
     };
   }
 
@@ -154,7 +153,7 @@ async function executeSql(config: NormalizedAdminConfig, sql: string): Promise<D
   };
 }
 
-function formatField(field: SupabaseFieldDefinition): string {
+function formatField(field: DbFieldDefinition): string {
   const name = quoteIdentifier(field.name);
   const type = mapFieldType(field.type);
   const required = field.required === true ? ' not null' : '';
@@ -164,7 +163,7 @@ function formatField(field: SupabaseFieldDefinition): string {
   return `${name} ${type}${required}${unique}${defaultValue}`;
 }
 
-function mapFieldType(type: SupabaseFieldDefinition['type']): string {
+function mapFieldType(type: DbFieldDefinition['type']): string {
   switch (type) {
     case 'text':
       return 'text';
@@ -181,7 +180,7 @@ function mapFieldType(type: SupabaseFieldDefinition['type']): string {
   }
 }
 
-function formatDefaultValue(value: SupabaseFieldDefinition['defaultValue']): string {
+function formatDefaultValue(value: DbFieldDefinition['defaultValue']): string {
   if (value === undefined) {
     return '';
   }
