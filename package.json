@@ -25,7 +25,7 @@
     "adapter"
   ],
   "dependencies": {
-    "@ankhorage/contracts": "^1.7.0"
+    "@ankhorage/contracts": "^1.18.3"
   },
   "peerDependencies": {
     "@supabase/supabase-js": "^2.105.3"
