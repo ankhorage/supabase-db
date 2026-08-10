@@ -1,5 +1,11 @@
 # @ankhorage/supabase-db
 
+## 1.0.0
+
+### Major Changes
+
+- 15c9ed6: Move the public database adapter contract boundary from Contracts 2 to Contracts 4 so generated Runtime 1 database operations consume one canonical DbAdapter type surface.
+
 ## 0.3.0
 
 ### Minor Changes
