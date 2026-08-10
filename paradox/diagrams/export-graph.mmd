@@ -1,2 +1,73 @@
 graph LR
+  module_src_adapter_ts["src/adapter.ts"]
+  module_src_admin_ts["src/admin.ts"]
+  module_src_errors_ts["src/errors.ts"]
   module_src_index_ts["src/index.ts"]
+  module_src_query_ts["src/query.ts"]
+  module_src_realtime_ts["src/realtime.ts"]
+  module_src_types_ts["src/types.ts"]
+  module_src_validation_ts["src/validation.ts"]
+  export_createSupabaseDbAdapter["createSupabaseDbAdapter"]
+  module_src_adapter_ts --> export_createSupabaseDbAdapter
+  export_createSupabaseDbAdapter -.-> export_SupabaseDbAdapter
+  export_createSupabaseDbAdapter -.-> export_SupabaseDbAdapterOptions
+  export_createSupabaseDbAdminAdapter["createSupabaseDbAdminAdapter"]
+  module_src_admin_ts --> export_createSupabaseDbAdminAdapter
+  export_createSupabaseDbAdminAdapter -.-> export_DbAdminAdapter
+  export_createSupabaseDbAdminAdapter -.-> export_SupabaseDbAdminAdapterOptions
+  export_DbAdminAdapter["DbAdminAdapter"]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --> export_DbAdminAdapter
+  export_DbAdminAdapter -.-> export_DbAdminResult
+  export_DbAdminAdapter -.-> export_DbCollectionDefinition
+  export_DbAdminAdapter -.-> export_DbCollectionReference
+  export_DbAdminResult["DbAdminResult"]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --> export_DbAdminResult
+  export_DbAdminSqlExecutionResult["DbAdminSqlExecutionResult"]
+  module_src_types_ts --> export_DbAdminSqlExecutionResult
+  export_DbChangeEvent["DbChangeEvent"]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --> export_DbChangeEvent
+  export_DbChangeEvent -.-> export_DbChangeKind
+  export_DbChangeKind["DbChangeKind"]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --> export_DbChangeKind
+  export_DbChangeListener["DbChangeListener"]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --> export_DbChangeListener
+  export_DbCollectionDefinition["DbCollectionDefinition"]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --> export_DbCollectionDefinition
+  export_DbCollectionDefinition -.-> export_DbFieldDefinition
+  export_DbCollectionReference["DbCollectionReference"]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --> export_DbCollectionReference
+  export_DbCollectionSubscriptionInput["DbCollectionSubscriptionInput"]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --> export_DbCollectionSubscriptionInput
+  export_DbFieldDefinition["DbFieldDefinition"]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --> export_DbFieldDefinition
+  export_DbFieldDefinition -.-> export_DbFieldType
+  export_DbFieldType["DbFieldType"]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --> export_DbFieldType
+  export_DbRealtimeAdapter["DbRealtimeAdapter"]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --> export_DbRealtimeAdapter
+  export_DbRealtimeAdapter -.-> export_DbChangeListener
+  export_DbRealtimeAdapter -.-> export_DbCollectionSubscriptionInput
+  export_DbRealtimeAdapter -.-> export_DbRecordSubscriptionInput
+  export_DbRealtimeAdapter -.-> export_DbSubscription
+  export_DbRecordSubscriptionInput["DbRecordSubscriptionInput"]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --> export_DbRecordSubscriptionInput
+  export_DbSubscription["DbSubscription"]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --> export_DbSubscription
+  export_normalizeRealtimeEvent["normalizeRealtimeEvent"]
+  module_src_realtime_ts --> export_normalizeRealtimeEvent
+  export_normalizeRealtimeEvent -.-> export_DbChangeEvent
+  export_normalizeRealtimeEvent -.-> export_SupabaseRealtimePayload
+  export_SupabaseDbAdapter["SupabaseDbAdapter"]
+  module_src_types_ts --> export_SupabaseDbAdapter
+  export_SupabaseDbAdapterOptions["SupabaseDbAdapterOptions"]
+  module_src_types_ts --> export_SupabaseDbAdapterOptions
+  export_SupabaseDbAdapterOptions -.-> export_SupabaseRealtimeClient
+  export_SupabaseDbAdminAdapter["SupabaseDbAdminAdapter"]
+  module_src_types_ts --> export_SupabaseDbAdminAdapter
+  export_SupabaseDbAdminAdapterOptions["SupabaseDbAdminAdapterOptions"]
+  module_src_types_ts --> export_SupabaseDbAdminAdapterOptions
+  export_SupabaseDbAdminAdapterOptions -.-> export_DbAdminSqlExecutionResult
+  export_SupabaseRealtimeClient["SupabaseRealtimeClient"]
+  module_src_types_ts --> export_SupabaseRealtimeClient
+  export_SupabaseRealtimePayload["SupabaseRealtimePayload"]
+  module_src_types_ts --> export_SupabaseRealtimePayload

@@ -1,0 +1,11 @@
+sequenceDiagram
+  participant participant_isRecord as isRecord
+  participant participant_normalizeKind as normalizeKind
+  participant participant_normalizeRealtimeEvent as normalizeRealtimeEvent
+  participant participant_normalizeRecord as normalizeRecord
+  participant_normalizeRealtimeEvent->>participant_normalizeKind: normalizeKind()
+  participant_normalizeKind-->>participant_normalizeRealtimeEvent: return
+  participant_normalizeRealtimeEvent->>participant_normalizeRecord: normalizeRecord()
+  participant_normalizeRecord->>participant_isRecord: isRecord()
+  participant_isRecord-->>participant_normalizeRecord: return
+  participant_normalizeRecord-->>participant_normalizeRealtimeEvent: return

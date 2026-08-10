@@ -1,1 +1,823 @@
-[]
+[
+  {
+    "name": "createSupabaseDbAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/adapter.ts",
+    "sourceLocation": {
+      "filePath": "src/adapter.ts",
+      "line": 34,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["SupabaseDbAdapter", "SupabaseDbAdapterOptions"],
+    "signatures": [
+      {
+        "label": "(options: SupabaseDbAdapterOptions) => SupabaseDbAdapter",
+        "parameters": [
+          {
+            "name": "options",
+            "type": "SupabaseDbAdapterOptions",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "SupabaseDbAdapter",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "createSupabaseDbAdminAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/admin.ts",
+    "sourceLocation": {
+      "filePath": "src/admin.ts",
+      "line": 20,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DbAdminAdapter", "SupabaseDbAdminAdapterOptions"],
+    "signatures": [
+      {
+        "label": "(options: SupabaseDbAdminAdapterOptions) => DbAdminAdapter",
+        "parameters": [
+          {
+            "name": "options",
+            "type": "SupabaseDbAdminAdapterOptions",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "DbAdminAdapter",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DbAdminAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+    "sourceLocation": {
+      "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "line": 125,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DbAdminResult", "DbCollectionDefinition", "DbCollectionReference"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capabilities",
+        "kind": "property",
+        "type": "DbAdminAdapterCapabilities",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "createCollection",
+        "kind": "method",
+        "type": "(input: DbCollectionDefinition) => Promise<DbAdminResult>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "deleteCollection",
+        "kind": "method",
+        "type": "(input: DbCollectionReference) => Promise<DbAdminResult>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "generateCreateCollectionSql",
+        "kind": "method",
+        "type": "(input: DbCollectionDefinition) => DbAdminResult",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "generateDeleteCollectionSql",
+        "kind": "method",
+        "type": "(input: DbCollectionReference) => DbAdminResult",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DbAdminResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+    "sourceLocation": {
+      "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "line": 113,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DbAdminSqlExecutionResult",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types.ts",
+    "sourceLocation": {
+      "filePath": "src/types.ts",
+      "line": 57,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DbChangeEvent",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+    "sourceLocation": {
+      "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "line": 72,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DbChangeKind"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "committedAt",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "DbChangeKind",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "previousRecord",
+        "kind": "property",
+        "type": "TRecord | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "record",
+        "kind": "property",
+        "type": "TRecord | null",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "schema",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "table",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DbChangeKind",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+    "sourceLocation": {
+      "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "line": 71,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DbChangeListener",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+    "sourceLocation": {
+      "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "line": 80,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DbCollectionDefinition",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+    "sourceLocation": {
+      "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "line": 103,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DbFieldDefinition"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "fields",
+        "kind": "property",
+        "type": "readonly DbFieldDefinition[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "primaryKey",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "schema",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DbCollectionReference",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+    "sourceLocation": {
+      "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "line": 109,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "schema",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DbCollectionSubscriptionInput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+    "sourceLocation": {
+      "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "line": 84,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DbFieldDefinition",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+    "sourceLocation": {
+      "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "line": 96,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DbFieldType"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "defaultValue",
+        "kind": "property",
+        "type": "string | number | boolean | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "required",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "type",
+        "kind": "property",
+        "type": "DbFieldType",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "unique",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DbFieldType",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+    "sourceLocation": {
+      "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "line": 95,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DbRealtimeAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+    "sourceLocation": {
+      "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "line": 89,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "DbChangeListener",
+      "DbCollectionSubscriptionInput",
+      "DbRecordSubscriptionInput",
+      "DbSubscription"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "realtime",
+        "kind": "property",
+        "type": "{ subscribeToCollection<TRecord extends object = DbRecord>(input: DbCollectionSubscriptionInput, listener: DbChangeListener<TRecord>): DbSubscription; subscribeToRecord<TRecord extends object = DbRecord>(input: DbRecordSubscriptionInput, listener: DbChangeListener<TRecord>): DbSubscription; }",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DbRecordSubscriptionInput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+    "sourceLocation": {
+      "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "line": 85,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string | number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "idField",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "schema",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "table",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DbSubscription",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+    "sourceLocation": {
+      "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "line": 81,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "unsubscribe",
+        "kind": "method",
+        "type": "() => Promise<void> | void",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "normalizeRealtimeEvent",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/realtime.ts",
+    "sourceLocation": {
+      "filePath": "src/realtime.ts",
+      "line": 90,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DbChangeEvent", "SupabaseRealtimePayload"],
+    "signatures": [
+      {
+        "label": "(payload: SupabaseRealtimePayload, fallbackTable: string, fallbackSchema: string) => DbChangeEvent<TRecord> | null",
+        "parameters": [
+          {
+            "name": "fallbackSchema",
+            "type": "string",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "fallbackTable",
+            "type": "string",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "payload",
+            "type": "SupabaseRealtimePayload",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "DbChangeEvent<TRecord> | null",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "SupabaseDbAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types.ts",
+    "sourceLocation": {
+      "filePath": "src/types.ts",
+      "line": 68,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "SupabaseDbAdapterOptions",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types.ts",
+    "sourceLocation": {
+      "filePath": "src/types.ts",
+      "line": 40,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["SupabaseRealtimeClient"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "anonKey",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "fetch",
+        "kind": "property",
+        "type": "typeof fetch | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "realtime",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "realtimeClient",
+        "kind": "property",
+        "type": "SupabaseRealtimeClient | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "schema",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "SupabaseDbAdminAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types.ts",
+    "sourceLocation": {
+      "filePath": "src/types.ts",
+      "line": 69,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "SupabaseDbAdminAdapterOptions",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types.ts",
+    "sourceLocation": {
+      "filePath": "src/types.ts",
+      "line": 49,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["DbAdminSqlExecutionResult"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "execute",
+        "kind": "property",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "executeSql",
+        "kind": "property",
+        "type": "((sql: string) => Promise<DbAdminSqlExecutionResult>) | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "schema",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "serviceRoleKey",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "url",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "SupabaseRealtimeClient",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types.ts",
+    "sourceLocation": {
+      "filePath": "src/types.ts",
+      "line": 25,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "channel",
+        "kind": "method",
+        "type": "(topic: string) => SupabaseRealtimeChannel",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "removeChannel",
+        "kind": "method",
+        "type": "(channel: SupabaseRealtimeChannel) => Promise<\"ok\" | \"timed out\" | \"error\">",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "SupabaseRealtimePayload",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types.ts",
+    "sourceLocation": {
+      "filePath": "src/types.ts",
+      "line": 30,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "commit_timestamp",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "errors",
+        "kind": "property",
+        "type": "string[] | null | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "eventType",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "new",
+        "kind": "property",
+        "type": "unknown",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "old",
+        "kind": "property",
+        "type": "unknown",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "schema",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "table",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  }
+]

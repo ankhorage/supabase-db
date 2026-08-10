@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.1.0",
+      "value": "v0.3.0",
       "color": "cb3837"
     },
     {
@@ -63,20 +63,2006 @@
   "entrypoints": ["src/index.ts"],
   "modules": [
     {
+      "path": "src/adapter.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/errors.ts",
+        "src/query.ts",
+        "src/realtime.ts",
+        "src/types.ts",
+        "src/validation.ts"
+      ],
+      "exports": ["createSupabaseDbAdapter"]
+    },
+    {
+      "path": "src/admin.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types.ts", "src/validation.ts"],
+      "exports": ["createSupabaseDbAdminAdapter"]
+    },
+    {
+      "path": "src/errors.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["createDbError", "mapHttpError", "mapNetworkError"]
+    },
+    {
       "path": "src/index.ts",
       "isEntrypoint": true,
       "dependencies": [],
-      "exports": []
+      "exports": [
+        "createSupabaseDbAdapter",
+        "createSupabaseDbAdminAdapter",
+        "DbAdminAdapter",
+        "DbAdminResult",
+        "DbAdminSqlExecutionResult",
+        "DbChangeEvent",
+        "DbChangeKind",
+        "DbChangeListener",
+        "DbCollectionDefinition",
+        "DbCollectionReference",
+        "DbCollectionSubscriptionInput",
+        "DbFieldDefinition",
+        "DbFieldType",
+        "DbRealtimeAdapter",
+        "DbRecordSubscriptionInput",
+        "DbSubscription",
+        "normalizeRealtimeEvent",
+        "SupabaseDbAdapter",
+        "SupabaseDbAdapterOptions",
+        "SupabaseDbAdminAdapter",
+        "SupabaseDbAdminAdapterOptions",
+        "SupabaseRealtimeClient",
+        "SupabaseRealtimePayload"
+      ]
+    },
+    {
+      "path": "src/query.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/validation.ts"],
+      "exports": ["buildMutationUrl", "buildSelectUrl"]
+    },
+    {
+      "path": "src/realtime.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types.ts", "src/validation.ts"],
+      "exports": ["createRealtimeApi", "normalizeRealtimeEvent"]
+    },
+    {
+      "path": "src/types.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "DbAdminSqlExecutionResult",
+        "SupabaseDbAdapter",
+        "SupabaseDbAdapterOptions",
+        "SupabaseDbAdminAdapter",
+        "SupabaseDbAdminAdapterOptions",
+        "SupabaseRealtimeChannel",
+        "SupabaseRealtimeClient",
+        "SupabaseRealtimePayload"
+      ]
+    },
+    {
+      "path": "src/validation.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "quoteIdentifier",
+        "validateFilters",
+        "validateIdentifier",
+        "validateKey",
+        "validateUrl"
+      ]
     }
   ],
-  "exports": [],
+  "exports": [
+    {
+      "name": "createSupabaseDbAdapter",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/adapter.ts",
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 34,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SupabaseDbAdapter", "SupabaseDbAdapterOptions"],
+      "signatures": [
+        {
+          "label": "(options: SupabaseDbAdapterOptions) => SupabaseDbAdapter",
+          "parameters": [
+            {
+              "name": "options",
+              "type": "SupabaseDbAdapterOptions",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "SupabaseDbAdapter",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "createSupabaseDbAdminAdapter",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/admin.ts",
+      "sourceLocation": {
+        "filePath": "src/admin.ts",
+        "line": 20,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbAdminAdapter", "SupabaseDbAdminAdapterOptions"],
+      "signatures": [
+        {
+          "label": "(options: SupabaseDbAdminAdapterOptions) => DbAdminAdapter",
+          "parameters": [
+            {
+              "name": "options",
+              "type": "SupabaseDbAdminAdapterOptions",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "DbAdminAdapter",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DbAdminAdapter",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "sourceLocation": {
+        "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+        "line": 125,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbAdminResult", "DbCollectionDefinition", "DbCollectionReference"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "capabilities",
+          "kind": "property",
+          "type": "DbAdminAdapterCapabilities",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "createCollection",
+          "kind": "method",
+          "type": "(input: DbCollectionDefinition) => Promise<DbAdminResult>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "deleteCollection",
+          "kind": "method",
+          "type": "(input: DbCollectionReference) => Promise<DbAdminResult>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "generateCreateCollectionSql",
+          "kind": "method",
+          "type": "(input: DbCollectionDefinition) => DbAdminResult",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "generateDeleteCollectionSql",
+          "kind": "method",
+          "type": "(input: DbCollectionReference) => DbAdminResult",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DbAdminResult",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "sourceLocation": {
+        "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+        "line": 113,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DbAdminSqlExecutionResult",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 57,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DbChangeEvent",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "sourceLocation": {
+        "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+        "line": 72,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbChangeKind"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "committedAt",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "DbChangeKind",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "previousRecord",
+          "kind": "property",
+          "type": "TRecord | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "record",
+          "kind": "property",
+          "type": "TRecord | null",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "schema",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "table",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DbChangeKind",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "sourceLocation": {
+        "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+        "line": 71,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DbChangeListener",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "sourceLocation": {
+        "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+        "line": 80,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DbCollectionDefinition",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "sourceLocation": {
+        "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+        "line": 103,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbFieldDefinition"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "fields",
+          "kind": "property",
+          "type": "readonly DbFieldDefinition[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "primaryKey",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "schema",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DbCollectionReference",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "sourceLocation": {
+        "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+        "line": 109,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "schema",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DbCollectionSubscriptionInput",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "sourceLocation": {
+        "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+        "line": 84,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DbFieldDefinition",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "sourceLocation": {
+        "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+        "line": 96,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbFieldType"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "defaultValue",
+          "kind": "property",
+          "type": "string | number | boolean | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "required",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "type",
+          "kind": "property",
+          "type": "DbFieldType",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "unique",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DbFieldType",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "sourceLocation": {
+        "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+        "line": 95,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DbRealtimeAdapter",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "sourceLocation": {
+        "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+        "line": 89,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [
+        "DbChangeListener",
+        "DbCollectionSubscriptionInput",
+        "DbRecordSubscriptionInput",
+        "DbSubscription"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "realtime",
+          "kind": "property",
+          "type": "{ subscribeToCollection<TRecord extends object = DbRecord>(input: DbCollectionSubscriptionInput, listener: DbChangeListener<TRecord>): DbSubscription; subscribeToRecord<TRecord extends object = DbRecord>(input: DbRecordSubscriptionInput, listener: DbChangeListener<TRecord>): DbSubscription; }",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DbRecordSubscriptionInput",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "sourceLocation": {
+        "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+        "line": 85,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string | number",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "idField",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "schema",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "table",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DbSubscription",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+      "sourceLocation": {
+        "filePath": "node_modules/@ankhorage/contracts/dist/db.d.ts",
+        "line": 81,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "unsubscribe",
+          "kind": "method",
+          "type": "() => Promise<void> | void",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "normalizeRealtimeEvent",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/realtime.ts",
+      "sourceLocation": {
+        "filePath": "src/realtime.ts",
+        "line": 90,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbChangeEvent", "SupabaseRealtimePayload"],
+      "signatures": [
+        {
+          "label": "(payload: SupabaseRealtimePayload, fallbackTable: string, fallbackSchema: string) => DbChangeEvent<TRecord> | null",
+          "parameters": [
+            {
+              "name": "fallbackSchema",
+              "type": "string",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "fallbackTable",
+              "type": "string",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "payload",
+              "type": "SupabaseRealtimePayload",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "DbChangeEvent<TRecord> | null",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SupabaseDbAdapter",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 68,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SupabaseDbAdapterOptions",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 40,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["SupabaseRealtimeClient"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "anonKey",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "fetch",
+          "kind": "property",
+          "type": "typeof fetch | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "realtime",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "realtimeClient",
+          "kind": "property",
+          "type": "SupabaseRealtimeClient | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "schema",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "url",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SupabaseDbAdminAdapter",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 69,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "SupabaseDbAdminAdapterOptions",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 49,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["DbAdminSqlExecutionResult"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "execute",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "executeSql",
+          "kind": "property",
+          "type": "((sql: string) => Promise<DbAdminSqlExecutionResult>) | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "schema",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "serviceRoleKey",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "url",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SupabaseRealtimeClient",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 25,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "channel",
+          "kind": "method",
+          "type": "(topic: string) => SupabaseRealtimeChannel",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "removeChannel",
+          "kind": "method",
+          "type": "(channel: SupabaseRealtimeChannel) => Promise<\"ok\" | \"timed out\" | \"error\">",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "SupabaseRealtimePayload",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 30,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "commit_timestamp",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "errors",
+          "kind": "property",
+          "type": "string[] | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "eventType",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "new",
+          "kind": "property",
+          "type": "unknown",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "old",
+          "kind": "property",
+          "type": "unknown",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "schema",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "table",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    }
+  ],
   "components": [],
-  "sourceFunctions": [],
-  "sequenceScenarios": [],
+  "sourceFunctions": [
+    {
+      "name": "createSupabaseDbAdapter",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 34,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 136,
+        "column": 1
+      }
+    },
+    {
+      "name": "requestRows",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 153,
+        "column": 1
+      }
+    },
+    {
+      "name": "validateRequiredFilters",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 192,
+        "column": 1
+      }
+    },
+    {
+      "name": "createHeaders",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 211,
+        "column": 1
+      }
+    },
+    {
+      "name": "readJsonBody",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 231,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeRecords",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 245,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 257,
+        "column": 1
+      }
+    },
+    {
+      "name": "createSupabaseDbAdminAdapter",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/admin.ts",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeAdminConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/admin.ts",
+        "line": 61,
+        "column": 1
+      }
+    },
+    {
+      "name": "generateCreateCollectionSql",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/admin.ts",
+        "line": 79,
+        "column": 1
+      }
+    },
+    {
+      "name": "generateDeleteCollectionSql",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/admin.ts",
+        "line": 107,
+        "column": 1
+      }
+    },
+    {
+      "name": "executeSql",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/admin.ts",
+        "line": 125,
+        "column": 1
+      }
+    },
+    {
+      "name": "formatField",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/admin.ts",
+        "line": 156,
+        "column": 1
+      }
+    },
+    {
+      "name": "mapFieldType",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/admin.ts",
+        "line": 166,
+        "column": 1
+      }
+    },
+    {
+      "name": "formatDefaultValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/admin.ts",
+        "line": 183,
+        "column": 1
+      }
+    },
+    {
+      "name": "createAdminError",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/admin.ts",
+        "line": 199,
+        "column": 1
+      }
+    },
+    {
+      "name": "createDbError",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/errors.ts",
+        "line": 3,
+        "column": 1
+      }
+    },
+    {
+      "name": "mapNetworkError",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/errors.ts",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "name": "mapHttpError",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/errors.ts",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
+      "name": "readProviderMessage",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/errors.ts",
+        "line": 45,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/errors.ts",
+        "line": 64,
+        "column": 1
+      }
+    },
+    {
+      "name": "buildSelectUrl",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/query.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "name": "buildMutationUrl",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/query.ts",
+        "line": 18,
+        "column": 1
+      }
+    },
+    {
+      "name": "applyFilters",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/query.ts",
+        "line": 31,
+        "column": 1
+      }
+    },
+    {
+      "name": "applySort",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/query.ts",
+        "line": 38,
+        "column": 1
+      }
+    },
+    {
+      "name": "applyPage",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/query.ts",
+        "line": 53,
+        "column": 1
+      }
+    },
+    {
+      "name": "formatColumns",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/query.ts",
+        "line": 63,
+        "column": 1
+      }
+    },
+    {
+      "name": "formatFilter",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/query.ts",
+        "line": 71,
+        "column": 1
+      }
+    },
+    {
+      "name": "formatInValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/query.ts",
+        "line": 96,
+        "column": 1
+      }
+    },
+    {
+      "name": "formatLikeValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/query.ts",
+        "line": 104,
+        "column": 1
+      }
+    },
+    {
+      "name": "formatValue",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/query.ts",
+        "line": 108,
+        "column": 1
+      }
+    },
+    {
+      "name": "createRealtimeApi",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/realtime.ts",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeRealtimeEvent",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/realtime.ts",
+        "line": 90,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeKind",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/realtime.ts",
+        "line": 121,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/realtime.ts",
+        "line": 134,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/realtime.ts",
+        "line": 142,
+        "column": 1
+      }
+    },
+    {
+      "name": "validateUrl",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/validation.ts",
+        "line": 3,
+        "column": 1
+      }
+    },
+    {
+      "name": "validateKey",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/validation.ts",
+        "line": 19,
+        "column": 1
+      }
+    },
+    {
+      "name": "validateIdentifier",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/validation.ts",
+        "line": 29,
+        "column": 1
+      }
+    },
+    {
+      "name": "validateFilters",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/validation.ts",
+        "line": 43,
+        "column": 1
+      }
+    },
+    {
+      "name": "quoteIdentifier",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/validation.ts",
+        "line": 53,
+        "column": 1
+      }
+    }
+  ],
+  "sequenceScenarios": [
+    {
+      "kind": "export",
+      "name": "createSupabaseDbAdapter",
+      "sourcePath": "src/adapter.ts",
+      "symbolName": "createSupabaseDbAdapter",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "createSupabaseDbAdminAdapter",
+      "sourcePath": "src/admin.ts",
+      "symbolName": "createSupabaseDbAdminAdapter",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "normalizeRealtimeEvent",
+      "sourcePath": "src/realtime.ts",
+      "symbolName": "normalizeRealtimeEvent",
+      "description": null,
+      "isReadme": false
+    }
+  ],
   "graphs": {
-    "imports": [],
-    "calls": [],
-    "typeReferences": [],
+    "imports": [
+      {
+        "fromPath": "src/adapter.ts",
+        "toPath": "src/errors.ts",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromPath": "src/adapter.ts",
+        "toPath": "src/query.ts",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromPath": "src/adapter.ts",
+        "toPath": "src/realtime.ts",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromPath": "src/adapter.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromPath": "src/adapter.ts",
+        "toPath": "src/validation.ts",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromPath": "src/admin.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromPath": "src/admin.ts",
+        "toPath": "src/validation.ts",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/adapter.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/admin.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/realtime.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/query.ts",
+        "toPath": "src/validation.ts",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromPath": "src/realtime.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromPath": "src/realtime.ts",
+        "toPath": "src/validation.ts",
+        "sourcePath": "src/realtime.ts"
+      }
+    ],
+    "calls": [
+      {
+        "fromSymbol": "createSupabaseDbAdapter",
+        "toSymbol": "normalizeConfig",
+        "callExpression": "normalizeConfig",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "select",
+        "toSymbol": "requestRows",
+        "callExpression": "requestRows",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "select",
+        "toSymbol": "buildSelectUrl",
+        "callExpression": "buildSelectUrl",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "findById",
+        "toSymbol": "requestRows",
+        "callExpression": "requestRows",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "findById",
+        "toSymbol": "buildSelectUrl",
+        "callExpression": "buildSelectUrl",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "insert",
+        "toSymbol": "buildMutationUrl",
+        "callExpression": "buildMutationUrl",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "insert",
+        "toSymbol": "requestRows",
+        "callExpression": "requestRows",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "update",
+        "toSymbol": "validateRequiredFilters",
+        "callExpression": "validateRequiredFilters",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "update",
+        "toSymbol": "buildMutationUrl",
+        "callExpression": "buildMutationUrl",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "update",
+        "toSymbol": "requestRows",
+        "callExpression": "requestRows",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "delete",
+        "toSymbol": "validateRequiredFilters",
+        "callExpression": "validateRequiredFilters",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "delete",
+        "toSymbol": "buildMutationUrl",
+        "callExpression": "buildMutationUrl",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "delete",
+        "toSymbol": "requestRows",
+        "callExpression": "requestRows",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "createSupabaseDbAdapter",
+        "toSymbol": "createRealtimeApi",
+        "callExpression": "createRealtimeApi",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "normalizeConfig",
+        "toSymbol": "validateUrl",
+        "callExpression": "validateUrl",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "normalizeConfig",
+        "toSymbol": "validateKey",
+        "callExpression": "validateKey",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "requestRows",
+        "toSymbol": "fetch",
+        "callExpression": "config.fetch",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "requestRows",
+        "toSymbol": "createHeaders",
+        "callExpression": "createHeaders",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "requestRows",
+        "toSymbol": "readJsonBody",
+        "callExpression": "readJsonBody",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "requestRows",
+        "toSymbol": "mapHttpError",
+        "callExpression": "mapHttpError",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "requestRows",
+        "toSymbol": "normalizeRecords",
+        "callExpression": "normalizeRecords",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "requestRows",
+        "toSymbol": "createDbError",
+        "callExpression": "createDbError",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "requestRows",
+        "toSymbol": "mapNetworkError",
+        "callExpression": "mapNetworkError",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "validateRequiredFilters",
+        "toSymbol": "validateFilters",
+        "callExpression": "validateFilters",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "validateRequiredFilters",
+        "toSymbol": "createDbError",
+        "callExpression": "createDbError",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "normalizeRecords",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "createSupabaseDbAdminAdapter",
+        "toSymbol": "normalizeAdminConfig",
+        "callExpression": "normalizeAdminConfig",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "createCollection",
+        "toSymbol": "generateCreateCollectionSql",
+        "callExpression": "generateCreateCollectionSql",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "createCollection",
+        "toSymbol": "executeSql",
+        "callExpression": "executeSql",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "deleteCollection",
+        "toSymbol": "generateDeleteCollectionSql",
+        "callExpression": "generateDeleteCollectionSql",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "deleteCollection",
+        "toSymbol": "executeSql",
+        "callExpression": "executeSql",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "generateCreateCollectionSql",
+        "toSymbol": "generateCreateCollectionSql",
+        "callExpression": "generateCreateCollectionSql",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "generateDeleteCollectionSql",
+        "toSymbol": "generateDeleteCollectionSql",
+        "callExpression": "generateDeleteCollectionSql",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "normalizeAdminConfig",
+        "toSymbol": "validateUrl",
+        "callExpression": "validateUrl",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "normalizeAdminConfig",
+        "toSymbol": "validateKey",
+        "callExpression": "validateKey",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "generateCreateCollectionSql",
+        "toSymbol": "quoteIdentifier",
+        "callExpression": "quoteIdentifier",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "src/admin.ts",
+        "toSymbol": "formatField",
+        "callExpression": "formatField",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "generateCreateCollectionSql",
+        "toSymbol": "createAdminError",
+        "callExpression": "createAdminError",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "generateDeleteCollectionSql",
+        "toSymbol": "quoteIdentifier",
+        "callExpression": "quoteIdentifier",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "generateDeleteCollectionSql",
+        "toSymbol": "createAdminError",
+        "callExpression": "createAdminError",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "executeSql",
+        "toSymbol": "createAdminError",
+        "callExpression": "createAdminError",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "executeSql",
+        "toSymbol": "executeSql",
+        "callExpression": "config.executeSql",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "formatField",
+        "toSymbol": "quoteIdentifier",
+        "callExpression": "quoteIdentifier",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "formatField",
+        "toSymbol": "mapFieldType",
+        "callExpression": "mapFieldType",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "formatField",
+        "toSymbol": "formatDefaultValue",
+        "callExpression": "formatDefaultValue",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "mapNetworkError",
+        "toSymbol": "createDbError",
+        "callExpression": "createDbError",
+        "sourcePath": "src/errors.ts"
+      },
+      {
+        "fromSymbol": "mapHttpError",
+        "toSymbol": "readProviderMessage",
+        "callExpression": "readProviderMessage",
+        "sourcePath": "src/errors.ts"
+      },
+      {
+        "fromSymbol": "mapHttpError",
+        "toSymbol": "createDbError",
+        "callExpression": "createDbError",
+        "sourcePath": "src/errors.ts"
+      },
+      {
+        "fromSymbol": "readProviderMessage",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/errors.ts"
+      },
+      {
+        "fromSymbol": "buildSelectUrl",
+        "toSymbol": "validateIdentifier",
+        "callExpression": "validateIdentifier",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "buildSelectUrl",
+        "toSymbol": "formatColumns",
+        "callExpression": "formatColumns",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "buildSelectUrl",
+        "toSymbol": "applyFilters",
+        "callExpression": "applyFilters",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "buildSelectUrl",
+        "toSymbol": "applySort",
+        "callExpression": "applySort",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "buildSelectUrl",
+        "toSymbol": "applyPage",
+        "callExpression": "applyPage",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "buildMutationUrl",
+        "toSymbol": "validateIdentifier",
+        "callExpression": "validateIdentifier",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "buildMutationUrl",
+        "toSymbol": "applyFilters",
+        "callExpression": "applyFilters",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "applyFilters",
+        "toSymbol": "validateIdentifier",
+        "callExpression": "validateIdentifier",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "applyFilters",
+        "toSymbol": "formatFilter",
+        "callExpression": "formatFilter",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "src/query.ts",
+        "toSymbol": "validateIdentifier",
+        "callExpression": "validateIdentifier",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "formatFilter",
+        "toSymbol": "formatValue",
+        "callExpression": "formatValue",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "formatFilter",
+        "toSymbol": "formatInValue",
+        "callExpression": "formatInValue",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "formatFilter",
+        "toSymbol": "formatLikeValue",
+        "callExpression": "formatLikeValue",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "formatInValue",
+        "toSymbol": "formatValue",
+        "callExpression": "formatValue",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "src/query.ts",
+        "toSymbol": "formatValue",
+        "callExpression": "formatValue",
+        "sourcePath": "src/query.ts"
+      },
+      {
+        "fromSymbol": "subscribeToCollection",
+        "toSymbol": "validateIdentifier",
+        "callExpression": "validateIdentifier",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "subscribeToCollection",
+        "toSymbol": "subscribe",
+        "callExpression": "config.client\n        .channel(`ankhorage-db:${schema}:${table}`)\n        .on(\n          'postgres_changes',\n          {\n            event: '*',\n            schema,\n            table,\n          },\n          (payload) => {\n            const event = normalizeRealtimeEvent<TRecord>(payload, table, schema);\n\n            if (event !== null) {\n              listener(event);\n            }\n          },\n        )\n        .subscribe",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "subscribeToCollection",
+        "toSymbol": "on",
+        "callExpression": "config.client\n        .channel(`ankhorage-db:${schema}:${table}`)\n        .on",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "subscribeToCollection",
+        "toSymbol": "channel",
+        "callExpression": "config.client\n        .channel",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "src/realtime.ts",
+        "toSymbol": "normalizeRealtimeEvent",
+        "callExpression": "normalizeRealtimeEvent",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "src/realtime.ts",
+        "toSymbol": "listener",
+        "callExpression": "listener",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "unsubscribe",
+        "toSymbol": "removeChannel",
+        "callExpression": "config.client.removeChannel",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "subscribeToRecord",
+        "toSymbol": "validateIdentifier",
+        "callExpression": "validateIdentifier",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "subscribeToRecord",
+        "toSymbol": "subscribe",
+        "callExpression": "config.client\n        .channel(`ankhorage-db:${schema}:${table}:${idField}:${String(input.id)}`)\n        .on(\n          'postgres_changes',\n          {\n            event: '*',\n            schema,\n            table,\n            filter: `${idField}=eq.${String(input.id)}`,\n          },\n          (payload) => {\n            const event = normalizeRealtimeEvent<TRecord>(payload, table, schema);\n\n            if (event !== null) {\n              listener(event);\n            }\n          },\n        )\n        .subscribe",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "subscribeToRecord",
+        "toSymbol": "on",
+        "callExpression": "config.client\n        .channel(`ankhorage-db:${schema}:${table}:${idField}:${String(input.id)}`)\n        .on",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "subscribeToRecord",
+        "toSymbol": "channel",
+        "callExpression": "config.client\n        .channel",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "normalizeRealtimeEvent",
+        "toSymbol": "normalizeKind",
+        "callExpression": "normalizeKind",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "normalizeRealtimeEvent",
+        "toSymbol": "normalizeRecord",
+        "callExpression": "normalizeRecord",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "normalizeRecord",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "validateFilters",
+        "toSymbol": "validateIdentifier",
+        "callExpression": "validateIdentifier",
+        "sourcePath": "src/validation.ts"
+      },
+      {
+        "fromSymbol": "quoteIdentifier",
+        "toSymbol": "validateIdentifier",
+        "callExpression": "validateIdentifier",
+        "sourcePath": "src/validation.ts"
+      }
+    ],
+    "typeReferences": [
+      {
+        "fromSymbol": "createSupabaseDbAdapter",
+        "toType": "SupabaseDbAdapter",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "createSupabaseDbAdapter",
+        "toType": "SupabaseDbAdapterOptions",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "createSupabaseDbAdminAdapter",
+        "toType": "DbAdminAdapter",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "createSupabaseDbAdminAdapter",
+        "toType": "SupabaseDbAdminAdapterOptions",
+        "sourcePath": "src/admin.ts"
+      },
+      {
+        "fromSymbol": "normalizeRealtimeEvent",
+        "toType": "DbChangeEvent",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "normalizeRealtimeEvent",
+        "toType": "SupabaseRealtimePayload",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "normalizeRealtimeEvent",
+        "toType": "TRecord",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "SupabaseDbAdapterOptions",
+        "toType": "SupabaseRealtimeClient",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "SupabaseDbAdminAdapterOptions",
+        "toType": "DbAdminSqlExecutionResult",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "SupabaseRealtimeClient",
+        "toType": "SupabaseRealtimeChannel",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "DbAdminAdapter",
+        "toType": "DbAdminAdapterCapabilities",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      },
+      {
+        "fromSymbol": "DbAdminAdapter",
+        "toType": "DbAdminResult",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      },
+      {
+        "fromSymbol": "DbAdminAdapter",
+        "toType": "DbCollectionDefinition",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      },
+      {
+        "fromSymbol": "DbAdminAdapter",
+        "toType": "DbCollectionReference",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      },
+      {
+        "fromSymbol": "DbChangeEvent",
+        "toType": "DbChangeKind",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      },
+      {
+        "fromSymbol": "DbChangeEvent",
+        "toType": "TRecord",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      },
+      {
+        "fromSymbol": "DbCollectionDefinition",
+        "toType": "DbFieldDefinition",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      },
+      {
+        "fromSymbol": "DbFieldDefinition",
+        "toType": "DbFieldType",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      },
+      {
+        "fromSymbol": "DbRealtimeAdapter",
+        "toType": "DbChangeListener",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      },
+      {
+        "fromSymbol": "DbRealtimeAdapter",
+        "toType": "DbCollectionSubscriptionInput",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      },
+      {
+        "fromSymbol": "DbRealtimeAdapter",
+        "toType": "DbRecord",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      },
+      {
+        "fromSymbol": "DbRealtimeAdapter",
+        "toType": "DbRecordSubscriptionInput",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      },
+      {
+        "fromSymbol": "DbRealtimeAdapter",
+        "toType": "DbSubscription",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      },
+      {
+        "fromSymbol": "DbRealtimeAdapter",
+        "toType": "TRecord",
+        "sourcePath": "node_modules/@ankhorage/contracts/dist/db.d.ts"
+      }
+    ],
     "componentComposition": []
   }
 }

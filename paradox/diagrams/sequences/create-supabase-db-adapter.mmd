@@ -1,0 +1,14 @@
+sequenceDiagram
+  participant participant_createRealtimeApi as createRealtimeApi
+  participant participant_createSupabaseDbAdapter as createSupabaseDbAdapter
+  participant participant_normalizeConfig as normalizeConfig
+  participant participant_validateKey as validateKey
+  participant participant_validateUrl as validateUrl
+  participant_createSupabaseDbAdapter->>participant_normalizeConfig: normalizeConfig()
+  participant_normalizeConfig->>participant_validateUrl: validateUrl()
+  participant_validateUrl-->>participant_normalizeConfig: return
+  participant_normalizeConfig->>participant_validateKey: validateKey()
+  participant_validateKey-->>participant_normalizeConfig: return
+  participant_normalizeConfig-->>participant_createSupabaseDbAdapter: return
+  participant_createSupabaseDbAdapter->>participant_createRealtimeApi: createRealtimeApi()
+  participant_createRealtimeApi-->>participant_createSupabaseDbAdapter: return

@@ -2,4 +2,28 @@ graph TD
   package__ankhorage_supabase_db["@ankhorage/supabase-db"]
   entrypoint_src_index_ts["src/index.ts"]
   package__ankhorage_supabase_db --> entrypoint_src_index_ts
+  module_src_adapter_ts["src/adapter.ts"]
+  package__ankhorage_supabase_db -.-> module_src_adapter_ts
+  module_src_adapter_ts --> module_src_errors_ts
+  module_src_adapter_ts --> module_src_query_ts
+  module_src_adapter_ts --> module_src_realtime_ts
+  module_src_adapter_ts --> module_src_types_ts
+  module_src_adapter_ts --> module_src_validation_ts
+  module_src_admin_ts["src/admin.ts"]
+  package__ankhorage_supabase_db -.-> module_src_admin_ts
+  module_src_admin_ts --> module_src_types_ts
+  module_src_admin_ts --> module_src_validation_ts
+  module_src_errors_ts["src/errors.ts"]
+  package__ankhorage_supabase_db -.-> module_src_errors_ts
   module_src_index_ts["src/index.ts"]
+  module_src_query_ts["src/query.ts"]
+  package__ankhorage_supabase_db -.-> module_src_query_ts
+  module_src_query_ts --> module_src_validation_ts
+  module_src_realtime_ts["src/realtime.ts"]
+  package__ankhorage_supabase_db -.-> module_src_realtime_ts
+  module_src_realtime_ts --> module_src_types_ts
+  module_src_realtime_ts --> module_src_validation_ts
+  module_src_types_ts["src/types.ts"]
+  package__ankhorage_supabase_db -.-> module_src_types_ts
+  module_src_validation_ts["src/validation.ts"]
+  package__ankhorage_supabase_db -.-> module_src_validation_ts
