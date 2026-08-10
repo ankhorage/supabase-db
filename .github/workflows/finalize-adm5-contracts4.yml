@@ -1,0 +1,70 @@
+name: Finalize ADM 5 Contracts 4 Boundary
+
+on:
+  push:
+    branches:
+      - agent/adm-5-contracts-4-runtime
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.3.13'
+      - name: Move adapter public contract to Contracts 4
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          pkg.dependencies['@ankhorage/contracts'] = '^4.0.2';
+          fs.writeFileSync('package.json', `${JSON.stringify(pkg, null, 2)}\n`);
+          NODE
+          mkdir -p .changeset
+          cat > .changeset/adm-5-contracts-4-runtime.md <<'EOF'
+          ---
+          '@ankhorage/supabase-db': major
+          ---
+
+          Move the public database adapter contract boundary from Contracts 2 to Contracts 4 so generated Runtime 1 database operations consume one canonical DbAdapter type surface.
+          EOF
+      - name: Refresh lockfile
+        run: bun install
+      - name: Apply lint fixes
+        run: bun run lint:fix
+      - name: Format
+        run: bun run format
+      - name: Build
+        run: bun run build
+      - name: Lint
+        run: bun run lint
+      - name: Format check
+        run: bun run format:check
+      - name: Knip
+        run: bun run knip
+      - name: Tests
+        run: bun run test
+      - name: Typecheck
+        run: bun run typecheck
+      - name: Package dry run
+        run: npm pack --dry-run
+      - name: Docs
+        run: bun run docs
+      - name: Final format
+        run: bun run format
+      - name: Final format check
+        run: bun run format:check
+      - name: Commit validated package boundary
+        run: |
+          rm .github/workflows/finalize-adm5-contracts4.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'refactor: consume Contracts 4 database contracts'
+          git push origin HEAD:agent/adm-5-contracts-4-runtime
