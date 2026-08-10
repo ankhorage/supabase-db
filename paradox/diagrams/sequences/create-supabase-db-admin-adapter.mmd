@@ -1,0 +1,11 @@
+sequenceDiagram
+  participant participant_createSupabaseDbAdminAdapter as createSupabaseDbAdminAdapter
+  participant participant_normalizeAdminConfig as normalizeAdminConfig
+  participant participant_validateKey as validateKey
+  participant participant_validateUrl as validateUrl
+  participant_createSupabaseDbAdminAdapter->>participant_normalizeAdminConfig: normalizeAdminConfig()
+  participant_normalizeAdminConfig->>participant_validateUrl: validateUrl()
+  participant_validateUrl-->>participant_normalizeAdminConfig: return
+  participant_normalizeAdminConfig->>participant_validateKey: validateKey()
+  participant_validateKey-->>participant_normalizeAdminConfig: return
+  participant_normalizeAdminConfig-->>participant_createSupabaseDbAdminAdapter: return

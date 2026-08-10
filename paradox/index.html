@@ -198,6 +198,42 @@
                 <small>Overview, CLI, public API, diagrams</small>
               </button>
             </li>
+            <li>
+              <button class="nav-button" type="button" data-target="src/adapter.ts">
+                src/adapter.ts
+                <small>8 functions</small>
+              </button>
+            </li>
+            <li>
+              <button class="nav-button" type="button" data-target="src/admin.ts">
+                src/admin.ts
+                <small>9 functions</small>
+              </button>
+            </li>
+            <li>
+              <button class="nav-button" type="button" data-target="src/errors.ts">
+                src/errors.ts
+                <small>5 functions</small>
+              </button>
+            </li>
+            <li>
+              <button class="nav-button" type="button" data-target="src/query.ts">
+                src/query.ts
+                <small>10 functions</small>
+              </button>
+            </li>
+            <li>
+              <button class="nav-button" type="button" data-target="src/realtime.ts">
+                src/realtime.ts
+                <small>5 functions</small>
+              </button>
+            </li>
+            <li>
+              <button class="nav-button" type="button" data-target="src/validation.ts">
+                src/validation.ts
+                <small>5 functions</small>
+              </button>
+            </li>
           </ul>
         </nav>
       </aside>
@@ -206,9 +242,9 @@
           <section class="panel">
             <h2>Package overview</h2>
             <div class="summary">
-              <div><strong>0</strong><span class="muted">public exports</span></div>
+              <div><strong>23</strong><span class="muted">public exports</span></div>
               <div><strong>0</strong><span class="muted">components</span></div>
-              <div><strong>1</strong><span class="muted">modules</span></div>
+              <div><strong>8</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -219,15 +255,1088 @@
 
           <section class="panel">
             <h2>Modules</h2>
-            <article class="item" data-search="src/index.ts">
+            <article
+              class="item"
+              data-search="src/adapter.ts src/errors.ts src/query.ts src/realtime.ts src/types.ts src/validation.ts createSupabaseDbAdapter"
+            >
+              <h3>src/adapter.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong> <code>src/errors.ts</code>,
+                <code>src/query.ts</code>, <code>src/realtime.ts</code>, <code>src/types.ts</code>,
+                <code>src/validation.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>createSupabaseDbAdapter</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/admin.ts src/types.ts src/validation.ts createSupabaseDbAdminAdapter"
+            >
+              <h3>src/admin.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong> <code>src/types.ts</code>,
+                <code>src/validation.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>createSupabaseDbAdminAdapter</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/errors.ts createDbError mapHttpError mapNetworkError"
+            >
+              <h3>src/errors.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>createDbError</code>, <code>mapHttpError</code>,
+                <code>mapNetworkError</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/index.ts createSupabaseDbAdapter createSupabaseDbAdminAdapter DbAdminAdapter DbAdminResult DbAdminSqlExecutionResult DbChangeEvent DbChangeKind DbChangeListener DbCollectionDefinition DbCollectionReference DbCollectionSubscriptionInput DbFieldDefinition DbFieldType DbRealtimeAdapter DbRecordSubscriptionInput DbSubscription normalizeRealtimeEvent SupabaseDbAdapter SupabaseDbAdapterOptions SupabaseDbAdminAdapter SupabaseDbAdminAdapterOptions SupabaseRealtimeClient SupabaseRealtimePayload"
+            >
               <h3>src/index.ts</h3>
               <p class="muted">Configured entrypoint</p>
               <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-              <p><strong>Exports:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>createSupabaseDbAdapter</code>,
+                <code>createSupabaseDbAdminAdapter</code>, <code>DbAdminAdapter</code>,
+                <code>DbAdminResult</code>, <code>DbAdminSqlExecutionResult</code>,
+                <code>DbChangeEvent</code>, <code>DbChangeKind</code>,
+                <code>DbChangeListener</code>, <code>DbCollectionDefinition</code>,
+                <code>DbCollectionReference</code>, <code>DbCollectionSubscriptionInput</code>,
+                <code>DbFieldDefinition</code>, <code>DbFieldType</code>,
+                <code>DbRealtimeAdapter</code>, <code>DbRecordSubscriptionInput</code>,
+                <code>DbSubscription</code>, <code>normalizeRealtimeEvent</code>,
+                <code>SupabaseDbAdapter</code>, <code>SupabaseDbAdapterOptions</code>,
+                <code>SupabaseDbAdminAdapter</code>, <code>SupabaseDbAdminAdapterOptions</code>,
+                <code>SupabaseRealtimeClient</code>, <code>SupabaseRealtimePayload</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/query.ts src/validation.ts buildMutationUrl buildSelectUrl"
+            >
+              <h3>src/query.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <code>src/validation.ts</code></p>
+              <p>
+                <strong>Exports:</strong> <code>buildMutationUrl</code>, <code>buildSelectUrl</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/realtime.ts src/types.ts src/validation.ts createRealtimeApi normalizeRealtimeEvent"
+            >
+              <h3>src/realtime.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong> <code>src/types.ts</code>,
+                <code>src/validation.ts</code>
+              </p>
+              <p>
+                <strong>Exports:</strong> <code>createRealtimeApi</code>,
+                <code>normalizeRealtimeEvent</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/types.ts DbAdminSqlExecutionResult SupabaseDbAdapter SupabaseDbAdapterOptions SupabaseDbAdminAdapter SupabaseDbAdminAdapterOptions SupabaseRealtimeChannel SupabaseRealtimeClient SupabaseRealtimePayload"
+            >
+              <h3>src/types.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>DbAdminSqlExecutionResult</code>,
+                <code>SupabaseDbAdapter</code>, <code>SupabaseDbAdapterOptions</code>,
+                <code>SupabaseDbAdminAdapter</code>, <code>SupabaseDbAdminAdapterOptions</code>,
+                <code>SupabaseRealtimeChannel</code>, <code>SupabaseRealtimeClient</code>,
+                <code>SupabaseRealtimePayload</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/validation.ts quoteIdentifier validateFilters validateIdentifier validateKey validateUrl"
+            >
+              <h3>src/validation.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>quoteIdentifier</code>,
+                <code>validateFilters</code>, <code>validateIdentifier</code>,
+                <code>validateKey</code>, <code>validateUrl</code>
+              </p>
             </article>
           </section>
           <section class="panel">
             <h2>Public API</h2>
+
+            <section>
+              <h3>node_modules/@ankhorage/contracts/dist/db.d.ts</h3>
+              <article
+                class="item"
+                id="symbol-dbadminadapter"
+                data-search="DbAdminAdapter type node_modules/@ankhorage/contracts/dist/db.d.ts  DbAdminResult DbCollectionDefinition DbCollectionReference"
+              >
+                <h4>DbAdminAdapter</h4>
+                <p class="muted">
+                  type • <code>node_modules/@ankhorage/contracts/dist/db.d.ts:125:1</code>
+                </p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">DbAdminResult</li>
+                    <li class="chip">DbCollectionDefinition</li>
+                    <li class="chip">DbCollectionReference</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>capabilities</code></td>
+                      <td>property</td>
+                      <td><code>DbAdminAdapterCapabilities</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>createCollection</code></td>
+                      <td>method</td>
+                      <td>
+                        <code
+                          >(input: DbCollectionDefinition) =&gt; Promise&lt;DbAdminResult&gt;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>deleteCollection</code></td>
+                      <td>method</td>
+                      <td>
+                        <code
+                          >(input: DbCollectionReference) =&gt; Promise&lt;DbAdminResult&gt;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>generateCreateCollectionSql</code></td>
+                      <td>method</td>
+                      <td><code>(input: DbCollectionDefinition) =&gt; DbAdminResult</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>generateDeleteCollectionSql</code></td>
+                      <td>method</td>
+                      <td><code>(input: DbCollectionReference) =&gt; DbAdminResult</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-dbadminresult"
+                data-search="DbAdminResult unknown node_modules/@ankhorage/contracts/dist/db.d.ts "
+              >
+                <h4>DbAdminResult</h4>
+                <p class="muted">
+                  unknown • <code>node_modules/@ankhorage/contracts/dist/db.d.ts:113:1</code>
+                </p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-dbchangeevent"
+                data-search="DbChangeEvent type node_modules/@ankhorage/contracts/dist/db.d.ts  DbChangeKind"
+              >
+                <h4>DbChangeEvent</h4>
+                <p class="muted">
+                  type • <code>node_modules/@ankhorage/contracts/dist/db.d.ts:72:1</code>
+                </p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">DbChangeKind</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>committedAt</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>kind</code></td>
+                      <td>property</td>
+                      <td><code>DbChangeKind</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>previousRecord</code></td>
+                      <td>property</td>
+                      <td><code>TRecord | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>record</code></td>
+                      <td>property</td>
+                      <td><code>TRecord | null</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>schema</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>table</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-dbchangekind"
+                data-search="DbChangeKind unknown node_modules/@ankhorage/contracts/dist/db.d.ts "
+              >
+                <h4>DbChangeKind</h4>
+                <p class="muted">
+                  unknown • <code>node_modules/@ankhorage/contracts/dist/db.d.ts:71:1</code>
+                </p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-dbchangelistener"
+                data-search="DbChangeListener unknown node_modules/@ankhorage/contracts/dist/db.d.ts "
+              >
+                <h4>DbChangeListener</h4>
+                <p class="muted">
+                  unknown • <code>node_modules/@ankhorage/contracts/dist/db.d.ts:80:1</code>
+                </p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-dbcollectiondefinition"
+                data-search="DbCollectionDefinition type node_modules/@ankhorage/contracts/dist/db.d.ts  DbFieldDefinition"
+              >
+                <h4>DbCollectionDefinition</h4>
+                <p class="muted">
+                  type • <code>node_modules/@ankhorage/contracts/dist/db.d.ts:103:1</code>
+                </p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">DbFieldDefinition</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>fields</code></td>
+                      <td>property</td>
+                      <td><code>readonly DbFieldDefinition[]</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>primaryKey</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>schema</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-dbcollectionreference"
+                data-search="DbCollectionReference type node_modules/@ankhorage/contracts/dist/db.d.ts "
+              >
+                <h4>DbCollectionReference</h4>
+                <p class="muted">
+                  type • <code>node_modules/@ankhorage/contracts/dist/db.d.ts:109:1</code>
+                </p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>schema</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-dbcollectionsubscriptioninput"
+                data-search="DbCollectionSubscriptionInput unknown node_modules/@ankhorage/contracts/dist/db.d.ts "
+              >
+                <h4>DbCollectionSubscriptionInput</h4>
+                <p class="muted">
+                  unknown • <code>node_modules/@ankhorage/contracts/dist/db.d.ts:84:1</code>
+                </p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-dbfielddefinition"
+                data-search="DbFieldDefinition type node_modules/@ankhorage/contracts/dist/db.d.ts  DbFieldType"
+              >
+                <h4>DbFieldDefinition</h4>
+                <p class="muted">
+                  type • <code>node_modules/@ankhorage/contracts/dist/db.d.ts:96:1</code>
+                </p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">DbFieldType</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>defaultValue</code></td>
+                      <td>property</td>
+                      <td><code>string | number | boolean | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>required</code></td>
+                      <td>property</td>
+                      <td><code>boolean | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>type</code></td>
+                      <td>property</td>
+                      <td><code>DbFieldType</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>unique</code></td>
+                      <td>property</td>
+                      <td><code>boolean | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-dbfieldtype"
+                data-search="DbFieldType unknown node_modules/@ankhorage/contracts/dist/db.d.ts "
+              >
+                <h4>DbFieldType</h4>
+                <p class="muted">
+                  unknown • <code>node_modules/@ankhorage/contracts/dist/db.d.ts:95:1</code>
+                </p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-dbrealtimeadapter"
+                data-search="DbRealtimeAdapter type node_modules/@ankhorage/contracts/dist/db.d.ts  DbChangeListener DbCollectionSubscriptionInput DbRecordSubscriptionInput DbSubscription"
+              >
+                <h4>DbRealtimeAdapter</h4>
+                <p class="muted">
+                  type • <code>node_modules/@ankhorage/contracts/dist/db.d.ts:89:1</code>
+                </p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">DbChangeListener</li>
+                    <li class="chip">DbCollectionSubscriptionInput</li>
+                    <li class="chip">DbRecordSubscriptionInput</li>
+                    <li class="chip">DbSubscription</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>realtime</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >{ subscribeToCollection&lt;TRecord extends object = DbRecord&gt;(input:
+                          DbCollectionSubscriptionInput, listener: DbChangeListener&lt;TRecord&gt;):
+                          DbSubscription; subscribeToRecord&lt;TRecord extends object =
+                          DbRecord&gt;(input: DbRecordSubscriptionInput, listener:
+                          DbChangeListener&lt;TRecord&gt;): DbSubscription; }</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-dbrecordsubscriptioninput"
+                data-search="DbRecordSubscriptionInput type node_modules/@ankhorage/contracts/dist/db.d.ts "
+              >
+                <h4>DbRecordSubscriptionInput</h4>
+                <p class="muted">
+                  type • <code>node_modules/@ankhorage/contracts/dist/db.d.ts:85:1</code>
+                </p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>id</code></td>
+                      <td>property</td>
+                      <td><code>string | number</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>idField</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>schema</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>table</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-dbsubscription"
+                data-search="DbSubscription type node_modules/@ankhorage/contracts/dist/db.d.ts "
+              >
+                <h4>DbSubscription</h4>
+                <p class="muted">
+                  type • <code>node_modules/@ankhorage/contracts/dist/db.d.ts:81:1</code>
+                </p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>unsubscribe</code></td>
+                      <td>method</td>
+                      <td><code>() =&gt; Promise&lt;void&gt; | void</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+            </section>
+            <section>
+              <h3>src/adapter.ts</h3>
+              <article
+                class="item"
+                id="symbol-createsupabasedbadapter"
+                data-search="createSupabaseDbAdapter function src/adapter.ts  SupabaseDbAdapter SupabaseDbAdapterOptions (options: SupabaseDbAdapterOptions) =&gt; SupabaseDbAdapter"
+              >
+                <h4>createSupabaseDbAdapter</h4>
+                <p class="muted">function • <code>src/adapter.ts:34:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SupabaseDbAdapter</li>
+                    <li class="chip">SupabaseDbAdapterOptions</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(options: SupabaseDbAdapterOptions) =&gt; SupabaseDbAdapter</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>options</code></td>
+                        <td><code>SupabaseDbAdapterOptions</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>SupabaseDbAdapter</code></p>
+                </div>
+              </article>
+            </section>
+            <section>
+              <h3>src/admin.ts</h3>
+              <article
+                class="item"
+                id="symbol-createsupabasedbadminadapter"
+                data-search="createSupabaseDbAdminAdapter function src/admin.ts  DbAdminAdapter SupabaseDbAdminAdapterOptions (options: SupabaseDbAdminAdapterOptions) =&gt; DbAdminAdapter"
+              >
+                <h4>createSupabaseDbAdminAdapter</h4>
+                <p class="muted">function • <code>src/admin.ts:20:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">DbAdminAdapter</li>
+                    <li class="chip">SupabaseDbAdminAdapterOptions</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(options: SupabaseDbAdminAdapterOptions) =&gt; DbAdminAdapter</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>options</code></td>
+                        <td><code>SupabaseDbAdminAdapterOptions</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>DbAdminAdapter</code></p>
+                </div>
+              </article>
+            </section>
+            <section>
+              <h3>src/realtime.ts</h3>
+              <article
+                class="item"
+                id="symbol-normalizerealtimeevent"
+                data-search="normalizeRealtimeEvent function src/realtime.ts  DbChangeEvent SupabaseRealtimePayload (payload: SupabaseRealtimePayload, fallbackTable: string, fallbackSchema: string) =&gt; DbChangeEvent&lt;TRecord&gt; | null"
+              >
+                <h4>normalizeRealtimeEvent</h4>
+                <p class="muted">function • <code>src/realtime.ts:90:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">DbChangeEvent</li>
+                    <li class="chip">SupabaseRealtimePayload</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(payload: SupabaseRealtimePayload, fallbackTable: string, fallbackSchema: string) =&gt; DbChangeEvent&lt;TRecord&gt; | null</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>fallbackSchema</code></td>
+                        <td><code>string</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><code>fallbackTable</code></td>
+                        <td><code>string</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><code>payload</code></td>
+                        <td><code>SupabaseRealtimePayload</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>DbChangeEvent&lt;TRecord&gt; | null</code></p>
+                </div>
+              </article>
+            </section>
+            <section>
+              <h3>src/types.ts</h3>
+              <article
+                class="item"
+                id="symbol-dbadminsqlexecutionresult"
+                data-search="DbAdminSqlExecutionResult unknown src/types.ts "
+              >
+                <h4>DbAdminSqlExecutionResult</h4>
+                <p class="muted">unknown • <code>src/types.ts:57:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-supabasedbadapter"
+                data-search="SupabaseDbAdapter unknown src/types.ts "
+              >
+                <h4>SupabaseDbAdapter</h4>
+                <p class="muted">unknown • <code>src/types.ts:68:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-supabasedbadapteroptions"
+                data-search="SupabaseDbAdapterOptions type src/types.ts  SupabaseRealtimeClient"
+              >
+                <h4>SupabaseDbAdapterOptions</h4>
+                <p class="muted">type • <code>src/types.ts:40:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">SupabaseRealtimeClient</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>anonKey</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>fetch</code></td>
+                      <td>property</td>
+                      <td><code>typeof fetch | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>realtime</code></td>
+                      <td>property</td>
+                      <td><code>boolean | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>realtimeClient</code></td>
+                      <td>property</td>
+                      <td><code>SupabaseRealtimeClient | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>schema</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>url</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-supabasedbadminadapter"
+                data-search="SupabaseDbAdminAdapter unknown src/types.ts "
+              >
+                <h4>SupabaseDbAdminAdapter</h4>
+                <p class="muted">unknown • <code>src/types.ts:69:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-supabasedbadminadapteroptions"
+                data-search="SupabaseDbAdminAdapterOptions type src/types.ts  DbAdminSqlExecutionResult"
+              >
+                <h4>SupabaseDbAdminAdapterOptions</h4>
+                <p class="muted">type • <code>src/types.ts:49:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">DbAdminSqlExecutionResult</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>execute</code></td>
+                      <td>property</td>
+                      <td><code>boolean | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>executeSql</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >((sql: string) =&gt; Promise&lt;DbAdminSqlExecutionResult&gt;) |
+                          undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>schema</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>serviceRoleKey</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>url</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-supabaserealtimeclient"
+                data-search="SupabaseRealtimeClient type src/types.ts "
+              >
+                <h4>SupabaseRealtimeClient</h4>
+                <p class="muted">type • <code>src/types.ts:25:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>channel</code></td>
+                      <td>method</td>
+                      <td><code>(topic: string) =&gt; SupabaseRealtimeChannel</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>removeChannel</code></td>
+                      <td>method</td>
+                      <td>
+                        <code
+                          >(channel: SupabaseRealtimeChannel) =&gt; Promise&lt;&quot;ok&quot; |
+                          &quot;timed out&quot; | &quot;error&quot;&gt;</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-supabaserealtimepayload"
+                data-search="SupabaseRealtimePayload type src/types.ts "
+              >
+                <h4>SupabaseRealtimePayload</h4>
+                <p class="muted">type • <code>src/types.ts:30:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>commit_timestamp</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>errors</code></td>
+                      <td>property</td>
+                      <td><code>string[] | null | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>eventType</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>new</code></td>
+                      <td>property</td>
+                      <td><code>unknown</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>old</code></td>
+                      <td>property</td>
+                      <td><code>unknown</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>schema</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>table</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+            </section>
           </section>
           <section class="panel">
             <h2>Component registry</h2>
@@ -244,7 +1353,24 @@
               <div class="mermaid">
                 graph TD package__ankhorage_supabase_db[&quot;@ankhorage/supabase-db&quot;]
                 entrypoint_src_index_ts[&quot;src/index.ts&quot;] package__ankhorage_supabase_db
-                --&gt; entrypoint_src_index_ts module_src_index_ts[&quot;src/index.ts&quot;]
+                --&gt; entrypoint_src_index_ts module_src_adapter_ts[&quot;src/adapter.ts&quot;]
+                package__ankhorage_supabase_db -.-&gt; module_src_adapter_ts module_src_adapter_ts
+                --&gt; module_src_errors_ts module_src_adapter_ts --&gt; module_src_query_ts
+                module_src_adapter_ts --&gt; module_src_realtime_ts module_src_adapter_ts --&gt;
+                module_src_types_ts module_src_adapter_ts --&gt; module_src_validation_ts
+                module_src_admin_ts[&quot;src/admin.ts&quot;] package__ankhorage_supabase_db -.-&gt;
+                module_src_admin_ts module_src_admin_ts --&gt; module_src_types_ts
+                module_src_admin_ts --&gt; module_src_validation_ts
+                module_src_errors_ts[&quot;src/errors.ts&quot;] package__ankhorage_supabase_db
+                -.-&gt; module_src_errors_ts module_src_index_ts[&quot;src/index.ts&quot;]
+                module_src_query_ts[&quot;src/query.ts&quot;] package__ankhorage_supabase_db -.-&gt;
+                module_src_query_ts module_src_query_ts --&gt; module_src_validation_ts
+                module_src_realtime_ts[&quot;src/realtime.ts&quot;] package__ankhorage_supabase_db
+                -.-&gt; module_src_realtime_ts module_src_realtime_ts --&gt; module_src_types_ts
+                module_src_realtime_ts --&gt; module_src_validation_ts
+                module_src_types_ts[&quot;src/types.ts&quot;] package__ankhorage_supabase_db -.-&gt;
+                module_src_types_ts module_src_validation_ts[&quot;src/validation.ts&quot;]
+                package__ankhorage_supabase_db -.-&gt; module_src_validation_ts
               </div>
               <details>
                 <summary>View Mermaid source</summary>
@@ -253,7 +1379,31 @@ graph TD
   package__ankhorage_supabase_db[&quot;@ankhorage/supabase-db&quot;]
   entrypoint_src_index_ts[&quot;src/index.ts&quot;]
   package__ankhorage_supabase_db --&gt; entrypoint_src_index_ts
+  module_src_adapter_ts[&quot;src/adapter.ts&quot;]
+  package__ankhorage_supabase_db -.-&gt; module_src_adapter_ts
+  module_src_adapter_ts --&gt; module_src_errors_ts
+  module_src_adapter_ts --&gt; module_src_query_ts
+  module_src_adapter_ts --&gt; module_src_realtime_ts
+  module_src_adapter_ts --&gt; module_src_types_ts
+  module_src_adapter_ts --&gt; module_src_validation_ts
+  module_src_admin_ts[&quot;src/admin.ts&quot;]
+  package__ankhorage_supabase_db -.-&gt; module_src_admin_ts
+  module_src_admin_ts --&gt; module_src_types_ts
+  module_src_admin_ts --&gt; module_src_validation_ts
+  module_src_errors_ts[&quot;src/errors.ts&quot;]
+  package__ankhorage_supabase_db -.-&gt; module_src_errors_ts
   module_src_index_ts[&quot;src/index.ts&quot;]
+  module_src_query_ts[&quot;src/query.ts&quot;]
+  package__ankhorage_supabase_db -.-&gt; module_src_query_ts
+  module_src_query_ts --&gt; module_src_validation_ts
+  module_src_realtime_ts[&quot;src/realtime.ts&quot;]
+  package__ankhorage_supabase_db -.-&gt; module_src_realtime_ts
+  module_src_realtime_ts --&gt; module_src_types_ts
+  module_src_realtime_ts --&gt; module_src_validation_ts
+  module_src_types_ts[&quot;src/types.ts&quot;]
+  package__ankhorage_supabase_db -.-&gt; module_src_types_ts
+  module_src_validation_ts[&quot;src/validation.ts&quot;]
+  package__ankhorage_supabase_db -.-&gt; module_src_validation_ts
 </pre
                 >
               </details>
@@ -264,12 +1414,45 @@ graph TD
             >
               <h3>Module relationships</h3>
               <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
-              <div class="mermaid">graph LR module_src_index_ts[&quot;src/index.ts&quot;]</div>
+              <div class="mermaid">
+                graph LR module_src_adapter_ts[&quot;src/adapter.ts&quot;]
+                module_src_admin_ts[&quot;src/admin.ts&quot;]
+                module_src_errors_ts[&quot;src/errors.ts&quot;]
+                module_src_index_ts[&quot;src/index.ts&quot;]
+                module_src_query_ts[&quot;src/query.ts&quot;]
+                module_src_realtime_ts[&quot;src/realtime.ts&quot;]
+                module_src_types_ts[&quot;src/types.ts&quot;]
+                module_src_validation_ts[&quot;src/validation.ts&quot;] module_src_adapter_ts --&gt;
+                module_src_errors_ts module_src_adapter_ts --&gt; module_src_query_ts
+                module_src_adapter_ts --&gt; module_src_realtime_ts module_src_adapter_ts --&gt;
+                module_src_types_ts module_src_adapter_ts --&gt; module_src_validation_ts
+                module_src_admin_ts --&gt; module_src_types_ts module_src_admin_ts --&gt;
+                module_src_validation_ts module_src_query_ts --&gt; module_src_validation_ts
+                module_src_realtime_ts --&gt; module_src_types_ts module_src_realtime_ts --&gt;
+                module_src_validation_ts
+              </div>
               <details>
                 <summary>View Mermaid source</summary>
                 <pre>
 graph LR
+  module_src_adapter_ts[&quot;src/adapter.ts&quot;]
+  module_src_admin_ts[&quot;src/admin.ts&quot;]
+  module_src_errors_ts[&quot;src/errors.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
+  module_src_query_ts[&quot;src/query.ts&quot;]
+  module_src_realtime_ts[&quot;src/realtime.ts&quot;]
+  module_src_types_ts[&quot;src/types.ts&quot;]
+  module_src_validation_ts[&quot;src/validation.ts&quot;]
+  module_src_adapter_ts --&gt; module_src_errors_ts
+  module_src_adapter_ts --&gt; module_src_query_ts
+  module_src_adapter_ts --&gt; module_src_realtime_ts
+  module_src_adapter_ts --&gt; module_src_types_ts
+  module_src_adapter_ts --&gt; module_src_validation_ts
+  module_src_admin_ts --&gt; module_src_types_ts
+  module_src_admin_ts --&gt; module_src_validation_ts
+  module_src_query_ts --&gt; module_src_validation_ts
+  module_src_realtime_ts --&gt; module_src_types_ts
+  module_src_realtime_ts --&gt; module_src_validation_ts
 </pre
                 >
               </details>
@@ -277,15 +1460,520 @@ graph LR
             <article class="item" data-search="Export graph diagrams/export-graph.mmd">
               <h3>Export graph</h3>
               <p class="muted"><code>diagrams/export-graph.mmd</code></p>
-              <div class="mermaid">graph LR module_src_index_ts[&quot;src/index.ts&quot;]</div>
+              <div class="mermaid">
+                graph LR module_src_adapter_ts[&quot;src/adapter.ts&quot;]
+                module_src_admin_ts[&quot;src/admin.ts&quot;]
+                module_src_errors_ts[&quot;src/errors.ts&quot;]
+                module_src_index_ts[&quot;src/index.ts&quot;]
+                module_src_query_ts[&quot;src/query.ts&quot;]
+                module_src_realtime_ts[&quot;src/realtime.ts&quot;]
+                module_src_types_ts[&quot;src/types.ts&quot;]
+                module_src_validation_ts[&quot;src/validation.ts&quot;]
+                export_createSupabaseDbAdapter[&quot;createSupabaseDbAdapter&quot;]
+                module_src_adapter_ts --&gt; export_createSupabaseDbAdapter
+                export_createSupabaseDbAdapter -.-&gt; export_SupabaseDbAdapter
+                export_createSupabaseDbAdapter -.-&gt; export_SupabaseDbAdapterOptions
+                export_createSupabaseDbAdminAdapter[&quot;createSupabaseDbAdminAdapter&quot;]
+                module_src_admin_ts --&gt; export_createSupabaseDbAdminAdapter
+                export_createSupabaseDbAdminAdapter -.-&gt; export_DbAdminAdapter
+                export_createSupabaseDbAdminAdapter -.-&gt; export_SupabaseDbAdminAdapterOptions
+                export_DbAdminAdapter[&quot;DbAdminAdapter&quot;]
+                module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbAdminAdapter
+                export_DbAdminAdapter -.-&gt; export_DbAdminResult export_DbAdminAdapter -.-&gt;
+                export_DbCollectionDefinition export_DbAdminAdapter -.-&gt;
+                export_DbCollectionReference export_DbAdminResult[&quot;DbAdminResult&quot;]
+                module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbAdminResult
+                export_DbAdminSqlExecutionResult[&quot;DbAdminSqlExecutionResult&quot;]
+                module_src_types_ts --&gt; export_DbAdminSqlExecutionResult
+                export_DbChangeEvent[&quot;DbChangeEvent&quot;]
+                module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbChangeEvent
+                export_DbChangeEvent -.-&gt; export_DbChangeKind
+                export_DbChangeKind[&quot;DbChangeKind&quot;]
+                module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbChangeKind
+                export_DbChangeListener[&quot;DbChangeListener&quot;]
+                module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbChangeListener
+                export_DbCollectionDefinition[&quot;DbCollectionDefinition&quot;]
+                module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt;
+                export_DbCollectionDefinition export_DbCollectionDefinition -.-&gt;
+                export_DbFieldDefinition
+                export_DbCollectionReference[&quot;DbCollectionReference&quot;]
+                module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt;
+                export_DbCollectionReference
+                export_DbCollectionSubscriptionInput[&quot;DbCollectionSubscriptionInput&quot;]
+                module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt;
+                export_DbCollectionSubscriptionInput
+                export_DbFieldDefinition[&quot;DbFieldDefinition&quot;]
+                module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt;
+                export_DbFieldDefinition export_DbFieldDefinition -.-&gt; export_DbFieldType
+                export_DbFieldType[&quot;DbFieldType&quot;]
+                module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbFieldType
+                export_DbRealtimeAdapter[&quot;DbRealtimeAdapter&quot;]
+                module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt;
+                export_DbRealtimeAdapter export_DbRealtimeAdapter -.-&gt; export_DbChangeListener
+                export_DbRealtimeAdapter -.-&gt; export_DbCollectionSubscriptionInput
+                export_DbRealtimeAdapter -.-&gt; export_DbRecordSubscriptionInput
+                export_DbRealtimeAdapter -.-&gt; export_DbSubscription
+                export_DbRecordSubscriptionInput[&quot;DbRecordSubscriptionInput&quot;]
+                module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt;
+                export_DbRecordSubscriptionInput export_DbSubscription[&quot;DbSubscription&quot;]
+                module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbSubscription
+                export_normalizeRealtimeEvent[&quot;normalizeRealtimeEvent&quot;]
+                module_src_realtime_ts --&gt; export_normalizeRealtimeEvent
+                export_normalizeRealtimeEvent -.-&gt; export_DbChangeEvent
+                export_normalizeRealtimeEvent -.-&gt; export_SupabaseRealtimePayload
+                export_SupabaseDbAdapter[&quot;SupabaseDbAdapter&quot;] module_src_types_ts --&gt;
+                export_SupabaseDbAdapter
+                export_SupabaseDbAdapterOptions[&quot;SupabaseDbAdapterOptions&quot;]
+                module_src_types_ts --&gt; export_SupabaseDbAdapterOptions
+                export_SupabaseDbAdapterOptions -.-&gt; export_SupabaseRealtimeClient
+                export_SupabaseDbAdminAdapter[&quot;SupabaseDbAdminAdapter&quot;]
+                module_src_types_ts --&gt; export_SupabaseDbAdminAdapter
+                export_SupabaseDbAdminAdapterOptions[&quot;SupabaseDbAdminAdapterOptions&quot;]
+                module_src_types_ts --&gt; export_SupabaseDbAdminAdapterOptions
+                export_SupabaseDbAdminAdapterOptions -.-&gt; export_DbAdminSqlExecutionResult
+                export_SupabaseRealtimeClient[&quot;SupabaseRealtimeClient&quot;]
+                module_src_types_ts --&gt; export_SupabaseRealtimeClient
+                export_SupabaseRealtimePayload[&quot;SupabaseRealtimePayload&quot;]
+                module_src_types_ts --&gt; export_SupabaseRealtimePayload
+              </div>
               <details>
                 <summary>View Mermaid source</summary>
                 <pre>
 graph LR
+  module_src_adapter_ts[&quot;src/adapter.ts&quot;]
+  module_src_admin_ts[&quot;src/admin.ts&quot;]
+  module_src_errors_ts[&quot;src/errors.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
+  module_src_query_ts[&quot;src/query.ts&quot;]
+  module_src_realtime_ts[&quot;src/realtime.ts&quot;]
+  module_src_types_ts[&quot;src/types.ts&quot;]
+  module_src_validation_ts[&quot;src/validation.ts&quot;]
+  export_createSupabaseDbAdapter[&quot;createSupabaseDbAdapter&quot;]
+  module_src_adapter_ts --&gt; export_createSupabaseDbAdapter
+  export_createSupabaseDbAdapter -.-&gt; export_SupabaseDbAdapter
+  export_createSupabaseDbAdapter -.-&gt; export_SupabaseDbAdapterOptions
+  export_createSupabaseDbAdminAdapter[&quot;createSupabaseDbAdminAdapter&quot;]
+  module_src_admin_ts --&gt; export_createSupabaseDbAdminAdapter
+  export_createSupabaseDbAdminAdapter -.-&gt; export_DbAdminAdapter
+  export_createSupabaseDbAdminAdapter -.-&gt; export_SupabaseDbAdminAdapterOptions
+  export_DbAdminAdapter[&quot;DbAdminAdapter&quot;]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbAdminAdapter
+  export_DbAdminAdapter -.-&gt; export_DbAdminResult
+  export_DbAdminAdapter -.-&gt; export_DbCollectionDefinition
+  export_DbAdminAdapter -.-&gt; export_DbCollectionReference
+  export_DbAdminResult[&quot;DbAdminResult&quot;]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbAdminResult
+  export_DbAdminSqlExecutionResult[&quot;DbAdminSqlExecutionResult&quot;]
+  module_src_types_ts --&gt; export_DbAdminSqlExecutionResult
+  export_DbChangeEvent[&quot;DbChangeEvent&quot;]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbChangeEvent
+  export_DbChangeEvent -.-&gt; export_DbChangeKind
+  export_DbChangeKind[&quot;DbChangeKind&quot;]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbChangeKind
+  export_DbChangeListener[&quot;DbChangeListener&quot;]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbChangeListener
+  export_DbCollectionDefinition[&quot;DbCollectionDefinition&quot;]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbCollectionDefinition
+  export_DbCollectionDefinition -.-&gt; export_DbFieldDefinition
+  export_DbCollectionReference[&quot;DbCollectionReference&quot;]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbCollectionReference
+  export_DbCollectionSubscriptionInput[&quot;DbCollectionSubscriptionInput&quot;]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbCollectionSubscriptionInput
+  export_DbFieldDefinition[&quot;DbFieldDefinition&quot;]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbFieldDefinition
+  export_DbFieldDefinition -.-&gt; export_DbFieldType
+  export_DbFieldType[&quot;DbFieldType&quot;]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbFieldType
+  export_DbRealtimeAdapter[&quot;DbRealtimeAdapter&quot;]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbRealtimeAdapter
+  export_DbRealtimeAdapter -.-&gt; export_DbChangeListener
+  export_DbRealtimeAdapter -.-&gt; export_DbCollectionSubscriptionInput
+  export_DbRealtimeAdapter -.-&gt; export_DbRecordSubscriptionInput
+  export_DbRealtimeAdapter -.-&gt; export_DbSubscription
+  export_DbRecordSubscriptionInput[&quot;DbRecordSubscriptionInput&quot;]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbRecordSubscriptionInput
+  export_DbSubscription[&quot;DbSubscription&quot;]
+  module_node_modules__ankhorage_contracts_dist_db_d_ts --&gt; export_DbSubscription
+  export_normalizeRealtimeEvent[&quot;normalizeRealtimeEvent&quot;]
+  module_src_realtime_ts --&gt; export_normalizeRealtimeEvent
+  export_normalizeRealtimeEvent -.-&gt; export_DbChangeEvent
+  export_normalizeRealtimeEvent -.-&gt; export_SupabaseRealtimePayload
+  export_SupabaseDbAdapter[&quot;SupabaseDbAdapter&quot;]
+  module_src_types_ts --&gt; export_SupabaseDbAdapter
+  export_SupabaseDbAdapterOptions[&quot;SupabaseDbAdapterOptions&quot;]
+  module_src_types_ts --&gt; export_SupabaseDbAdapterOptions
+  export_SupabaseDbAdapterOptions -.-&gt; export_SupabaseRealtimeClient
+  export_SupabaseDbAdminAdapter[&quot;SupabaseDbAdminAdapter&quot;]
+  module_src_types_ts --&gt; export_SupabaseDbAdminAdapter
+  export_SupabaseDbAdminAdapterOptions[&quot;SupabaseDbAdminAdapterOptions&quot;]
+  module_src_types_ts --&gt; export_SupabaseDbAdminAdapterOptions
+  export_SupabaseDbAdminAdapterOptions -.-&gt; export_DbAdminSqlExecutionResult
+  export_SupabaseRealtimeClient[&quot;SupabaseRealtimeClient&quot;]
+  module_src_types_ts --&gt; export_SupabaseRealtimeClient
+  export_SupabaseRealtimePayload[&quot;SupabaseRealtimePayload&quot;]
+  module_src_types_ts --&gt; export_SupabaseRealtimePayload
 </pre
                 >
               </details>
+            </article>
+            <article
+              class="item"
+              data-search="createSupabaseDbAdapter sequence diagrams/sequences/create-supabase-db-adapter.mmd"
+            >
+              <h3>createSupabaseDbAdapter sequence</h3>
+              <p class="muted"><code>diagrams/sequences/create-supabase-db-adapter.mmd</code></p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_createRealtimeApi as createRealtimeApi
+                participant participant_createSupabaseDbAdapter as createSupabaseDbAdapter
+                participant participant_normalizeConfig as normalizeConfig participant
+                participant_validateKey as validateKey participant participant_validateUrl as
+                validateUrl participant_createSupabaseDbAdapter-&gt;&gt;participant_normalizeConfig:
+                normalizeConfig() participant_normalizeConfig-&gt;&gt;participant_validateUrl:
+                validateUrl() participant_validateUrl--&gt;&gt;participant_normalizeConfig: return
+                participant_normalizeConfig-&gt;&gt;participant_validateKey: validateKey()
+                participant_validateKey--&gt;&gt;participant_normalizeConfig: return
+                participant_normalizeConfig--&gt;&gt;participant_createSupabaseDbAdapter: return
+                participant_createSupabaseDbAdapter-&gt;&gt;participant_createRealtimeApi:
+                createRealtimeApi()
+                participant_createRealtimeApi--&gt;&gt;participant_createSupabaseDbAdapter: return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_createRealtimeApi as createRealtimeApi
+  participant participant_createSupabaseDbAdapter as createSupabaseDbAdapter
+  participant participant_normalizeConfig as normalizeConfig
+  participant participant_validateKey as validateKey
+  participant participant_validateUrl as validateUrl
+  participant_createSupabaseDbAdapter-&gt;&gt;participant_normalizeConfig: normalizeConfig()
+  participant_normalizeConfig-&gt;&gt;participant_validateUrl: validateUrl()
+  participant_validateUrl--&gt;&gt;participant_normalizeConfig: return
+  participant_normalizeConfig-&gt;&gt;participant_validateKey: validateKey()
+  participant_validateKey--&gt;&gt;participant_normalizeConfig: return
+  participant_normalizeConfig--&gt;&gt;participant_createSupabaseDbAdapter: return
+  participant_createSupabaseDbAdapter-&gt;&gt;participant_createRealtimeApi: createRealtimeApi()
+  participant_createRealtimeApi--&gt;&gt;participant_createSupabaseDbAdapter: return
+</pre
+                >
+              </details>
+            </article>
+            <article
+              class="item"
+              data-search="createSupabaseDbAdminAdapter sequence diagrams/sequences/create-supabase-db-admin-adapter.mmd"
+            >
+              <h3>createSupabaseDbAdminAdapter sequence</h3>
+              <p class="muted">
+                <code>diagrams/sequences/create-supabase-db-admin-adapter.mmd</code>
+              </p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_createSupabaseDbAdminAdapter as
+                createSupabaseDbAdminAdapter participant participant_normalizeAdminConfig as
+                normalizeAdminConfig participant participant_validateKey as validateKey participant
+                participant_validateUrl as validateUrl
+                participant_createSupabaseDbAdminAdapter-&gt;&gt;participant_normalizeAdminConfig:
+                normalizeAdminConfig()
+                participant_normalizeAdminConfig-&gt;&gt;participant_validateUrl: validateUrl()
+                participant_validateUrl--&gt;&gt;participant_normalizeAdminConfig: return
+                participant_normalizeAdminConfig-&gt;&gt;participant_validateKey: validateKey()
+                participant_validateKey--&gt;&gt;participant_normalizeAdminConfig: return
+                participant_normalizeAdminConfig--&gt;&gt;participant_createSupabaseDbAdminAdapter:
+                return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_createSupabaseDbAdminAdapter as createSupabaseDbAdminAdapter
+  participant participant_normalizeAdminConfig as normalizeAdminConfig
+  participant participant_validateKey as validateKey
+  participant participant_validateUrl as validateUrl
+  participant_createSupabaseDbAdminAdapter-&gt;&gt;participant_normalizeAdminConfig: normalizeAdminConfig()
+  participant_normalizeAdminConfig-&gt;&gt;participant_validateUrl: validateUrl()
+  participant_validateUrl--&gt;&gt;participant_normalizeAdminConfig: return
+  participant_normalizeAdminConfig-&gt;&gt;participant_validateKey: validateKey()
+  participant_validateKey--&gt;&gt;participant_normalizeAdminConfig: return
+  participant_normalizeAdminConfig--&gt;&gt;participant_createSupabaseDbAdminAdapter: return
+</pre
+                >
+              </details>
+            </article>
+            <article
+              class="item"
+              data-search="normalizeRealtimeEvent sequence diagrams/sequences/normalize-realtime-event.mmd"
+            >
+              <h3>normalizeRealtimeEvent sequence</h3>
+              <p class="muted"><code>diagrams/sequences/normalize-realtime-event.mmd</code></p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_isRecord as isRecord participant
+                participant_normalizeKind as normalizeKind participant
+                participant_normalizeRealtimeEvent as normalizeRealtimeEvent participant
+                participant_normalizeRecord as normalizeRecord
+                participant_normalizeRealtimeEvent-&gt;&gt;participant_normalizeKind:
+                normalizeKind()
+                participant_normalizeKind--&gt;&gt;participant_normalizeRealtimeEvent: return
+                participant_normalizeRealtimeEvent-&gt;&gt;participant_normalizeRecord:
+                normalizeRecord() participant_normalizeRecord-&gt;&gt;participant_isRecord:
+                isRecord() participant_isRecord--&gt;&gt;participant_normalizeRecord: return
+                participant_normalizeRecord--&gt;&gt;participant_normalizeRealtimeEvent: return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_isRecord as isRecord
+  participant participant_normalizeKind as normalizeKind
+  participant participant_normalizeRealtimeEvent as normalizeRealtimeEvent
+  participant participant_normalizeRecord as normalizeRecord
+  participant_normalizeRealtimeEvent-&gt;&gt;participant_normalizeKind: normalizeKind()
+  participant_normalizeKind--&gt;&gt;participant_normalizeRealtimeEvent: return
+  participant_normalizeRealtimeEvent-&gt;&gt;participant_normalizeRecord: normalizeRecord()
+  participant_normalizeRecord-&gt;&gt;participant_isRecord: isRecord()
+  participant_isRecord--&gt;&gt;participant_normalizeRecord: return
+  participant_normalizeRecord--&gt;&gt;participant_normalizeRealtimeEvent: return
+</pre
+                >
+              </details>
+            </article>
+          </section>
+        </section>
+        <section id="view-src-adapter-ts" class="view" data-view="src/adapter.ts" hidden>
+          <section class="panel">
+            <h2>src/adapter.ts</h2>
+            <article class="item" data-search="createSupabaseDbAdapter src/adapter.ts ">
+              <h3>createSupabaseDbAdapter</h3>
+              <p class="muted"><code>src/adapter.ts:34:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeConfig src/adapter.ts ">
+              <h3>normalizeConfig</h3>
+              <p class="muted"><code>src/adapter.ts:136:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="requestRows src/adapter.ts ">
+              <h3>requestRows</h3>
+              <p class="muted"><code>src/adapter.ts:153:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="validateRequiredFilters src/adapter.ts ">
+              <h3>validateRequiredFilters</h3>
+              <p class="muted"><code>src/adapter.ts:192:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="createHeaders src/adapter.ts ">
+              <h3>createHeaders</h3>
+              <p class="muted"><code>src/adapter.ts:211:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="readJsonBody src/adapter.ts ">
+              <h3>readJsonBody</h3>
+              <p class="muted"><code>src/adapter.ts:231:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeRecords src/adapter.ts ">
+              <h3>normalizeRecords</h3>
+              <p class="muted"><code>src/adapter.ts:245:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isRecord src/adapter.ts ">
+              <h3>isRecord</h3>
+              <p class="muted"><code>src/adapter.ts:257:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section id="view-src-admin-ts" class="view" data-view="src/admin.ts" hidden>
+          <section class="panel">
+            <h2>src/admin.ts</h2>
+            <article class="item" data-search="createSupabaseDbAdminAdapter src/admin.ts ">
+              <h3>createSupabaseDbAdminAdapter</h3>
+              <p class="muted"><code>src/admin.ts:20:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeAdminConfig src/admin.ts ">
+              <h3>normalizeAdminConfig</h3>
+              <p class="muted"><code>src/admin.ts:61:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="generateCreateCollectionSql src/admin.ts ">
+              <h3>generateCreateCollectionSql</h3>
+              <p class="muted"><code>src/admin.ts:79:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="generateDeleteCollectionSql src/admin.ts ">
+              <h3>generateDeleteCollectionSql</h3>
+              <p class="muted"><code>src/admin.ts:107:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="executeSql src/admin.ts ">
+              <h3>executeSql</h3>
+              <p class="muted"><code>src/admin.ts:125:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="formatField src/admin.ts ">
+              <h3>formatField</h3>
+              <p class="muted"><code>src/admin.ts:156:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="mapFieldType src/admin.ts ">
+              <h3>mapFieldType</h3>
+              <p class="muted"><code>src/admin.ts:166:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="formatDefaultValue src/admin.ts ">
+              <h3>formatDefaultValue</h3>
+              <p class="muted"><code>src/admin.ts:183:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="createAdminError src/admin.ts ">
+              <h3>createAdminError</h3>
+              <p class="muted"><code>src/admin.ts:199:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section id="view-src-errors-ts" class="view" data-view="src/errors.ts" hidden>
+          <section class="panel">
+            <h2>src/errors.ts</h2>
+            <article class="item" data-search="createDbError src/errors.ts ">
+              <h3>createDbError</h3>
+              <p class="muted"><code>src/errors.ts:3:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="mapNetworkError src/errors.ts ">
+              <h3>mapNetworkError</h3>
+              <p class="muted"><code>src/errors.ts:7:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="mapHttpError src/errors.ts ">
+              <h3>mapHttpError</h3>
+              <p class="muted"><code>src/errors.ts:11:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="readProviderMessage src/errors.ts ">
+              <h3>readProviderMessage</h3>
+              <p class="muted"><code>src/errors.ts:45:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isRecord src/errors.ts ">
+              <h3>isRecord</h3>
+              <p class="muted"><code>src/errors.ts:64:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section id="view-src-query-ts" class="view" data-view="src/query.ts" hidden>
+          <section class="panel">
+            <h2>src/query.ts</h2>
+            <article class="item" data-search="buildSelectUrl src/query.ts ">
+              <h3>buildSelectUrl</h3>
+              <p class="muted"><code>src/query.ts:5:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="buildMutationUrl src/query.ts ">
+              <h3>buildMutationUrl</h3>
+              <p class="muted"><code>src/query.ts:18:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="applyFilters src/query.ts ">
+              <h3>applyFilters</h3>
+              <p class="muted"><code>src/query.ts:31:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="applySort src/query.ts ">
+              <h3>applySort</h3>
+              <p class="muted"><code>src/query.ts:38:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="applyPage src/query.ts ">
+              <h3>applyPage</h3>
+              <p class="muted"><code>src/query.ts:53:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="formatColumns src/query.ts ">
+              <h3>formatColumns</h3>
+              <p class="muted"><code>src/query.ts:63:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="formatFilter src/query.ts ">
+              <h3>formatFilter</h3>
+              <p class="muted"><code>src/query.ts:71:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="formatInValue src/query.ts ">
+              <h3>formatInValue</h3>
+              <p class="muted"><code>src/query.ts:96:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="formatLikeValue src/query.ts ">
+              <h3>formatLikeValue</h3>
+              <p class="muted"><code>src/query.ts:104:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="formatValue src/query.ts ">
+              <h3>formatValue</h3>
+              <p class="muted"><code>src/query.ts:108:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section id="view-src-realtime-ts" class="view" data-view="src/realtime.ts" hidden>
+          <section class="panel">
+            <h2>src/realtime.ts</h2>
+            <article class="item" data-search="createRealtimeApi src/realtime.ts ">
+              <h3>createRealtimeApi</h3>
+              <p class="muted"><code>src/realtime.ts:20:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeRealtimeEvent src/realtime.ts ">
+              <h3>normalizeRealtimeEvent</h3>
+              <p class="muted"><code>src/realtime.ts:90:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeKind src/realtime.ts ">
+              <h3>normalizeKind</h3>
+              <p class="muted"><code>src/realtime.ts:121:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeRecord src/realtime.ts ">
+              <h3>normalizeRecord</h3>
+              <p class="muted"><code>src/realtime.ts:134:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isRecord src/realtime.ts ">
+              <h3>isRecord</h3>
+              <p class="muted"><code>src/realtime.ts:142:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section id="view-src-validation-ts" class="view" data-view="src/validation.ts" hidden>
+          <section class="panel">
+            <h2>src/validation.ts</h2>
+            <article class="item" data-search="validateUrl src/validation.ts ">
+              <h3>validateUrl</h3>
+              <p class="muted"><code>src/validation.ts:3:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="validateKey src/validation.ts ">
+              <h3>validateKey</h3>
+              <p class="muted"><code>src/validation.ts:19:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="validateIdentifier src/validation.ts ">
+              <h3>validateIdentifier</h3>
+              <p class="muted"><code>src/validation.ts:29:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="validateFilters src/validation.ts ">
+              <h3>validateFilters</h3>
+              <p class="muted"><code>src/validation.ts:43:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="quoteIdentifier src/validation.ts ">
+              <h3>quoteIdentifier</h3>
+              <p class="muted"><code>src/validation.ts:53:1</code></p>
+              <p class="empty">No description available.</p>
             </article>
           </section>
         </section>
