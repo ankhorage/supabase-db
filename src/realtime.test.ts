@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'bun:test';
+import { expect, test } from 'bun:test';
 
 import { createSupabaseDbAdapter } from './adapter.js';
 import { normalizeRealtimeEvent } from './realtime.js';
@@ -13,125 +13,121 @@ interface PostRecord {
   readonly title: string;
 }
 
-describe('normalizeRealtimeEvent', () => {
-  test('normalizes insert payloads', () => {
-    const event = normalizeRealtimeEvent<PostRecord>(
-      {
-        eventType: 'INSERT',
-        schema: 'public',
-        table: 'posts',
-        commit_timestamp: '2026-05-12T10:00:00Z',
-        new: { id: 'post-1', title: 'Hello' },
-      },
-      'fallback',
-      'public',
-    );
-
-    expect(event).toEqual({
-      table: 'posts',
+test('normalizes insert payloads', () => {
+  const event = normalizeRealtimeEvent<PostRecord>(
+    {
+      eventType: 'INSERT',
       schema: 'public',
-      kind: 'insert',
-      record: { id: 'post-1', title: 'Hello' },
-      committedAt: '2026-05-12T10:00:00Z',
-    });
-  });
-
-  test('normalizes update payloads with previous record', () => {
-    const event = normalizeRealtimeEvent<PostRecord>(
-      {
-        eventType: 'UPDATE',
-        new: { id: 'post-1', title: 'Updated' },
-        old: { id: 'post-1', title: 'Old' },
-      },
-      'posts',
-      'public',
-    );
-
-    expect(event).toEqual({
       table: 'posts',
-      schema: 'public',
-      kind: 'update',
-      record: { id: 'post-1', title: 'Updated' },
-      previousRecord: { id: 'post-1', title: 'Old' },
-      committedAt: undefined,
-    });
-  });
+      commit_timestamp: '2026-05-12T10:00:00Z',
+      new: { id: 'post-1', title: 'Hello' },
+    },
+    'fallback',
+    'public',
+  );
 
-  test('normalizes delete payloads to a null current record', () => {
-    const event = normalizeRealtimeEvent<PostRecord>(
-      {
-        eventType: 'DELETE',
-        old: { id: 'post-1', title: 'Deleted' },
-      },
-      'posts',
-      'public',
-    );
-
-    expect(event).toEqual({
-      table: 'posts',
-      schema: 'public',
-      kind: 'delete',
-      record: null,
-      previousRecord: { id: 'post-1', title: 'Deleted' },
-      committedAt: undefined,
-    });
-  });
-
-  test('ignores unknown realtime events', () => {
-    const event = normalizeRealtimeEvent<PostRecord>({ eventType: 'TRUNCATE' }, 'posts', 'public');
-
-    expect(event).toBeNull();
+  expect(event).toEqual({
+    table: 'posts',
+    schema: 'public',
+    kind: 'insert',
+    record: { id: 'post-1', title: 'Hello' },
+    committedAt: '2026-05-12T10:00:00Z',
   });
 });
 
-describe('realtime adapter capability', () => {
-  test('subscribes and cleans up collection channels', async () => {
-    const client = createFakeRealtimeClient();
-    const adapter = createSupabaseDbAdapter({
-      url: 'https://example.supabase.co',
-      anonKey: 'anon',
-      realtime: true,
-      realtimeClient: client,
-      fetch: () => Promise.resolve(new Response('[]')),
-    });
+test('normalizes update payloads with previous record', () => {
+  const event = normalizeRealtimeEvent<PostRecord>(
+    {
+      eventType: 'UPDATE',
+      new: { id: 'post-1', title: 'Updated' },
+      old: { id: 'post-1', title: 'Old' },
+    },
+    'posts',
+    'public',
+  );
 
-    const received: unknown[] = [];
-    const subscription = adapter.realtime?.subscribeToCollection<PostRecord>(
-      { table: 'posts' },
-      (event) => {
-        received.push(event);
-      },
-    );
+  expect(event).toEqual({
+    table: 'posts',
+    schema: 'public',
+    kind: 'update',
+    record: { id: 'post-1', title: 'Updated' },
+    previousRecord: { id: 'post-1', title: 'Old' },
+    committedAt: undefined,
+  });
+});
 
-    client.emit({
-      eventType: 'INSERT',
-      table: 'posts',
-      schema: 'public',
-      new: { id: '1', title: 'A' },
-    });
-    await subscription?.unsubscribe();
+test('normalizes delete payloads to a null current record', () => {
+  const event = normalizeRealtimeEvent<PostRecord>(
+    {
+      eventType: 'DELETE',
+      old: { id: 'post-1', title: 'Deleted' },
+    },
+    'posts',
+    'public',
+  );
 
-    expect(received).toHaveLength(1);
-    expect(client.removedChannels).toBe(1);
+  expect(event).toEqual({
+    table: 'posts',
+    schema: 'public',
+    kind: 'delete',
+    record: null,
+    previousRecord: { id: 'post-1', title: 'Deleted' },
+    committedAt: undefined,
+  });
+});
+
+test('ignores unknown realtime events', () => {
+  const event = normalizeRealtimeEvent<PostRecord>({ eventType: 'TRUNCATE' }, 'posts', 'public');
+
+  expect(event).toBeNull();
+});
+
+test('subscribes and cleans up collection channels', async () => {
+  const client = createFakeRealtimeClient();
+  const adapter = createSupabaseDbAdapter({
+    url: 'https://example.supabase.co',
+    anonKey: 'anon',
+    realtime: true,
+    realtimeClient: client,
+    fetch: () => Promise.resolve(new Response('[]')),
   });
 
-  test('subscribes to a specific record using a Supabase filter', () => {
-    const client = createFakeRealtimeClient();
-    const adapter = createSupabaseDbAdapter({
-      url: 'https://example.supabase.co',
-      anonKey: 'anon',
-      realtime: true,
-      realtimeClient: client,
-      fetch: () => Promise.resolve(new Response('[]')),
-    });
+  const received: unknown[] = [];
+  const subscription = adapter.realtime?.subscribeToCollection<PostRecord>(
+    { table: 'posts' },
+    (event) => {
+      received.push(event);
+    },
+  );
 
-    adapter.realtime?.subscribeToRecord<PostRecord>(
-      { table: 'posts', id: 'post-1' },
-      () => undefined,
-    );
-
-    expect(client.lastFilter?.filter).toBe('id=eq.post-1');
+  client.emit({
+    eventType: 'INSERT',
+    table: 'posts',
+    schema: 'public',
+    new: { id: '1', title: 'A' },
   });
+  await subscription?.unsubscribe();
+
+  expect(received).toHaveLength(1);
+  expect(client.removedChannels).toBe(1);
+});
+
+test('subscribes to a specific record using a Supabase filter', () => {
+  const client = createFakeRealtimeClient();
+  const adapter = createSupabaseDbAdapter({
+    url: 'https://example.supabase.co',
+    anonKey: 'anon',
+    realtime: true,
+    realtimeClient: client,
+    fetch: () => Promise.resolve(new Response('[]')),
+  });
+
+  adapter.realtime?.subscribeToRecord<PostRecord>(
+    { table: 'posts', id: 'post-1' },
+    () => undefined,
+  );
+
+  expect(client.lastFilter?.filter).toBe('id=eq.post-1');
 });
 
 function createFakeRealtimeClient(): SupabaseRealtimeClient & {

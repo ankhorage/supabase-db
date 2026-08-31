@@ -23,66 +23,13 @@ export function createRealtimeApi(config: RealtimeApiConfig): DbRealtimeAdapter[
       input: DbCollectionSubscriptionInput,
       listener: DbChangeListener<TRecord>,
     ): DbSubscription {
-      const schema = input.schema ?? config.defaultSchema;
-      const table = validateIdentifier(input.table, 'Realtime table');
-      const channel = config.client
-        .channel(`ankhorage-db:${schema}:${table}`)
-        .on(
-          'postgres_changes',
-          {
-            event: '*',
-            schema,
-            table,
-          },
-          (payload) => {
-            const event = normalizeRealtimeEvent<TRecord>(payload, table, schema);
-
-            if (event !== null) {
-              listener(event);
-            }
-          },
-        )
-        .subscribe();
-
-      return {
-        async unsubscribe(): Promise<void> {
-          await config.client.removeChannel(channel);
-        },
-      };
+      return createCollectionSubscription(config, input, listener);
     },
-
     subscribeToRecord<TRecord extends object = DbRecord>(
       input: DbRecordSubscriptionInput,
       listener: DbChangeListener<TRecord>,
     ): DbSubscription {
-      const schema = input.schema ?? config.defaultSchema;
-      const table = validateIdentifier(input.table, 'Realtime table');
-      const idField = validateIdentifier(input.idField ?? 'id', 'Realtime record id field');
-      const channel = config.client
-        .channel(`ankhorage-db:${schema}:${table}:${idField}:${String(input.id)}`)
-        .on(
-          'postgres_changes',
-          {
-            event: '*',
-            schema,
-            table,
-            filter: `${idField}=eq.${String(input.id)}`,
-          },
-          (payload) => {
-            const event = normalizeRealtimeEvent<TRecord>(payload, table, schema);
-
-            if (event !== null) {
-              listener(event);
-            }
-          },
-        )
-        .subscribe();
-
-      return {
-        async unsubscribe(): Promise<void> {
-          await config.client.removeChannel(channel);
-        },
-      };
+      return createRecordSubscription(config, input, listener);
     },
   };
 }
@@ -93,11 +40,7 @@ export function normalizeRealtimeEvent<TRecord extends object = DbRecord>(
   fallbackSchema: string,
 ): DbChangeEvent<TRecord> | null {
   const kind = normalizeKind(payload.eventType);
-
-  if (kind === null) {
-    return null;
-  }
-
+  if (kind === null) return null;
   const record = normalizeRecord<TRecord>(payload.new);
   const previousRecord = normalizeRecord<TRecord>(payload.old);
   const base = {
@@ -107,15 +50,63 @@ export function normalizeRealtimeEvent<TRecord extends object = DbRecord>(
     record: kind === 'delete' ? null : record,
     committedAt: payload.commit_timestamp,
   };
+  if (previousRecord === null) return base;
+  return { ...base, previousRecord };
+}
 
-  if (previousRecord === null) {
-    return base;
-  }
+function createCollectionSubscription<TRecord extends object>(
+  config: RealtimeApiConfig,
+  input: DbCollectionSubscriptionInput,
+  listener: DbChangeListener<TRecord>,
+): DbSubscription {
+  const schema = input.schema ?? config.defaultSchema;
+  const table = validateIdentifier(input.table, 'Realtime table');
+  return createSubscription(config, `ankhorage-db:${schema}:${table}`, schema, table, listener);
+}
 
+function createRecordSubscription<TRecord extends object>(
+  config: RealtimeApiConfig,
+  input: DbRecordSubscriptionInput,
+  listener: DbChangeListener<TRecord>,
+): DbSubscription {
+  const schema = input.schema ?? config.defaultSchema;
+  const table = validateIdentifier(input.table, 'Realtime table');
+  const idField = validateIdentifier(input.idField ?? 'id', 'Realtime record id field');
+  const id = String(input.id);
+  return createSubscription(
+    config,
+    `ankhorage-db:${schema}:${table}:${idField}:${id}`,
+    schema,
+    table,
+    listener,
+    `${idField}=eq.${id}`,
+  );
+}
+
+function createSubscription<TRecord extends object>(
+  config: RealtimeApiConfig,
+  channelName: string,
+  schema: string,
+  table: string,
+  listener: DbChangeListener<TRecord>,
+  filter?: string,
+): DbSubscription {
+  const channel = config.client
+    .channel(channelName)
+    .on('postgres_changes', { event: '*', schema, table, filter }, (payload) => {
+      const event = normalizeRealtimeEvent<TRecord>(payload, table, schema);
+      if (event !== null) listener(event);
+    })
+    .subscribe();
   return {
-    ...base,
-    previousRecord,
+    async unsubscribe(): Promise<void> {
+      await config.client.removeChannel(channel);
+    },
   };
+}
+
+function isRecord<TRecord extends object>(value: unknown): value is TRecord {
+  return typeof value === 'object' && value !== null;
 }
 
 function normalizeKind(value: string | undefined): DbChangeKind | null {
@@ -132,13 +123,5 @@ function normalizeKind(value: string | undefined): DbChangeKind | null {
 }
 
 function normalizeRecord<TRecord extends object>(value: unknown): TRecord | null {
-  if (!isRecord<TRecord>(value)) {
-    return null;
-  }
-
-  return value;
-}
-
-function isRecord<TRecord extends object>(value: unknown): value is TRecord {
-  return typeof value === 'object' && value !== null;
+  return isRecord<TRecord>(value) ? value : null;
 }

@@ -1005,8 +1005,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(payload: SupabaseRealtimePayload, fallbackTable: string, fallbackSchema: string) =&gt; DbChangeEvent&lt;TRecord&gt; | null</pre
-                  >
+(payload: SupabaseRealtimePayload, fallbackTable: string, fallbackSchema: string) =&gt; DbChangeEvent&lt;TRecord&gt; | null</pre>
                   <table>
                     <thead>
                       <tr>
@@ -1404,8 +1403,7 @@ graph TD
   package__ankhorage_supabase_db -.-&gt; module_src_types_ts
   module_src_validation_ts[&quot;src/validation.ts&quot;]
   package__ankhorage_supabase_db -.-&gt; module_src_validation_ts
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -1453,8 +1451,7 @@ graph LR
   module_src_query_ts --&gt; module_src_validation_ts
   module_src_realtime_ts --&gt; module_src_types_ts
   module_src_realtime_ts --&gt; module_src_validation_ts
-</pre
-                >
+</pre>
               </details>
             </article>
             <article class="item" data-search="Export graph diagrams/export-graph.mmd">
@@ -1612,8 +1609,7 @@ graph LR
   module_src_types_ts --&gt; export_SupabaseRealtimeClient
   export_SupabaseRealtimePayload[&quot;SupabaseRealtimePayload&quot;]
   module_src_types_ts --&gt; export_SupabaseRealtimePayload
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -1654,8 +1650,7 @@ sequenceDiagram
   participant_normalizeConfig--&gt;&gt;participant_createSupabaseDbAdapter: return
   participant_createSupabaseDbAdapter-&gt;&gt;participant_createRealtimeApi: createRealtimeApi()
   participant_createRealtimeApi--&gt;&gt;participant_createSupabaseDbAdapter: return
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -1694,8 +1689,7 @@ sequenceDiagram
   participant_normalizeAdminConfig-&gt;&gt;participant_validateKey: validateKey()
   participant_validateKey--&gt;&gt;participant_normalizeAdminConfig: return
   participant_normalizeAdminConfig--&gt;&gt;participant_createSupabaseDbAdminAdapter: return
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -1731,8 +1725,7 @@ sequenceDiagram
   participant_normalizeRecord-&gt;&gt;participant_isRecord: isRecord()
   participant_isRecord--&gt;&gt;participant_normalizeRecord: return
   participant_normalizeRecord--&gt;&gt;participant_normalizeRealtimeEvent: return
-</pre
-                >
+</pre>
               </details>
             </article>
           </section>

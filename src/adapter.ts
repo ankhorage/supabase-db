@@ -33,97 +33,8 @@ interface DbFindByIdSuccessResult<TRecord extends object> {
 
 export function createSupabaseDbAdapter(options: SupabaseDbAdapterOptions): SupabaseDbAdapter {
   const config = normalizeConfig(options);
-  const baseAdapter: DbAdapter = {
-    capabilities: {
-      transactions: false,
-      returning: true,
-      realtime: config.realtime && config.realtimeClient !== undefined,
-    },
-
-    async select<TRecord extends object = DbRecord>(
-      input: DbSelectInput,
-    ): Promise<DbResult<TRecord[]>> {
-      return requestRows<TRecord>(config, buildSelectUrl(config.url, input), {
-        method: 'GET',
-      });
-    },
-
-    async findById<TRecord extends object = DbRecord>(
-      input: DbFindByIdInput,
-    ): Promise<DbResult<TRecord | null>> {
-      const result = await requestRows<TRecord>(
-        config,
-        buildSelectUrl(config.url, {
-          table: input.table,
-          columns: input.columns,
-          filters: [{ field: input.idField ?? 'id', operator: 'eq', value: input.id }],
-          page: { limit: 1 },
-          schema: input.schema,
-        }),
-        { method: 'GET' },
-      );
-
-      if (!result.ok) {
-        return result;
-      }
-
-      const success: DbFindByIdSuccessResult<TRecord> = {
-        ok: true,
-        data: result.data[0] ?? null,
-      };
-
-      return success;
-    },
-
-    async insert<TRecord extends object = DbRecord>(
-      input: DbInsertInput<TRecord>,
-    ): Promise<DbResult<TRecord[]>> {
-      const url = buildMutationUrl(config.url, input.table, []);
-
-      return requestRows<TRecord>(config, url, {
-        method: 'POST',
-        body: JSON.stringify(input.values),
-      });
-    },
-
-    async update<TRecord extends object = DbRecord>(
-      input: DbUpdateInput<TRecord>,
-    ): Promise<DbResult<TRecord[]>> {
-      const validationError = validateRequiredFilters(input.filters, 'Update');
-
-      if (validationError !== null) {
-        return validationError;
-      }
-
-      const url = buildMutationUrl(config.url, input.table, input.filters);
-
-      return requestRows<TRecord>(config, url, {
-        method: 'PATCH',
-        body: JSON.stringify(input.values),
-      });
-    },
-
-    async delete<TRecord extends object = DbRecord>(
-      input: DbDeleteInput,
-    ): Promise<DbResult<TRecord[]>> {
-      const validationError = validateRequiredFilters(input.filters, 'Delete');
-
-      if (validationError !== null) {
-        return validationError;
-      }
-
-      const url = buildMutationUrl(config.url, input.table, input.filters);
-
-      return requestRows<TRecord>(config, url, {
-        method: 'DELETE',
-      });
-    },
-  };
-
-  if (!config.realtime || config.realtimeClient === undefined) {
-    return baseAdapter;
-  }
-
+  const baseAdapter = createBaseAdapter(config);
+  if (!config.realtime || config.realtimeClient === undefined) return baseAdapter;
   return {
     ...baseAdapter,
     realtime: createRealtimeApi({
@@ -133,13 +44,80 @@ export function createSupabaseDbAdapter(options: SupabaseDbAdapterOptions): Supa
   };
 }
 
+function createBaseAdapter(config: NormalizedConfig): DbAdapter {
+  return {
+    capabilities: {
+      transactions: false,
+      returning: true,
+      realtime: config.realtime && config.realtimeClient !== undefined,
+    },
+    select<TRecord extends object = DbRecord>(input: DbSelectInput) {
+      return selectRows<TRecord>(config, input);
+    },
+    findById<TRecord extends object = DbRecord>(input: DbFindByIdInput) {
+      return findRowById<TRecord>(config, input);
+    },
+    insert<TRecord extends object = DbRecord>(input: DbInsertInput<TRecord>) {
+      return insertRows<TRecord>(config, input);
+    },
+    update<TRecord extends object = DbRecord>(input: DbUpdateInput<TRecord>) {
+      return updateRows<TRecord>(config, input);
+    },
+    delete<TRecord extends object = DbRecord>(input: DbDeleteInput) {
+      return deleteRows<TRecord>(config, input);
+    },
+  };
+}
+
+function deleteRows<TRecord extends object>(
+  config: NormalizedConfig,
+  input: DbDeleteInput,
+): Promise<DbResult<TRecord[]>> {
+  const validationError = validateRequiredFilters(input.filters, 'Delete');
+  if (validationError !== null) return Promise.resolve(validationError);
+  const url = buildMutationUrl(config.url, input.table, input.filters);
+  return requestRows<TRecord>(config, url, { method: 'DELETE' });
+}
+
+async function findRowById<TRecord extends object>(
+  config: NormalizedConfig,
+  input: DbFindByIdInput,
+): Promise<DbResult<TRecord | null>> {
+  const result = await requestRows<TRecord>(
+    config,
+    buildSelectUrl(config.url, {
+      table: input.table,
+      columns: input.columns,
+      filters: [{ field: input.idField ?? 'id', operator: 'eq', value: input.id }],
+      page: { limit: 1 },
+      schema: input.schema,
+    }),
+    { method: 'GET' },
+  );
+  if (!result.ok) return result;
+  const success: DbFindByIdSuccessResult<TRecord> = {
+    ok: true,
+    data: result.data[0] ?? null,
+  };
+  return success;
+}
+
+function insertRows<TRecord extends object>(
+  config: NormalizedConfig,
+  input: DbInsertInput<TRecord>,
+): Promise<DbResult<TRecord[]>> {
+  const url = buildMutationUrl(config.url, input.table, []);
+  return requestRows<TRecord>(config, url, {
+    method: 'POST',
+    body: JSON.stringify(input.values),
+  });
+}
+
 function normalizeConfig(options: SupabaseDbAdapterOptions): NormalizedConfig {
   const fetchImplementation = options.fetch ?? globalThis.fetch;
-
   if (typeof fetchImplementation !== 'function') {
     throw new TypeError('A fetch implementation is required to use Supabase Database.');
   }
-
   return {
     url: validateUrl(options.url),
     anonKey: validateKey(options.anonKey, 'Supabase anon key'),
@@ -161,13 +139,8 @@ async function requestRows<TRecord extends object>(
       headers: createHeaders(config, init.headers),
     });
     const body = await readJsonBody(response);
-
-    if (!response.ok) {
-      return { ok: false, error: mapHttpError(response.status, body) };
-    }
-
+    if (!response.ok) return { ok: false, error: mapHttpError(response.status, body) };
     const records = normalizeRecords<TRecord>(body);
-
     if (records === null) {
       return {
         ok: false,
@@ -178,15 +151,33 @@ async function requestRows<TRecord extends object>(
         ),
       };
     }
-
     return { ok: true, data: records };
   } catch (error) {
     if (error instanceof TypeError) {
       return { ok: false, error: createDbError('validation_error', error.message, error) };
     }
-
     return { ok: false, error: mapNetworkError(error) };
   }
+}
+
+function selectRows<TRecord extends object>(
+  config: NormalizedConfig,
+  input: DbSelectInput,
+): Promise<DbResult<TRecord[]>> {
+  return requestRows<TRecord>(config, buildSelectUrl(config.url, input), { method: 'GET' });
+}
+
+function updateRows<TRecord extends object>(
+  config: NormalizedConfig,
+  input: DbUpdateInput<TRecord>,
+): Promise<DbResult<TRecord[]>> {
+  const validationError = validateRequiredFilters(input.filters, 'Update');
+  if (validationError !== null) return Promise.resolve(validationError);
+  const url = buildMutationUrl(config.url, input.table, input.filters);
+  return requestRows<TRecord>(config, url, {
+    method: 'PATCH',
+    body: JSON.stringify(input.values),
+  });
 }
 
 function validateRequiredFilters(
@@ -213,28 +204,21 @@ function createHeaders(
   existingHeaders: HeadersInit | undefined,
 ): Headers {
   const headers = new Headers(existingHeaders);
-
   headers.set('apikey', config.anonKey);
   headers.set('Authorization', `Bearer ${config.anonKey}`);
   headers.set('Accept', 'application/json');
   headers.set('Content-Type', 'application/json');
   headers.set('Prefer', 'return=representation');
-
   if (config.schema !== 'public') {
     headers.set('Accept-Profile', config.schema);
     headers.set('Content-Profile', config.schema);
   }
-
   return headers;
 }
 
 async function readJsonBody(response: Response): Promise<unknown> {
   const text = await response.text();
-
-  if (text.trim().length === 0) {
-    return [];
-  }
-
+  if (text.trim().length === 0) return [];
   try {
     return JSON.parse(text);
   } catch {
@@ -243,14 +227,8 @@ async function readJsonBody(response: Response): Promise<unknown> {
 }
 
 function normalizeRecords<TRecord extends object>(value: unknown): TRecord[] | null {
-  if (Array.isArray(value)) {
-    return value.filter(isRecord<TRecord>);
-  }
-
-  if (isRecord<TRecord>(value)) {
-    return [value];
-  }
-
+  if (Array.isArray(value)) return value.filter(isRecord<TRecord>);
+  if (isRecord<TRecord>(value)) return [value];
   return null;
 }
 
