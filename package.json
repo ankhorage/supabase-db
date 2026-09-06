@@ -1,7 +1,7 @@
 {
   "name": "@ankhorage/supabase-db",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Supabase database adapter for Ankhorage contracts with CRUD, schema management, and optional realtime support.",
   "homepage": "https://github.com/ankhorage/supabase-db#readme",
   "bugs": {
