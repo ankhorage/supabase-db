@@ -16,13 +16,14 @@
     "url": "git+https://github.com/ankhorage/supabase-db.git"
   },
   "keywords": [
-    "typescript",
-    "supabase",
+    "adapter",
+    "ankhorage",
+    "crud",
     "database",
     "postgres",
-    "crud",
     "realtime",
-    "adapter"
+    "supabase",
+    "typescript"
   ],
   "dependencies": {
     "@ankhorage/contracts": "^12.0.1"
