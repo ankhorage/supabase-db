@@ -11,8 +11,13 @@
       "line": 34,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["SupabaseDbAdapter", "SupabaseDbAdapterOptions"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "SupabaseDbAdapter",
+      "SupabaseDbAdapterOptions"
+    ],
     "signatures": [
       {
         "label": "(options: SupabaseDbAdapterOptions) => SupabaseDbAdapter",
@@ -43,8 +48,13 @@
       "line": 20,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["DbAdminAdapter", "SupabaseDbAdminAdapterOptions"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DbAdminAdapter",
+      "SupabaseDbAdminAdapterOptions"
+    ],
     "signatures": [
       {
         "label": "(options: SupabaseDbAdminAdapterOptions) => DbAdminAdapter",
@@ -75,8 +85,14 @@
       "line": 125,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["DbAdminResult", "DbCollectionDefinition", "DbCollectionReference"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DbAdminResult",
+      "DbCollectionDefinition",
+      "DbCollectionReference"
+    ],
     "signatures": [],
     "members": [
       {
@@ -129,7 +145,9 @@
       "line": 113,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -147,7 +165,9 @@
       "line": 57,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -165,8 +185,12 @@
       "line": 72,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["DbChangeKind"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DbChangeKind"
+    ],
     "signatures": [],
     "members": [
       {
@@ -226,7 +250,9 @@
       "line": 71,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -244,7 +270,9 @@
       "line": 80,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -262,8 +290,12 @@
       "line": 103,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["DbFieldDefinition"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DbFieldDefinition"
+    ],
     "signatures": [],
     "members": [
       {
@@ -309,7 +341,9 @@
       "line": 109,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -342,7 +376,9 @@
       "line": 84,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -360,8 +396,12 @@
       "line": 96,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["DbFieldType"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DbFieldType"
+    ],
     "signatures": [],
     "members": [
       {
@@ -414,7 +454,9 @@
       "line": 95,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -432,7 +474,9 @@
       "line": 89,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [
       "DbChangeListener",
       "DbCollectionSubscriptionInput",
@@ -463,7 +507,9 @@
       "line": 85,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -510,7 +556,9 @@
       "line": 81,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -533,11 +581,16 @@
     "modulePath": "src/realtime.ts",
     "sourceLocation": {
       "filePath": "src/realtime.ts",
-      "line": 90,
+      "line": 37,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["DbChangeEvent", "SupabaseRealtimePayload"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DbChangeEvent",
+      "SupabaseRealtimePayload"
+    ],
     "signatures": [
       {
         "label": "(payload: SupabaseRealtimePayload, fallbackTable: string, fallbackSchema: string) => DbChangeEvent<TRecord> | null",
@@ -580,7 +633,9 @@
       "line": 68,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -598,8 +653,12 @@
       "line": 40,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["SupabaseRealtimeClient"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "SupabaseRealtimeClient"
+    ],
     "signatures": [],
     "members": [
       {
@@ -659,7 +718,9 @@
       "line": 69,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -677,8 +738,12 @@
       "line": 49,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["DbAdminSqlExecutionResult"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DbAdminSqlExecutionResult"
+    ],
     "signatures": [],
     "members": [
       {
@@ -731,7 +796,9 @@
       "line": 25,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -764,7 +831,9 @@
       "line": 30,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [

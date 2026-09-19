@@ -3,7 +3,7 @@
 
 # @ankhorage/supabase-db
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v0.3.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v1.0.12](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
 
 Provider-neutral Supabase database adapter exposing typed CRUD, schema management, and realtime subscriptions.
 
@@ -18,42 +18,3 @@ Provider-neutral Supabase database adapter exposing typed CRUD, schema managemen
 - [createSupabaseDbAdapter sequence](././paradox/diagrams/sequences/create-supabase-db-adapter.mmd)
 - [createSupabaseDbAdminAdapter sequence](././paradox/diagrams/sequences/create-supabase-db-admin-adapter.mmd)
 - [normalizeRealtimeEvent sequence](././paradox/diagrams/sequences/normalize-realtime-event.mmd)
-
-## Architecture preview
-
-<details>
-<summary>Architecture overview</summary>
-
-```mermaid
-graph TD
-  package__ankhorage_supabase_db["@ankhorage/supabase-db"]
-  entrypoint_src_index_ts["src/index.ts"]
-  package__ankhorage_supabase_db --> entrypoint_src_index_ts
-  module_src_adapter_ts["src/adapter.ts"]
-  package__ankhorage_supabase_db -.-> module_src_adapter_ts
-  module_src_adapter_ts --> module_src_errors_ts
-  module_src_adapter_ts --> module_src_query_ts
-  module_src_adapter_ts --> module_src_realtime_ts
-  module_src_adapter_ts --> module_src_types_ts
-  module_src_adapter_ts --> module_src_validation_ts
-  module_src_admin_ts["src/admin.ts"]
-  package__ankhorage_supabase_db -.-> module_src_admin_ts
-  module_src_admin_ts --> module_src_types_ts
-  module_src_admin_ts --> module_src_validation_ts
-  module_src_errors_ts["src/errors.ts"]
-  package__ankhorage_supabase_db -.-> module_src_errors_ts
-  module_src_index_ts["src/index.ts"]
-  module_src_query_ts["src/query.ts"]
-  package__ankhorage_supabase_db -.-> module_src_query_ts
-  module_src_query_ts --> module_src_validation_ts
-  module_src_realtime_ts["src/realtime.ts"]
-  package__ankhorage_supabase_db -.-> module_src_realtime_ts
-  module_src_realtime_ts --> module_src_types_ts
-  module_src_realtime_ts --> module_src_validation_ts
-  module_src_types_ts["src/types.ts"]
-  package__ankhorage_supabase_db -.-> module_src_types_ts
-  module_src_validation_ts["src/validation.ts"]
-  package__ankhorage_supabase_db -.-> module_src_validation_ts
-```
-
-</details>

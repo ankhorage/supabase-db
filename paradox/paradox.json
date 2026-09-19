@@ -2,6 +2,8 @@
   "packageName": "@ankhorage/supabase-db",
   "packageId": "@ankhorage/supabase-db",
   "description": "Provider-neutral Supabase database adapter exposing typed CRUD, schema management, and realtime subscriptions.",
+  "collaborators": null,
+  "donation": null,
   "badges": [
     {
       "id": "license",
@@ -12,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.3.0",
+      "value": "v1.0.12",
       "color": "cb3837"
     },
     {
@@ -59,8 +61,14 @@
     }
   ],
   "usage": null,
+  "readmeUsageDescription": null,
+  "readmeUsage": [],
+  "readmeCli": null,
+  "readmeConfig": null,
   "config": null,
-  "entrypoints": ["src/index.ts"],
+  "entrypoints": [
+    "src/index.ts"
+  ],
   "modules": [
     {
       "path": "src/adapter.ts",
@@ -72,19 +80,30 @@
         "src/types.ts",
         "src/validation.ts"
       ],
-      "exports": ["createSupabaseDbAdapter"]
+      "exports": [
+        "createSupabaseDbAdapter"
+      ]
     },
     {
       "path": "src/admin.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/types.ts", "src/validation.ts"],
-      "exports": ["createSupabaseDbAdminAdapter"]
+      "dependencies": [
+        "src/types.ts",
+        "src/validation.ts"
+      ],
+      "exports": [
+        "createSupabaseDbAdminAdapter"
+      ]
     },
     {
       "path": "src/errors.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": ["createDbError", "mapHttpError", "mapNetworkError"]
+      "exports": [
+        "createDbError",
+        "mapHttpError",
+        "mapNetworkError"
+      ]
     },
     {
       "path": "src/index.ts",
@@ -119,14 +138,25 @@
     {
       "path": "src/query.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/validation.ts"],
-      "exports": ["buildMutationUrl", "buildSelectUrl"]
+      "dependencies": [
+        "src/validation.ts"
+      ],
+      "exports": [
+        "buildMutationUrl",
+        "buildSelectUrl"
+      ]
     },
     {
       "path": "src/realtime.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/types.ts", "src/validation.ts"],
-      "exports": ["createRealtimeApi", "normalizeRealtimeEvent"]
+      "dependencies": [
+        "src/types.ts",
+        "src/validation.ts"
+      ],
+      "exports": [
+        "createRealtimeApi",
+        "normalizeRealtimeEvent"
+      ]
     },
     {
       "path": "src/types.ts",
@@ -169,8 +199,13 @@
         "line": 34,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["SupabaseDbAdapter", "SupabaseDbAdapterOptions"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "SupabaseDbAdapter",
+        "SupabaseDbAdapterOptions"
+      ],
       "signatures": [
         {
           "label": "(options: SupabaseDbAdapterOptions) => SupabaseDbAdapter",
@@ -201,8 +236,13 @@
         "line": 20,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DbAdminAdapter", "SupabaseDbAdminAdapterOptions"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DbAdminAdapter",
+        "SupabaseDbAdminAdapterOptions"
+      ],
       "signatures": [
         {
           "label": "(options: SupabaseDbAdminAdapterOptions) => DbAdminAdapter",
@@ -233,8 +273,14 @@
         "line": 125,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DbAdminResult", "DbCollectionDefinition", "DbCollectionReference"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DbAdminResult",
+        "DbCollectionDefinition",
+        "DbCollectionReference"
+      ],
       "signatures": [],
       "members": [
         {
@@ -287,7 +333,9 @@
         "line": 113,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -305,7 +353,9 @@
         "line": 57,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -323,8 +373,12 @@
         "line": 72,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DbChangeKind"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DbChangeKind"
+      ],
       "signatures": [],
       "members": [
         {
@@ -384,7 +438,9 @@
         "line": 71,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -402,7 +458,9 @@
         "line": 80,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -420,8 +478,12 @@
         "line": 103,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DbFieldDefinition"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DbFieldDefinition"
+      ],
       "signatures": [],
       "members": [
         {
@@ -467,7 +529,9 @@
         "line": 109,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -500,7 +564,9 @@
         "line": 84,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -518,8 +584,12 @@
         "line": 96,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DbFieldType"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DbFieldType"
+      ],
       "signatures": [],
       "members": [
         {
@@ -572,7 +642,9 @@
         "line": 95,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -590,7 +662,9 @@
         "line": 89,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [
         "DbChangeListener",
         "DbCollectionSubscriptionInput",
@@ -621,7 +695,9 @@
         "line": 85,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -668,7 +744,9 @@
         "line": 81,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -691,11 +769,16 @@
       "modulePath": "src/realtime.ts",
       "sourceLocation": {
         "filePath": "src/realtime.ts",
-        "line": 90,
+        "line": 37,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DbChangeEvent", "SupabaseRealtimePayload"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DbChangeEvent",
+        "SupabaseRealtimePayload"
+      ],
       "signatures": [
         {
           "label": "(payload: SupabaseRealtimePayload, fallbackTable: string, fallbackSchema: string) => DbChangeEvent<TRecord> | null",
@@ -738,7 +821,9 @@
         "line": 68,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -756,8 +841,12 @@
         "line": 40,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["SupabaseRealtimeClient"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "SupabaseRealtimeClient"
+      ],
       "signatures": [],
       "members": [
         {
@@ -817,7 +906,9 @@
         "line": 69,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
@@ -835,8 +926,12 @@
         "line": 49,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
-      "relatedSymbols": ["DbAdminSqlExecutionResult"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DbAdminSqlExecutionResult"
+      ],
       "signatures": [],
       "members": [
         {
@@ -889,7 +984,9 @@
         "line": 25,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -922,7 +1019,9 @@
         "line": 30,
         "column": 1
       },
-      "exportPaths": ["src/index.ts"],
+      "exportPaths": [
+        "src/index.ts"
+      ],
       "relatedSymbols": [],
       "signatures": [],
       "members": [
@@ -991,11 +1090,47 @@
       }
     },
     {
+      "name": "createBaseAdapter",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 47,
+        "column": 1
+      }
+    },
+    {
+      "name": "deleteRows",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 72,
+        "column": 1
+      }
+    },
+    {
+      "name": "findRowById",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 82,
+        "column": 1
+      }
+    },
+    {
+      "name": "insertRows",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 105,
+        "column": 1
+      }
+    },
+    {
       "name": "normalizeConfig",
       "description": null,
       "sourceLocation": {
         "filePath": "src/adapter.ts",
-        "line": 136,
+        "line": 116,
         "column": 1
       }
     },
@@ -1004,7 +1139,25 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/adapter.ts",
-        "line": 153,
+        "line": 131,
+        "column": 1
+      }
+    },
+    {
+      "name": "selectRows",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 163,
+        "column": 1
+      }
+    },
+    {
+      "name": "updateRows",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/adapter.ts",
+        "line": 170,
         "column": 1
       }
     },
@@ -1013,7 +1166,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/adapter.ts",
-        "line": 192,
+        "line": 183,
         "column": 1
       }
     },
@@ -1022,7 +1175,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/adapter.ts",
-        "line": 211,
+        "line": 202,
         "column": 1
       }
     },
@@ -1031,7 +1184,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/adapter.ts",
-        "line": 231,
+        "line": 219,
         "column": 1
       }
     },
@@ -1040,7 +1193,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/adapter.ts",
-        "line": 245,
+        "line": 229,
         "column": 1
       }
     },
@@ -1049,7 +1202,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/adapter.ts",
-        "line": 257,
+        "line": 235,
         "column": 1
       }
     },
@@ -1283,25 +1436,34 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/realtime.ts",
-        "line": 90,
+        "line": 37,
         "column": 1
       }
     },
     {
-      "name": "normalizeKind",
+      "name": "createCollectionSubscription",
       "description": null,
       "sourceLocation": {
         "filePath": "src/realtime.ts",
-        "line": 121,
+        "line": 57,
         "column": 1
       }
     },
     {
-      "name": "normalizeRecord",
+      "name": "createRecordSubscription",
       "description": null,
       "sourceLocation": {
         "filePath": "src/realtime.ts",
-        "line": 134,
+        "line": 67,
+        "column": 1
+      }
+    },
+    {
+      "name": "createSubscription",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/realtime.ts",
+        "line": 86,
         "column": 1
       }
     },
@@ -1310,7 +1472,25 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/realtime.ts",
-        "line": 142,
+        "line": 108,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeKind",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/realtime.ts",
+        "line": 112,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/realtime.ts",
+        "line": 125,
         "column": 1
       }
     },
@@ -1467,81 +1647,87 @@
         "sourcePath": "src/adapter.ts"
       },
       {
-        "fromSymbol": "select",
-        "toSymbol": "requestRows",
-        "callExpression": "requestRows",
-        "sourcePath": "src/adapter.ts"
-      },
-      {
-        "fromSymbol": "select",
-        "toSymbol": "buildSelectUrl",
-        "callExpression": "buildSelectUrl",
-        "sourcePath": "src/adapter.ts"
-      },
-      {
-        "fromSymbol": "findById",
-        "toSymbol": "requestRows",
-        "callExpression": "requestRows",
-        "sourcePath": "src/adapter.ts"
-      },
-      {
-        "fromSymbol": "findById",
-        "toSymbol": "buildSelectUrl",
-        "callExpression": "buildSelectUrl",
-        "sourcePath": "src/adapter.ts"
-      },
-      {
-        "fromSymbol": "insert",
-        "toSymbol": "buildMutationUrl",
-        "callExpression": "buildMutationUrl",
-        "sourcePath": "src/adapter.ts"
-      },
-      {
-        "fromSymbol": "insert",
-        "toSymbol": "requestRows",
-        "callExpression": "requestRows",
-        "sourcePath": "src/adapter.ts"
-      },
-      {
-        "fromSymbol": "update",
-        "toSymbol": "validateRequiredFilters",
-        "callExpression": "validateRequiredFilters",
-        "sourcePath": "src/adapter.ts"
-      },
-      {
-        "fromSymbol": "update",
-        "toSymbol": "buildMutationUrl",
-        "callExpression": "buildMutationUrl",
-        "sourcePath": "src/adapter.ts"
-      },
-      {
-        "fromSymbol": "update",
-        "toSymbol": "requestRows",
-        "callExpression": "requestRows",
-        "sourcePath": "src/adapter.ts"
-      },
-      {
-        "fromSymbol": "delete",
-        "toSymbol": "validateRequiredFilters",
-        "callExpression": "validateRequiredFilters",
-        "sourcePath": "src/adapter.ts"
-      },
-      {
-        "fromSymbol": "delete",
-        "toSymbol": "buildMutationUrl",
-        "callExpression": "buildMutationUrl",
-        "sourcePath": "src/adapter.ts"
-      },
-      {
-        "fromSymbol": "delete",
-        "toSymbol": "requestRows",
-        "callExpression": "requestRows",
+        "fromSymbol": "createSupabaseDbAdapter",
+        "toSymbol": "createBaseAdapter",
+        "callExpression": "createBaseAdapter",
         "sourcePath": "src/adapter.ts"
       },
       {
         "fromSymbol": "createSupabaseDbAdapter",
         "toSymbol": "createRealtimeApi",
         "callExpression": "createRealtimeApi",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "select",
+        "toSymbol": "selectRows",
+        "callExpression": "selectRows",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "findById",
+        "toSymbol": "findRowById",
+        "callExpression": "findRowById",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "insert",
+        "toSymbol": "insertRows",
+        "callExpression": "insertRows",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "update",
+        "toSymbol": "updateRows",
+        "callExpression": "updateRows",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "delete",
+        "toSymbol": "deleteRows",
+        "callExpression": "deleteRows",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "deleteRows",
+        "toSymbol": "validateRequiredFilters",
+        "callExpression": "validateRequiredFilters",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "deleteRows",
+        "toSymbol": "buildMutationUrl",
+        "callExpression": "buildMutationUrl",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "deleteRows",
+        "toSymbol": "requestRows",
+        "callExpression": "requestRows",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "findRowById",
+        "toSymbol": "requestRows",
+        "callExpression": "requestRows",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "findRowById",
+        "toSymbol": "buildSelectUrl",
+        "callExpression": "buildSelectUrl",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "insertRows",
+        "toSymbol": "buildMutationUrl",
+        "callExpression": "buildMutationUrl",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "insertRows",
+        "toSymbol": "requestRows",
+        "callExpression": "requestRows",
         "sourcePath": "src/adapter.ts"
       },
       {
@@ -1596,6 +1782,36 @@
         "fromSymbol": "requestRows",
         "toSymbol": "mapNetworkError",
         "callExpression": "mapNetworkError",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "selectRows",
+        "toSymbol": "requestRows",
+        "callExpression": "requestRows",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "selectRows",
+        "toSymbol": "buildSelectUrl",
+        "callExpression": "buildSelectUrl",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "updateRows",
+        "toSymbol": "validateRequiredFilters",
+        "callExpression": "validateRequiredFilters",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "updateRows",
+        "toSymbol": "buildMutationUrl",
+        "callExpression": "buildMutationUrl",
+        "sourcePath": "src/adapter.ts"
+      },
+      {
+        "fromSymbol": "updateRows",
+        "toSymbol": "requestRows",
+        "callExpression": "requestRows",
         "sourcePath": "src/adapter.ts"
       },
       {
@@ -1846,26 +2062,68 @@
       },
       {
         "fromSymbol": "subscribeToCollection",
+        "toSymbol": "createCollectionSubscription",
+        "callExpression": "createCollectionSubscription",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "subscribeToRecord",
+        "toSymbol": "createRecordSubscription",
+        "callExpression": "createRecordSubscription",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "normalizeRealtimeEvent",
+        "toSymbol": "normalizeKind",
+        "callExpression": "normalizeKind",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "normalizeRealtimeEvent",
+        "toSymbol": "normalizeRecord",
+        "callExpression": "normalizeRecord",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "createCollectionSubscription",
         "toSymbol": "validateIdentifier",
         "callExpression": "validateIdentifier",
         "sourcePath": "src/realtime.ts"
       },
       {
-        "fromSymbol": "subscribeToCollection",
+        "fromSymbol": "createCollectionSubscription",
+        "toSymbol": "createSubscription",
+        "callExpression": "createSubscription",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "createRecordSubscription",
+        "toSymbol": "validateIdentifier",
+        "callExpression": "validateIdentifier",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "createRecordSubscription",
+        "toSymbol": "createSubscription",
+        "callExpression": "createSubscription",
+        "sourcePath": "src/realtime.ts"
+      },
+      {
+        "fromSymbol": "createSubscription",
         "toSymbol": "subscribe",
-        "callExpression": "config.client\n        .channel(`ankhorage-db:${schema}:${table}`)\n        .on(\n          'postgres_changes',\n          {\n            event: '*',\n            schema,\n            table,\n          },\n          (payload) => {\n            const event = normalizeRealtimeEvent<TRecord>(payload, table, schema);\n\n            if (event !== null) {\n              listener(event);\n            }\n          },\n        )\n        .subscribe",
+        "callExpression": "config.client\n    .channel(channelName)\n    .on('postgres_changes', { event: '*', schema, table, filter }, (payload) => {\n      const event = normalizeRealtimeEvent<TRecord>(payload, table, schema);\n      if (event !== null) listener(event);\n    })\n    .subscribe",
         "sourcePath": "src/realtime.ts"
       },
       {
-        "fromSymbol": "subscribeToCollection",
+        "fromSymbol": "createSubscription",
         "toSymbol": "on",
-        "callExpression": "config.client\n        .channel(`ankhorage-db:${schema}:${table}`)\n        .on",
+        "callExpression": "config.client\n    .channel(channelName)\n    .on",
         "sourcePath": "src/realtime.ts"
       },
       {
-        "fromSymbol": "subscribeToCollection",
+        "fromSymbol": "createSubscription",
         "toSymbol": "channel",
-        "callExpression": "config.client\n        .channel",
+        "callExpression": "config.client\n    .channel",
         "sourcePath": "src/realtime.ts"
       },
       {
@@ -1884,42 +2142,6 @@
         "fromSymbol": "unsubscribe",
         "toSymbol": "removeChannel",
         "callExpression": "config.client.removeChannel",
-        "sourcePath": "src/realtime.ts"
-      },
-      {
-        "fromSymbol": "subscribeToRecord",
-        "toSymbol": "validateIdentifier",
-        "callExpression": "validateIdentifier",
-        "sourcePath": "src/realtime.ts"
-      },
-      {
-        "fromSymbol": "subscribeToRecord",
-        "toSymbol": "subscribe",
-        "callExpression": "config.client\n        .channel(`ankhorage-db:${schema}:${table}:${idField}:${String(input.id)}`)\n        .on(\n          'postgres_changes',\n          {\n            event: '*',\n            schema,\n            table,\n            filter: `${idField}=eq.${String(input.id)}`,\n          },\n          (payload) => {\n            const event = normalizeRealtimeEvent<TRecord>(payload, table, schema);\n\n            if (event !== null) {\n              listener(event);\n            }\n          },\n        )\n        .subscribe",
-        "sourcePath": "src/realtime.ts"
-      },
-      {
-        "fromSymbol": "subscribeToRecord",
-        "toSymbol": "on",
-        "callExpression": "config.client\n        .channel(`ankhorage-db:${schema}:${table}:${idField}:${String(input.id)}`)\n        .on",
-        "sourcePath": "src/realtime.ts"
-      },
-      {
-        "fromSymbol": "subscribeToRecord",
-        "toSymbol": "channel",
-        "callExpression": "config.client\n        .channel",
-        "sourcePath": "src/realtime.ts"
-      },
-      {
-        "fromSymbol": "normalizeRealtimeEvent",
-        "toSymbol": "normalizeKind",
-        "callExpression": "normalizeKind",
-        "sourcePath": "src/realtime.ts"
-      },
-      {
-        "fromSymbol": "normalizeRealtimeEvent",
-        "toSymbol": "normalizeRecord",
-        "callExpression": "normalizeRecord",
         "sourcePath": "src/realtime.ts"
       },
       {

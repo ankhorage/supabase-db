@@ -32,13 +32,13 @@ Source: `node_modules/@ankhorage/contracts/dist/db.d.ts:125:1`
 
 ### Members
 
-| Name                        | Kind     | Type                                                        | Required | Description |
-| --------------------------- | -------- | ----------------------------------------------------------- | -------- | ----------- |
-| capabilities                | property | `DbAdminAdapterCapabilities`                                | yes      |             |
-| createCollection            | method   | `(input: DbCollectionDefinition) => Promise<DbAdminResult>` | yes      |             |
-| deleteCollection            | method   | `(input: DbCollectionReference) => Promise<DbAdminResult>`  | yes      |             |
-| generateCreateCollectionSql | method   | `(input: DbCollectionDefinition) => DbAdminResult`          | yes      |             |
-| generateDeleteCollectionSql | method   | `(input: DbCollectionReference) => DbAdminResult`           | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `DbAdminAdapterCapabilities` | yes |  |
+| createCollection | method | `(input: DbCollectionDefinition) => Promise<DbAdminResult>` | yes |  |
+| deleteCollection | method | `(input: DbCollectionReference) => Promise<DbAdminResult>` | yes |  |
+| generateCreateCollectionSql | method | `(input: DbCollectionDefinition) => DbAdminResult` | yes |  |
+| generateDeleteCollectionSql | method | `(input: DbCollectionReference) => DbAdminResult` | yes |  |
 
 ## DbAdminResult
 
@@ -60,14 +60,14 @@ Source: `node_modules/@ankhorage/contracts/dist/db.d.ts:72:1`
 
 ### Members
 
-| Name           | Kind     | Type                   | Required | Description |
-| -------------- | -------- | ---------------------- | -------- | ----------- |
-| committedAt    | property | `string \| undefined`  | no       |             |
-| kind           | property | `DbChangeKind`         | yes      |             |
-| previousRecord | property | `TRecord \| undefined` | no       |             |
-| record         | property | `TRecord \| null`      | yes      |             |
-| schema         | property | `string \| undefined`  | no       |             |
-| table          | property | `string`               | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| committedAt | property | `string \| undefined` | no |  |
+| kind | property | `DbChangeKind` | yes |  |
+| previousRecord | property | `TRecord \| undefined` | no |  |
+| record | property | `TRecord \| null` | yes |  |
+| schema | property | `string \| undefined` | no |  |
+| table | property | `string` | yes |  |
 
 ## DbChangeKind
 
@@ -89,12 +89,12 @@ Source: `node_modules/@ankhorage/contracts/dist/db.d.ts:103:1`
 
 ### Members
 
-| Name       | Kind     | Type                           | Required | Description |
-| ---------- | -------- | ------------------------------ | -------- | ----------- |
-| fields     | property | `readonly DbFieldDefinition[]` | yes      |             |
-| name       | property | `string`                       | yes      |             |
-| primaryKey | property | `string \| undefined`          | no       |             |
-| schema     | property | `string \| undefined`          | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| fields | property | `readonly DbFieldDefinition[]` | yes |  |
+| name | property | `string` | yes |  |
+| primaryKey | property | `string \| undefined` | no |  |
+| schema | property | `string \| undefined` | no |  |
 
 ## DbCollectionReference
 
@@ -104,10 +104,10 @@ Source: `node_modules/@ankhorage/contracts/dist/db.d.ts:109:1`
 
 ### Members
 
-| Name   | Kind     | Type                  | Required | Description |
-| ------ | -------- | --------------------- | -------- | ----------- |
-| name   | property | `string`              | yes      |             |
-| schema | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| name | property | `string` | yes |  |
+| schema | property | `string \| undefined` | no |  |
 
 ## DbCollectionSubscriptionInput
 
@@ -123,13 +123,13 @@ Source: `node_modules/@ankhorage/contracts/dist/db.d.ts:96:1`
 
 ### Members
 
-| Name         | Kind     | Type                                               | Required | Description |
-| ------------ | -------- | -------------------------------------------------- | -------- | ----------- |
-| defaultValue | property | `string \| number \| boolean \| null \| undefined` | no       |             |
-| name         | property | `string`                                           | yes      |             |
-| required     | property | `boolean \| undefined`                             | no       |             |
-| type         | property | `DbFieldType`                                      | yes      |             |
-| unique       | property | `boolean \| undefined`                             | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| defaultValue | property | `string \| number \| boolean \| null \| undefined` | no |  |
+| name | property | `string` | yes |  |
+| required | property | `boolean \| undefined` | no |  |
+| type | property | `DbFieldType` | yes |  |
+| unique | property | `boolean \| undefined` | no |  |
 
 ## DbFieldType
 
@@ -145,9 +145,9 @@ Source: `node_modules/@ankhorage/contracts/dist/db.d.ts:89:1`
 
 ### Members
 
-| Name     | Kind     | Type                                                                                                                                                                                                                                                                                                    | Required | Description |
-| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| realtime | property | `{ subscribeToCollection<TRecord extends object = DbRecord>(input: DbCollectionSubscriptionInput, listener: DbChangeListener<TRecord>): DbSubscription; subscribeToRecord<TRecord extends object = DbRecord>(input: DbRecordSubscriptionInput, listener: DbChangeListener<TRecord>): DbSubscription; }` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| realtime | property | `{ subscribeToCollection<TRecord extends object = DbRecord>(input: DbCollectionSubscriptionInput, listener: DbChangeListener<TRecord>): DbSubscription; subscribeToRecord<TRecord extends object = DbRecord>(input: DbRecordSubscriptionInput, listener: DbChangeListener<TRecord>): DbSubscription; }` | yes |  |
 
 ## DbRecordSubscriptionInput
 
@@ -157,12 +157,12 @@ Source: `node_modules/@ankhorage/contracts/dist/db.d.ts:85:1`
 
 ### Members
 
-| Name    | Kind     | Type                  | Required | Description |
-| ------- | -------- | --------------------- | -------- | ----------- |
-| id      | property | `string \| number`    | yes      |             |
-| idField | property | `string \| undefined` | no       |             |
-| schema  | property | `string \| undefined` | no       |             |
-| table   | property | `string`              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| id | property | `string \| number` | yes |  |
+| idField | property | `string \| undefined` | no |  |
+| schema | property | `string \| undefined` | no |  |
+| table | property | `string` | yes |  |
 
 ## DbSubscription
 
@@ -172,15 +172,15 @@ Source: `node_modules/@ankhorage/contracts/dist/db.d.ts:81:1`
 
 ### Members
 
-| Name        | Kind   | Type                          | Required | Description |
-| ----------- | ------ | ----------------------------- | -------- | ----------- |
-| unsubscribe | method | `() => Promise<void> \| void` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| unsubscribe | method | `() => Promise<void> \| void` | yes |  |
 
 ## normalizeRealtimeEvent
 
 Kind: `function`
 Module: `src/realtime.ts`
-Source: `src/realtime.ts:90:1`
+Source: `src/realtime.ts:37:1`
 
 ### Signatures
 
@@ -204,14 +204,14 @@ Source: `src/types.ts:40:1`
 
 ### Members
 
-| Name           | Kind     | Type                                  | Required | Description |
-| -------------- | -------- | ------------------------------------- | -------- | ----------- |
-| anonKey        | property | `string`                              | yes      |             |
-| fetch          | property | `typeof fetch \| undefined`           | no       |             |
-| realtime       | property | `boolean \| undefined`                | no       |             |
-| realtimeClient | property | `SupabaseRealtimeClient \| undefined` | no       |             |
-| schema         | property | `string \| undefined`                 | no       |             |
-| url            | property | `string`                              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| anonKey | property | `string` | yes |  |
+| fetch | property | `typeof fetch \| undefined` | no |  |
+| realtime | property | `boolean \| undefined` | no |  |
+| realtimeClient | property | `SupabaseRealtimeClient \| undefined` | no |  |
+| schema | property | `string \| undefined` | no |  |
+| url | property | `string` | yes |  |
 
 ## SupabaseDbAdminAdapter
 
@@ -227,13 +227,13 @@ Source: `src/types.ts:49:1`
 
 ### Members
 
-| Name           | Kind     | Type                                                                 | Required | Description |
-| -------------- | -------- | -------------------------------------------------------------------- | -------- | ----------- |
-| execute        | property | `boolean \| undefined`                                               | no       |             |
-| executeSql     | property | `((sql: string) => Promise<DbAdminSqlExecutionResult>) \| undefined` | no       |             |
-| schema         | property | `string \| undefined`                                                | no       |             |
-| serviceRoleKey | property | `string \| undefined`                                                | no       |             |
-| url            | property | `string`                                                             | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| execute | property | `boolean \| undefined` | no |  |
+| executeSql | property | `((sql: string) => Promise<DbAdminSqlExecutionResult>) \| undefined` | no |  |
+| schema | property | `string \| undefined` | no |  |
+| serviceRoleKey | property | `string \| undefined` | no |  |
+| url | property | `string` | yes |  |
 
 ## SupabaseRealtimeClient
 
@@ -243,10 +243,10 @@ Source: `src/types.ts:25:1`
 
 ### Members
 
-| Name          | Kind   | Type                                                                            | Required | Description |
-| ------------- | ------ | ------------------------------------------------------------------------------- | -------- | ----------- |
-| channel       | method | `(topic: string) => SupabaseRealtimeChannel`                                    | yes      |             |
-| removeChannel | method | `(channel: SupabaseRealtimeChannel) => Promise<"ok" \| "timed out" \| "error">` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| channel | method | `(topic: string) => SupabaseRealtimeChannel` | yes |  |
+| removeChannel | method | `(channel: SupabaseRealtimeChannel) => Promise<"ok" \| "timed out" \| "error">` | yes |  |
 
 ## SupabaseRealtimePayload
 
@@ -256,12 +256,12 @@ Source: `src/types.ts:30:1`
 
 ### Members
 
-| Name             | Kind     | Type                            | Required | Description |
-| ---------------- | -------- | ------------------------------- | -------- | ----------- |
-| commit_timestamp | property | `string \| undefined`           | no       |             |
-| errors           | property | `string[] \| null \| undefined` | no       |             |
-| eventType        | property | `string \| undefined`           | no       |             |
-| new              | property | `unknown`                       | no       |             |
-| old              | property | `unknown`                       | no       |             |
-| schema           | property | `string \| undefined`           | no       |             |
-| table            | property | `string \| undefined`           | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| commit_timestamp | property | `string \| undefined` | no |  |
+| errors | property | `string[] \| null \| undefined` | no |  |
+| eventType | property | `string \| undefined` | no |  |
+| new | property | `unknown` | no |  |
+| old | property | `unknown` | no |  |
+| schema | property | `string \| undefined` | no |  |
+| table | property | `string \| undefined` | no |  |

@@ -1,4 +1,5 @@
 sequenceDiagram
+  participant participant_createBaseAdapter as createBaseAdapter
   participant participant_createRealtimeApi as createRealtimeApi
   participant participant_createSupabaseDbAdapter as createSupabaseDbAdapter
   participant participant_normalizeConfig as normalizeConfig
@@ -10,5 +11,7 @@ sequenceDiagram
   participant_normalizeConfig->>participant_validateKey: validateKey()
   participant_validateKey-->>participant_normalizeConfig: return
   participant_normalizeConfig-->>participant_createSupabaseDbAdapter: return
+  participant_createSupabaseDbAdapter->>participant_createBaseAdapter: createBaseAdapter()
+  participant_createBaseAdapter-->>participant_createSupabaseDbAdapter: return
   participant_createSupabaseDbAdapter->>participant_createRealtimeApi: createRealtimeApi()
   participant_createRealtimeApi-->>participant_createSupabaseDbAdapter: return
