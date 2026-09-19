@@ -1,5 +1,11 @@
 # @ankhorage/supabase-db
 
+## 1.0.13
+
+### Patch Changes
+
+- 890f927: Update Ankhorage dependencies: `@ankhorage/contracts`.
+
 ## 1.0.12
 
 ### Patch Changes
