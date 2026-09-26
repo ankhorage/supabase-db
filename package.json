@@ -29,7 +29,7 @@
     "@ankhorage/contracts": "^22.8.2"
   },
   "peerDependencies": {
-    "@supabase/supabase-js": "^2.105.3"
+    "@supabase/supabase-js": "^2.117.2"
   },
   "peerDependenciesMeta": {
     "@supabase/supabase-js": {
