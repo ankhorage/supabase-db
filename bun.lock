@@ -15,7 +15,7 @@
         "typescript": "^5.9.3",
       },
       "peerDependencies": {
-        "@supabase/supabase-js": "^2.105.3",
+        "@supabase/supabase-js": "^2.117.2",
       },
       "optionalPeers": [
         "@supabase/supabase-js",
