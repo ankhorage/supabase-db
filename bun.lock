@@ -5,7 +5,7 @@
     "": {
       "name": "@ankhorage/supabase-db",
       "dependencies": {
-        "@ankhorage/contracts": "^26.0.2",
+        "@ankhorage/contracts": "^26.2.2",
       },
       "devDependencies": {
         "@ankhorage/devtools": "^2.3.33",
