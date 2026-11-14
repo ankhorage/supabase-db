@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "kind": "adapter",
+  "title": "Ankhorage Supabase Database Adapter",
+  "summary": "Adapts Supabase Postgres to portable Ankhorage database contracts with CRUD, administration, query, and optional realtime behavior.",
+  "purpose": "Provide a Supabase-backed database boundary without coupling consumers to provider-specific query and realtime details.",
+  "domain": "Supabase database adapter",
+  "responsibilities": [
+    "Implement portable CRUD and query operations through a Supabase client.",
+    "Expose schema administration behavior supported by the adapter.",
+    "Provide optional realtime subscriptions and validate adapter inputs.",
+    "Map provider failures into the adapter's public error boundary."
+  ],
+  "boundaries": [
+    "Does not define portable database contracts.",
+    "Does not provision Supabase projects, databases, credentials, or network policy.",
+    "Does not replace provider-specific migrations or application domain repositories."
+  ],
+  "audience": [
+    "Applications selecting Supabase as the backing database provider.",
+    "Composition code requiring portable database operations over a Supabase client."
+  ],
+  "useCases": [
+    "Perform CRUD and filtered queries through the adapter.",
+    "Manage supported schema operations against Supabase Postgres.",
+    "Subscribe to supported realtime database changes."
+  ],
+  "architecture": {
+    "role": "Outbound provider adapter translating portable database contracts to Supabase APIs.",
+    "invariants": [
+      "Portable operations remain independent of the concrete Supabase client type at consumer boundaries.",
+      "Provider inputs are validated before requests are executed.",
+      "Realtime behavior remains optional and separately owned."
+    ]
+  },
+  "constraints": {
+    "limitations": [
+      "Requires a compatible Supabase JavaScript client and reachable project.",
+      "Administration and realtime capabilities are constrained by Supabase permissions and features."
+    ]
+  }
+}
