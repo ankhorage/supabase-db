@@ -6,7 +6,39 @@
 
 Package: `@ankhorage/supabase-db`
 
-Supabase database adapter for Ankhorage contracts with CRUD, schema management, and optional realtime support.
+Title: Ankhorage Supabase Database Adapter
+
+Adapts Supabase Postgres to portable Ankhorage database contracts with CRUD, administration, query, and optional realtime behavior.
+
+Purpose: Provide a Supabase-backed database boundary without coupling consumers to provider-specific query and realtime details.
+
+Audience:
+
+- Applications selecting Supabase as the backing database provider.
+- Composition code requiring portable database operations over a Supabase client.
+
+## Scope and boundaries
+
+Responsibilities:
+
+- Implement portable CRUD and query operations through a Supabase client.
+- Expose schema administration behavior supported by the adapter.
+- Provide optional realtime subscriptions and validate adapter inputs.
+- Map provider failures into the adapter's public error boundary.
+
+Boundaries:
+
+- Does not define portable database contracts.
+- Does not provision Supabase projects, databases, credentials, or network policy.
+- Does not replace provider-specific migrations or application domain repositories.
+
+Architecture role: Outbound provider adapter translating portable database contracts to Supabase APIs.
+
+Architectural invariants:
+
+- Portable operations remain independent of the concrete Supabase client type at consumer boundaries.
+- Provider inputs are validated before requests are executed.
+- Realtime behavior remains optional and separately owned.
 
 ## Current architecture only
 
@@ -64,6 +96,26 @@ Paradox `/*** ... */` comments in `src` and leading `@usage` comments in real
 `examples/<example>/...` source files, plus any repository-owned manual documentation outside the
 generated output. The managed release workflow runs `bun run docs` after the package version bump
 and commits the regenerated artifacts in the release commit.
+
+## GitHub task lifecycle and workspace cleanup
+
+- **Start.** Treat each issue implementation, PR implementation, review, and change request (CR)
+  as an independent task. Fetch the current remote default branch and read the applicable issue,
+  PR, HEAD, review feedback, and CI state. Use a fresh, uniquely named task checkout or worktree.
+  Concurrent tasks must have distinct writable checkout, temporary, build, and cache paths.
+- **CRs.** Fetch and check out the current remote PR branch in the new workspace. Preserve PR
+  history and scope. Push corrections to the existing PR branch.
+- **Delivery.** Run applicable checks. Commit and push all intended changes, then verify that
+  GitHub has the intended commit on the correct remote branch. Report the exact HEAD, checks, CI,
+  findings, and blockers. Report acceptance that was not run as unverified. Read-only reviews hand
+  off their findings without creating a commit. Merge requires explicit authorization.
+- **Cleanup.** After handoff, resolve every candidate path and remove only task-owned directories
+  whose resolved paths are strictly under the resolved system path for `/tmp` (`/private/tmp` on
+  macOS). Refuse candidates that resolve outside that boundary, including through a symlink. Use
+  Git-aware removal for worktrees. Preserve workspaces outside the boundary, shared directories,
+  other tasks' directories, uncommitted changes, and unpushed commits. If blocked, persist
+  recoverable work first and document what must be retained. Report whether cleanup succeeded, was
+  skipped, or was blocked.
 
 ## Pull requests
 
